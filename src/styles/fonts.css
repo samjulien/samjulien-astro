@@ -1,0 +1,25 @@
+/* Font variation settings */
+:root {
+  font-family: 'Recursive', system-ui, sans-serif;
+  font-feature-settings: "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "calt", "dlig";
+}
+
+body {
+  font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
+}
+
+h1, h2, h3, h4, h5 {
+  font-variation-settings: 'MONO' 0, 'CASL' 0.1, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+}
+
+code, pre {
+  font-variation-settings: 'MONO' 1, 'CASL' 0, 'wght' 400, 'slnt' 0, 'CRSV' 0.5;
+}
+
+strong {
+  font-variation-settings: 'MONO' 0, 'CASL' 0, 'wght' 800, 'slnt' 0, 'CRSV' 0.5;
+}
+
+em {
+  font-variation-settings: 'MONO' 0, 'CASL' 0.3, 'wght' 400, 'slnt' -12, 'CRSV' 0.5;
+}

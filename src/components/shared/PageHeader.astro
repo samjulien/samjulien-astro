@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  imagePath?: string;
+}
+
+const { title, imagePath } = Astro.props;
+---
+
+<div class="mb-6">
+  {imagePath && (
+    <img 
+      src={imagePath} 
+      alt={title}
+      class="w-full max-h-[500px] object-contain rounded-lg mb-8" 
+    />
+  )}
+  <h1 class="text-4xl font-bold mb-2">{title}</h1>
+</div>

@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+const popularArticles = await getCollection('blog', ({ data }) => {
+  return data.pinned === true;
+});
+---
+
+<section class="mb-16">
+  <div class="relative">
+    <div class="lg:max-w-[calc(100%-11rem)] w-full">
+      <h2 class="lg:text-3xl text-2xl font-bold mb-8">If you're just getting to know me, start here:</h2>
+      <ul class="space-y-4 list-disc list-inside marker:text-gray-400">
+        {popularArticles.map(article => (
+          <li>
+            <a 
+              href={article.id}
+              class="text-brand hover:text-brand-dark text-lg"
+            >
+              {article.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 w-40 flex justify-center items-center mx-auto mt-8 lg:mt-0">
+      <img src="src/assets/signpost.svg" alt="signpost icon" />
+    </div>
+  </div>
+  <div class="mt-12 space-y-4">
+    <h3 class="text-2xl font-bold">If you like these, feel free to:</h3>
+    <ul class="space-y-2 list-disc list-inside marker:text-gray-400 text-lg">
+      <li>
+        <a href="#newsletter" class="text-brand hover:text-brand-dark">
+          Sign up for the Developer Microskills newsletter
+        </a>
+        {" "}at the bottom of the page,
+      </li>
+      <li>
+        <a href="/writing" class="text-brand hover:text-brand-dark">
+          Check out all my articles</a>, and
+      </li>
+      <li>
+        Find me on{" "}
+        <a 
+          href="http://twitter.com/samjulien" 
+          class="text-brand hover:text-brand-dark"
+        >Twitter</a>, <a href="https://www.linkedin.com/in/samjulien/" class="text-brand hover:text-brand-dark">LinkedIn</a>, and <a href="https://bsky.app/profile/samjulien.com" class="text-brand hover:text-brand-dark">Bluesky</a>.
+      </li>
+    </ul>
+  </div>
+</section>

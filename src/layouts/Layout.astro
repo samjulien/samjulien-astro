@@ -1,0 +1,86 @@
+---
+import EmailSignup from "../components/EmailSignup.astro";
+import Navigation from "../components/Navigation.astro";
+import "../styles/fonts.css";
+import "../styles/code.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  noFooter?: boolean;
+}
+
+const {
+  title,
+  description = "Sam Julien is a Developer Relations director, writer, and teacher. He loves helping people level up their developer advocacy, AI engineering, or web development job using Python and JavaScript.",
+  image = "https://samjulien.com/ogimage.png",
+  noFooter = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="keywords"
+      content="developer relations, web development teacher, react tutorial, javascript tips, ai engineering, ai engineering tutorial, personal development advice"
+    />
+    <meta name="image" content={image} />
+    <meta property="og:url" content="https://www.samjulien.com" />
+    <meta
+      property="og:title"
+      content="Sam Julien: Director of DevRel and Your Biggest Fan"
+    />
+    <meta
+      property="og:description"
+      content="Sam Julien is a Developer Relations director, writer, and teacher. He loves helping people level up their developer advocacy or web development job using Node, Angular, Gatsby, and React."
+    />
+    <meta property="og:image" content={image} />
+    <meta property="fb:app_id" content="" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@samjulien" />
+    <meta
+      name="twitter:title"
+      content="Sam Julien: Director of DevRel and Your Biggest Fan"
+    />
+    <meta
+      name="twitter:description"
+      content="Sam Julien is a Developer Relations director, writer, and teacher. He loves helping people level up their developer advocacy or web development job using Node, Angular, Gatsby, and React."
+    />
+    <meta name="twitter:image" content={image} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Recursive:CASL,CRSV,MONO,slnt,wght@0..1,0..1,0..1,-15..0,300..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@microsoft/cascadia-code@latest/css/cascadia-code.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.usefathom.com/script.js"
+      data-spa="auto"
+      data-site="SIYTBEQN"
+      defer></script>
+    <title>{title}</title>
+  </head>
+  <body class="bg-white text-gray-900 min-h-screen flex flex-col">
+    <Navigation />
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-1 flex flex-col">
+      <slot />
+      {
+        !noFooter && (
+          <div class="mt-16">
+            <EmailSignup />
+          </div>
+        )
+      }
+    </main>
+  </body>
+</html>

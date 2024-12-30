@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/shared/PageHeader.astro';
+import YearSection from '../components/talks/YearSection.astro';
+import TalksList from '../components/talks/TalksList.astro';
+import { getTalks } from '../lib/airtable';
+const talks = await getTalks();
+
+// Group talks by year
+const talksByYear = talks.reduce((acc, talk) => {
+  const year = new Date(talk.startDate).getFullYear().toString();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(talk);
+  return acc;
+}, {} as Record<string, typeof talks>);
+
+// Sort years in descending order
+const sortedYears = Object.keys(talksByYear).sort((a, b) => Number(b) - Number(a));
+---
+
+<Layout title="Talks & Interviews - Sam Julien">
+  <PageHeader 
+    title="Talks & Interviews"
+    imagePath="src/assets/samindia_cropped.jpg"
+  />
+  <div class="prose prose-lg mb-6">
+    <p>
+      I <strong>love</strong> teaching people how to code. Reach out to me on{' '}
+      <a href="http://twitter.com/samjulien">Twitter</a> to invite me to speak somewhere.
+    </p>
+    <p>Here are some of my previous presentations and interviews:</p>
+  </div>
+
+  {sortedYears.map(year => (
+    <YearSection year={year}>
+      <TalksList
+        talks={talksByYear[year]
+          .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())}
+      />
+    </YearSection>
+  ))}
+</Layout>
+</Layout>

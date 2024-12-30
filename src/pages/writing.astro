@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SearchBar from '../components/writing/SearchBar.astro';
+import { getCollection } from 'astro:content';
+import { format } from 'date-fns';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title="Writing - Sam Julien">
+  <SearchBar />
+  <div class="space-y-12">
+    {sortedPosts.map(post => (
+      <article 
+        data-article
+        data-title={post.data.title}
+        data-excerpt={post.data.excerpt}
+        class="border-b border-gray-200 pb-8"
+      >
+        <h2 class="text-2xl font-bold mb-2">
+          <a href={`/${post.id}`} class="hover:text-brand">
+            {post.data.title}
+          </a>
+        </h2>
+        <time class="text-gray-600 mb-4 block">
+          Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
+        </time>
+        <p class="text-gray-700">{post.data.description}</p>
+        <a href={`/${post.id}`} class="text-brand hover:text-brand-dark mt-4 inline-block">
+          Read More →
+        </a>
+      </article>
+    ))}
+  </div>
+</Layout>

@@ -1,0 +1,10 @@
+# Env files
+.env
+.env.local
+.env.*.local
+node_modules
+.vscode
+.codesandbox
+.astro
+.netlify
+dist

@@ -1,0 +1,13 @@
+---
+import BookCard from '../BookCard.astro';
+import { books } from '../../data/books';
+---
+<section class="mb-16">
+  <h2 class="text-4xl font-bold mb-8">Books & Courses</h2>
+  <p class="text-xl mb-8">
+    I also write books and make video courses! I love making complex topics accessible to new learners.
+  </p>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {books.map(book => <BookCard {...book} />)}
+  </div>
+</section>

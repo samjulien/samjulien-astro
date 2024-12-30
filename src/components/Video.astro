@@ -1,0 +1,18 @@
+---
+interface Props extends astroHTML.JSX.IframeHTMLAttributes {
+  title?: string;
+}
+
+const { title = "video", ...props } = Astro.props;
+---
+
+<div class="my-5">
+  <div class="relative overflow-hidden pt-[56.25%]">
+    <iframe
+      class="absolute top-0 left-0 w-full h-full border-0"
+      {title}
+      {...props}
+    />
+  </div>
+  <slot />
+</div>

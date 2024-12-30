@@ -1,0 +1,28 @@
+---
+import Video from '@components/Video.astro';
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+const plainUrl = url.replace('/embed', '');
+---
+
+<Video 
+  src={url} 
+  frameborder="0" 
+  allow="autoplay" 
+  allowfullscreen
+>
+  <div class="p-1.5 mt-0 mb-2.5 text-sm text-left">
+    <a 
+      href={plainUrl} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="text-brand hover:text-brand-dark"
+    >
+      Watch on egghead
+    </a>{' '}
+    🥚
+  </div>
+</Video>

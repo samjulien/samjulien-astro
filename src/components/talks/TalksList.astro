@@ -1,0 +1,61 @@
+---
+interface Talk {
+  id: string;
+  content: string;
+  endDate: string;
+  eventLink: string;
+  event: string;
+  featured: boolean;
+  location: string;
+  slides: string;
+  startDate: string;
+  talk: string;
+  topic: string;
+  type: string;
+  year: string;
+  secondPresenter: string;
+  secondPresenterLink: string;
+}
+
+interface Props {
+  talks: Talk[];
+}
+
+const { talks } = Astro.props;
+import TalkType from "./TalkType.astro";
+import { format } from 'date-fns';
+---
+
+<div class="space-y-8">
+  {talks.map((talk) => (
+    <li class="list-none mb-8 last:mb-0">
+      <span class="inline-block my-2">
+        <strong>{format(talk.startDate, 'M/d/yyyy')}</strong>
+        {talk.endDate && new Date(talk.endDate).getTime() !== new Date(talk.startDate).getTime() && (
+          <strong> - {format(talk.endDate, 'M/d/yyyy')}</strong>
+        )}
+      </span>
+      {' '}
+      <TalkType type={talk.type} />
+      <br />
+      {talk.eventLink ? (
+        <a href={talk.eventLink} class="text-brand hover:text-brand-dark">{talk.event}</a>
+      ) : (
+        talk.event
+      )}
+      {' - '}
+      {talk.topic}
+      {' '}
+      {talk.type === "Conference" && (
+        <span>
+          (<a href={talk.slides} class="text-brand hover:text-brand-dark">Slides</a>, <a href={talk.content} class="text-brand hover:text-brand-dark">Video</a>)
+        </span>
+      )}
+      {talk.type === "Podcast" && (
+        <span>
+          (<a href={talk.content} class="text-brand hover:text-brand-dark">Episode</a>)
+        </span>
+      )}
+    </li>
+  ))}
+</div>
