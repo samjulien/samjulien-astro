@@ -1,20 +1,23 @@
 ---
 import EmailSignup from "../components/EmailSignup.astro";
 import Navigation from "../components/Navigation.astro";
+import { Image } from 'astro:assets';
+import ogImage from '../../public/ogimage.png';
+
 import "../styles/fonts.css";
 import "../styles/code.css";
 
 interface Props {
   title: string;
   description?: string;
-  image?: string;
+  image?: typeof Image;
   noFooter?: boolean;
 }
 
 const {
   title,
   description = "Sam Julien is a Developer Relations director, writer, and teacher. He loves helping people level up their developer advocacy, AI engineering, or web development job using Python and JavaScript.",
-  image = "https://samjulien.com/ogimage.png",
+  image = ogImage,
   noFooter = false,
 } = Astro.props;
 ---
@@ -29,7 +32,7 @@ const {
       name="keywords"
       content="developer relations, web development teacher, react tutorial, javascript tips, ai engineering, ai engineering tutorial, personal development advice"
     />
-    <meta name="image" content={image} />
+    <meta name="image" content={image.src} />
     <meta property="og:url" content="https://www.samjulien.com" />
     <meta
       property="og:title"
@@ -39,7 +42,7 @@ const {
       property="og:description"
       content="Sam Julien is a Developer Relations director, writer, and teacher. He loves helping people level up their developer advocacy or web development job using Node, Angular, Gatsby, and React."
     />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={image.src} />
     <meta property="fb:app_id" content="" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@samjulien" />
@@ -51,7 +54,7 @@ const {
       name="twitter:description"
       content="Sam Julien is a Developer Relations director, writer, and teacher. He loves helping people level up their developer advocacy or web development job using Node, Angular, Gatsby, and React."
     />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={image.src} />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
