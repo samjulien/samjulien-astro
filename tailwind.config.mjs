@@ -59,6 +59,7 @@ export default {
             'code::before, code::after': {
               content: "''",
             },
+            maxWidth: '85ch',
           },
         },
       }),

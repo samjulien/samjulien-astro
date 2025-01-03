@@ -10,8 +10,10 @@ pinned: true
 tags:
   - Tech
 ---
+import {Image} from 'astro:assets';
+import awsCloudShare from 'images/aws-cloud-share.jpg';
 
-<div class="rounded bg-blue-50 p-5">
+<div class="rounded bg-blue-50 px-3 py-1">
   Hi! <span role="img" aria-label="wave emoji">👋</span> This article has been turned into a talk! Check out{' '}
   <a
     href="https://speakerdeck.com/samjulien/where-to-start-with-aws-as-a-developer"
@@ -27,7 +29,7 @@ I'm a few months in to my AWS journey and I wanted to share what concepts and re
 
 I realized, though, that ignoring AWS for much longer will be to my detriment. [AWS is dominating](https://www.statista.com/chart/18819/worldwide-market-share-of-leading-cloud-infrastructure-service-providers/) the hundred billion dollar cloud infrastructure and computing market:
 
-![AWS Public Cloud Share graph by Statista](images/aws-cloud-share.jpg)
+<Image src={awsCloudShare} alt="AWS Public Cloud Share graph by Statista" width="600" />
 [Source](https://www.statista.com/chart/18819/worldwide-market-share-of-leading-cloud-infrastructure-service-providers/)
 
 Because of this, AWS certifications are in very high demand. I decided a few months ago that it's time for me to step up and at least get the [Cloud Practitioner certification](https://aws.amazon.com/certification/certified-cloud-practitioner/), and probably others like the [Solutions Architect Associate](https://aws.amazon.com/certification/certified-solutions-architect-associate/).
