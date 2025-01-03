@@ -1,7 +1,7 @@
 ---
 import EmailSignup from "../components/EmailSignup.astro";
 import Navigation from "../components/Navigation.astro";
-import { Image } from 'astro:assets';
+
 import ogImage from '../../public/ogimage.png';
 
 import "../styles/fonts.css";
@@ -10,7 +10,7 @@ import "../styles/code.css";
 interface Props {
   title: string;
   description?: string;
-  image?: typeof Image;
+  image?: ImageMetadata;
   noFooter?: boolean;
 }
 
@@ -40,7 +40,7 @@ const {
     />
     <meta
       property="og:description"
-      content="Sam Julien is a Developer Relations director, writer, and teacher. He loves helping people level up their developer advocacy or web development job using Node, Angular, Gatsby, and React."
+      content={description}
     />
     <meta property="og:image" content={image.src} />
     <meta property="fb:app_id" content="" />
