@@ -1,8 +1,12 @@
 ---
+import { Image } from 'astro:assets';
+
 import Layout from '../layouts/Layout.astro';
-import PageHeader from '../components/shared/PageHeader.astro';
 import YearSection from '../components/talks/YearSection.astro';
 import TalksList from '../components/talks/TalksList.astro';
+
+import samIndia from 'src/assets/samindia_cropped.jpg';
+
 import { getTalks } from '../lib/airtable';
 const talks = await getTalks();
 
@@ -21,10 +25,14 @@ const sortedYears = Object.keys(talksByYear).sort((a, b) => Number(b) - Number(a
 ---
 
 <Layout title="Talks & Interviews - Sam Julien">
-  <PageHeader 
-    title="Talks & Interviews"
-    imagePath="src/assets/samindia_cropped.jpg"
-  />
+  <div class="mb-6">
+    <Image 
+      src={samIndia} 
+      alt="Sam Julien speaking at ngIndia 2020"
+      class="w-full max-h-[500px] object-contain rounded-lg mb-8" 
+    />
+    <h1 class="text-4xl font-bold mb-2">Talks & Interviews</h1>
+  </div>
   <div class="prose prose-lg mb-6">
     <p>
       I <strong>love</strong> teaching people how to grow their careers and learn how to grow as a developer, developer advocate, and AI engineer. Reach out to me on <a href="https://x.com/samjulien" target="_blank">X</a>, <a href="https://www.linkedin.com/in/samjulien/" target="_blank">LinkedIn</a>, or <a href="https://bsky.app/profile/samjulien.com" target="_blank">Bluesky</a> to invite me to speak somewhere.
