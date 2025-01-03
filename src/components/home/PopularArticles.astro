@@ -1,5 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+import signpost from '../../assets/signpost.svg';
+
 const popularArticles = await getCollection('blog', ({ data }) => {
   return data.pinned === true;
 });
@@ -23,7 +27,7 @@ const popularArticles = await getCollection('blog', ({ data }) => {
       </ul>
     </div>
     <div class="lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 w-40 flex justify-center items-center mx-auto mt-8 lg:mt-0">
-      <img src="src/assets/signpost.svg" alt="signpost icon" />
+      <Image src={signpost} alt="signpost icon" />
     </div>
   </div>
   <div class="mt-12 space-y-4">
