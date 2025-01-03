@@ -1,0 +1,79 @@
+---
+title: 'Migrating from Gatsby to Astro'
+slug: 'migrating-from-gatsby-to-astro'
+description: "After putting it off for nearly two years, I finally migrated my website from Gatsby to Astro. Here's how I did it, what I learned, and why it was worth the effort."
+date: 2024-01-03
+date_updated: 2024-01-03
+ogimage: 'images/og-migrating-from-gatsby-to-astro.png'
+published: true
+tags:
+  - Tech
+  - Web Development
+---
+
+For almost two years, I'd been putting off migrating my website from Gatsby to Astro. The task seemed daunting - moving all my content, updating components, and ensuring everything still worked correctly. Thanks to modern AI tools and Astro's excellent documentation, what I thought would be a weeks-long project turned into just a few focused sessions.
+
+### Why Astro?
+
+[Astro](https://astro.build) has been gaining significant traction in the web development community, particularly for content-focused websites. It offers several advantages over Gatsby:
+
+- Zero JavaScript by default, resulting in blazing-fast page loads
+- Flexible component support (React, Vue, Svelte, or plain Astro components)
+- Simpler content management with built-in MDX support
+- Intuitive routing and file-based structure
+- Great developer experience
+
+### The Migration Process
+
+My migration journey happened in several phases:
+
+1. **Initial Conversion**: I started by using AI tools to help convert the basic structure of my site. This gave me a solid foundation to build upon.
+
+2. **Content Migration**: The next big task was migrating all my blog posts. This involved:
+   - Moving MDX files to the new structure
+   - Adjusting frontmatter to conform to the new schema
+   - Updating image references and paths
+   - Converting custom components (like video embeds and code editors)
+
+3. **Component Updates**: I had to update several custom components, including:
+   - Newsletter signup form with ConvertKit integration
+   - Talk components
+   - Video embeds
+   - Code editor integrations
+
+4. **SEO and Analytics**: The final phase involved:
+   - Setting up proper SEO metadata and OG images
+   - Adding a sitemap
+   - Configuring robots.txt
+   - Integrating Fathom analytics
+
+### Lessons Learned
+
+Here are some key takeaways from the migration:
+
+1. **Don't Put It Off**: I waited almost two years to do this migration, but it turned out to be much simpler than I anticipated. Modern tools and AI assistance made the process surprisingly smooth.
+
+2. **Leverage AI Tools Wisely**: While AI tools were incredibly helpful, I learned to be more strategic in their use. For example, when updating multiple files, it's better to have the AI create a script rather than making manual changes repeatedly.
+
+3. **Documentation is Your Friend**: Astro's [migration guide](https://docs.astro.build/en/guides/migrate-to-astro/from-gatsby/) was invaluable. Starting with the documentation helped me avoid common pitfalls and understand the key differences between Gatsby and Astro.
+
+4. **Take It Step by Step**: Breaking the migration into smaller, manageable chunks made it less overwhelming. I focused on one aspect at a time - first the basic structure, then content, then components, and finally deployment.
+
+### Deployment Strategy
+
+For deployment, I stuck with Netlify, which I was already using for my Gatsby site. Instead of creating a new Netlify site and dealing with DNS changes, I simply switched the repository behind my existing Netlify site. This made the transition seamless from a deployment perspective.
+
+### What's Next?
+
+While the migration is complete, there are still some improvements I'd like to make:
+
+- Converting Airtable data to Astro collections
+- Further optimizing image handling
+- Enhancing the talks section
+- Creating a streamlined process for adding new blog posts
+
+### Final Thoughts
+
+This migration reminded me that sometimes the tasks we put off aren't nearly as difficult as we imagine them to be. Astro proved to be an excellent choice for my content-focused website, offering a modern, performant platform that's a joy to work with.
+
+The combination of Astro's well-thought-out architecture, excellent documentation, and modern AI tools made this migration not just manageable, but actually enjoyable. If you're considering a similar migration, I'd encourage you to take the plunge - it's probably easier than you think! 
