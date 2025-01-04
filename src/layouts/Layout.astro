@@ -2,7 +2,7 @@
 import EmailSignup from "../components/EmailSignup.astro";
 import Navigation from "../components/Navigation.astro";
 
-import ogImage from '../../public/ogimage.png';
+import ogImage from "../../public/ogimage.png";
 
 import "../styles/fonts.css";
 import "../styles/code.css";
@@ -38,10 +38,7 @@ const {
       property="og:title"
       content="Sam Julien: Director of DevRel and Your Biggest Fan"
     />
-    <meta
-      property="og:description"
-      content={description}
-    />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content={image.src} />
     <meta property="fb:app_id" content="" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -50,21 +47,16 @@ const {
       name="twitter:title"
       content="Sam Julien: Director of DevRel and Your Biggest Fan"
     />
-    <meta
-      name="twitter:description"
-      content={description}
-    />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image.src} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Recursive:CASL,CRSV,MONO,slnt,wght@0..1,0..1,0..1,-15..0,300..1000&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/@microsoft/cascadia-code@latest/css/cascadia-code.min.css"
+      href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap"
       rel="stylesheet"
     />
     <script
@@ -86,7 +78,9 @@ const {
         )
       }
       <footer class="mt-16 text-center text-gray-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} Sam Julien. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Sam Julien. All rights reserved.
+        </p>
       </footer>
     </main>
   </body>
