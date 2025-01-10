@@ -1,0 +1,82 @@
+---
+title: 'Migrating from Gatsby to Astro'
+slug: 'migrating-from-gatsby-to-astro'
+description: "After putting it off for nearly two years, I finally migrated my website from Gatsby to Astro. Here's how I did it, what I learned, and why it was worth the effort."
+date: 2024-01-03
+date_updated: 2024-01-03
+ogimage: 'images/og-migrating-from-gatsby-to-astro.png'
+published: true
+tags:
+  - Tech
+  - Web Development
+---
+
+After putting it off for nearly two years, I finally took the plunge and migrated my personal website from Gatsby to Astro ([finished repo here](https://github.com/samjulien/samjulien-astro)). I expected this to be a months-long ordeal due to balancing work and a kiddo when I read the [guide to migrating from Astro](https://docs.astro.build/en/guides/migrate-to-astro/from-gatsby/), but it turned into a two week sprint thanks to how far AI-powered developer tools have come. Here's how it went down and where I learned AI was (and wasn't!) helpful.
+
+## Why Astro?
+[Astro](https://astro.build) has been gaining significant traction in the web development community, particularly for content-focused websites. It offers several advantages over Gatsby:
+
+- Zero JavaScript by default, resulting in blazing-fast page loads
+- Flexible component support (React, Vue, Svelte, or plain Astro components)
+- Simpler content management with built-in MDX support
+- Intuitive routing and file-based structure
+- Great developer experience (I love their CLI)
+
+## The migration process
+I did the migration in a few focused work sessions, probably totaling 12 hours or so. I used tools like [Perplexity](https://www.perplexity.ai/) and [Claude](https://claude.ai/) to do research alongside the [Astro docs](https://docs.astro.build/), [bolt.new](https://bolt.new/) for scaffolding, and [Cursor](https://www.cursor.so/) for actual development.
+
+### Initial setup and structure
+I kicked off the migration using [bolt.new](https://bolt.new/). Using screenshots of my existing site and a well-structured prompt, it generated a foundational Astro project that closely matched my existing site. This gave me a solid starting point that I could then refine and customize.
+
+I then used Bolt to convert some custom components I had built in Gatsby, such as ones for embedding egghead and YouTube videos and one for embedding a Stackblitz editor (although I'm still dealing with a bug on this one). It was super easy to use AI for this, because it was just translating one web framework to another. LLMs are great at simple translation and conversion tasks.
+
+I had to fiddle a little bit with the Tailwind config and custom fonts, but eventually it got it right. The only real downside was that it generated the site using Astro 4 instead of the latest Astro 5, but I had read that the upgrade wasn't too bad when I needed to get to it manually.
+
+### Content migration
+Once I had the basic scaffolding done, I downloaded the project from Bolt.new and opened it in Cursor to take advantage of its agent features.
+
+Next up was migrating all my blog posts. I had a couple of false starts on this and it actually turned out to be easier than I thought, because Astro is a lot more flexible on how it generates routes for blog articles than Gatsby. The process involved:
+
+1. Generating a migration script to handle the bulk transfer
+2. Adjusting front matter to conform to Astro's schema
+3. Fine-tuning the content structure
+4. Fixing imports for custom components (video, egghead, Stackblitz editor)
+
+I used Cursor to handle a lot of the boring repetitive work, such as generating the scripts. A lesson learned: When working with LLMs for batch content updates, it's more efficient to clearly outline all requirements upfront and have it generate a comprehensive script, rather than making iterative adjustments. Lean on programmatic engineering where you can rather than direct file editing when you're working in bulk.
+
+### Airtable and Kit Integrations
+One of the more interesting challenges was handling third-party integrations, particularly Kit (formerly ConvertKit) for my newsletter signup and Airtable for listing my conference talks and podcasts. 
+
+The Kit form implementation turned into an unexpected learning opportunity about Astro's server-side rendering capabilities, which was pretty interesting. I leaned heavily on [James Quick's Astro Course](https://learn.jamesqquick.com/astro-course) to understand the SSR patterns in Astro, which made the ConvertKit integration much smoother than I initially expected.
+
+The Airtable integration is working now but still a work in progress. I'm considering converting it to use Astro's collections feature instead, which could potentially simplify the data management and make the site even more performant. 
+
+With these two features, the Cursor agent started to fall down. I had to modify or rewrite a significant portion of the AI-generated code needed to be either modified or completely rewritten. Some of this probably could have been mitigated by taking more time to research the integrations and best practices to do better prompting. I'm finding that the better you are as a developer, the better you will be in getting AI to develop for you.
+
+### SEO and analytics
+The next phase was migrating the site's SEO setup:
+
+- Implemented proper OG images
+- Added a sitemap
+- Created a robots.txt file
+- Integrated Fathom analytics
+- Optimized meta properties across all major routes
+
+Here again Cursor agent was super useful for anything rote like generating the robots.txt file, but I needed to do the manual work like adding Fathom. 
+
+### Font optimization
+My final challenge was with font rendering across different computers. The solution involved:
+
+- Fixing Google Font URL implementation
+- Downloading and serving Cascadia Code font locally for my code examples
+- Ensuring consistent rendering across all devices
+
+Here I used tools like Claude and Perplexity to help me research the issue, but then did the implementation myself.
+
+## Deployment
+Finally, it was time to go live! Deployment ended up being simpler than initially planned. Instead of creating a new Netlify site and dealing with DNS records, I simply switched the repository behind my existing Netlify site. This approach made the transition seamless and avoided any potential DNS propagation delays.
+
+## Final thoughts
+AI tools drastically reduced the time and effort required for this migration, but they weren't magic bullets - more like assistants and junior developers who are great at routine tasks but need supervision. They excelled at helping me overcome blank page syndrome, generating scripts for tedious tasks, and helping with visual debugging. I still needed to be the "developer in the room," making architectural decisions, applying best practices, and often rewriting AI-generated code. The key was finding the right balance: using AI to handle the repetitive work while maintaining control over code quality and architecture. Yes, some of that could be improved by better prompting and better planning, and then possibly using a reasoning model like o1, but this was a "nights and weekends" project for me and a great learning experience.
+
+If you're considering a similar migration, don't let the scope intimidate you. The Astro ecosystem is mature, the documentation is solid, and the available tools make the process much more manageable than you might expect. If you do embark on such a project, let me know how it goes!
