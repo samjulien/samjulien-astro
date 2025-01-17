@@ -1,0 +1,210 @@
+---
+title: "Building a Discord Message Summarizer"
+slug: "discord-summarizer"
+description: ''
+date: "2025-01-17"
+date_updated: "2025-01-17"
+ogimage: "images/og-building-a-discord-message-summarizer.png"
+published: true
+tags:
+  - Tech
+---
+
+One of the problems with using my knowledge worker pipeline that arose was keeping track of links that I've discovered throughout the week. I learned about the idea of using a Discord summarizer pipeline for this through SWIX because I know that he uses this process with the latent space Discord for the AI news letter. I wanted to try to figure out how to build something like this myself. I created a small discord server. for readers of my newsletter called by you bro. I knew to running a discord server and to be honest I haven't done a great job of building the community yet. However, I'm using a couple of really cool things with this discord server. to keep track of links throughout the week so that I can bring them into my newsletters and articles
+
+In this article, I'll walk you through how I built a Discord bot that summarizes messages from specific channels and generates a newsletter using Claude 3.5 Sonnet.
+
+## Overview
+
+The Discord Message Summarizer is a Python application that:
+1. Connects to Discord and fetches messages from configured channels
+2. Uses Claude to generate summaries of those messages
+3. Saves the summaries to markdown files
+4. Generates a newsletter from the summaries
+
+Let's dive into how each part works.
+
+## Setting Up the Discord Bot
+
+The bot uses the `discord.py` library and requires specific intents to read messages:
+
+```python
+intents = discord.Intents.default()
+intents.guilds = True
+intents.messages = True
+intents.message_content = True
+client = discord.Client(intents=intents)
+```
+
+Channel configuration is handled through a dictionary that maps channel names to their IDs and associated users:
+
+```python
+CHANNELS = {
+    'NEWSLETTER': {
+        'id': int(os.getenv('NEWSLETTER_CHANNEL_ID')),
+        'users': [int(os.getenv('SAM_USER_ID'))],
+        'name': 'Newsletter'
+    },
+    # ... more channels ...
+}
+```
+
+## Message Summarization Process
+
+The core summarization happens in the `summarize()` function, which:
+
+1. Fetches messages from the last N days (configurable)
+2. Collects messages from both the main channel and any threads
+3. Uses different prompts based on the channel type
+4. Sends the content to Claude for summarization
+
+```python
+async def summarize(channel_id: int, user_id: int, channel_name: str, days_back: int = 7):
+    channel = client.get_channel(channel_id)
+    print(f"Channel: {channel_name}")
+    user = await client.fetch_user(user_id)
+    print(f"User: {user}")
+    
+    if not channel:
+        print(f"Channel not found.")
+        return
+
+    # Calculate the cutoff date
+    cutoff_date = datetime.now(UTC) - timedelta(days=days_back)
+
+    # Fetch messages from all users if it's the "Share Your Work" channel, otherwise from the specified user
+    messages = []
+    async for message in channel.history(limit=100, after=cutoff_date):
+        if channel_name == "Share Your Work" or message.author == user:
+            messages.append(message.content)
+    
+    if not messages:
+        print(f"No messages found in this channel within the last {days_back} days.")
+        return
+
+    # Combine messages into a single string
+    messages_text = "\n".join(messages)
+
+    thread_content = []
+    threads = channel.threads
+    print(f"Threads: {threads}")
+    for thread in threads:
+        async for message in thread.history(limit=100):
+            thread_content.append(message.content)
+
+    threads_text = "\n".join(thread_content)
+
+    print(f"Messages: {messages_text}")
+    print(f"Threads: {threads_text}")
+    
+    # Adjust the prompt based on the channel
+    if channel_name == "Share Your Work":
+        prompt = f"""Please summarize the following Discord messages and conversation threads from the "Share Your Work" channel:
+
+        <messages>
+        {messages_text}
+        </messages>
+
+        <threads>
+        {threads_text}
+        </threads>
+
+        Write the summary in third person, e.g. "User X shared a video about...", and include any links used in the messages. Be sure the links are in Markdown format and include the username where you have it.
+
+        Make the summary for each message a separate paragraph. Do not include any additional commentary at the end.
+
+        """
+    else:
+        prompt = f"""Please summarize the following Discord messages and conversation threads:
+
+        <messages>
+        {messages_text}
+        </messages>
+
+        <threads>
+        {threads_text}
+        </threads>
+
+        Write the summary in first person, e.g. "I watched a video about...", and include any links used in the messages. Be sure the links are in Markdown format.
+
+        Make the summary for each message a separate paragraph. Do not include any additional commentary at the end.
+
+        """
+
+    try:
+        message = anthropic_client.messages.create(
+            model="claude-3-5-sonnet-20240620",
+            max_tokens=2048,
+            messages=[
+                {"role": "user", "content": prompt}
+            ]
+        )
+        
+        response = f"## {channel_name}\n\n{message.content[0].text}"
+        return response
+    except Exception as e:
+        print(f"An error occurred while creating the message: {e}")
+        return
+```
+
+I originally had the idea of using separate channels so that it would be able to categorize the different links shared that has turned out to be hard to manage and also kind of at odds with running a Discord server in an efficient way because you really need the channels to grow organically. I also need to share how I'm pulling my own links from the channels themselves and then other people's links from the share your work channel as a way to promote what they're doing.
+
+For example, the "Share Your Work" channel uses a special prompt that generates summaries in third person:
+
+```python
+if channel_name == "Share Your Work":
+    prompt = f"""Please summarize the following Discord messages...
+    Write the summary in third person, e.g. "User X shared a video about..."
+    """
+```
+
+## Generating the Newsletter
+
+After collecting summaries from all channels, the bot:
+
+1. Saves individual summaries to a consolidated file
+2. Sends the consolidated summaries to Claude
+3. Generates a newsletter with proper formatting and transitions
+4. Saves the result as a markdown file
+
+The newsletter generation uses a specific prompt that maintains a consistent voice and structure:
+
+```python
+prompt = """Please turn the following summaries into an issue of the Developer Microskills newsletter...
+The newsletter should have a friendly, engaging tone...
+"""
+```
+
+## File Organization
+
+The project organizes its output into two main directories:
+- `src/summaries/`: Contains the raw summaries from each channel
+- `src/newsletters/`: Contains the final formatted newsletters
+
+Each file is named with the current date, making it easy to track and organize content over time.
+
+## Running the Bot
+
+The bot can be run with a simple command:
+
+```bash
+poetry run summarize --days=5
+```
+
+This will process messages from the last 5 days. The default is 7 days if no argument is provided.
+
+## Security and Environment Variables
+
+The bot uses environment variables for sensitive information:
+- Discord Bot Token
+- Anthropic API Key
+- Channel IDs
+- User IDs
+
+These should be stored in a `.env` file and never committed to version control.
+
+## Conclusion
+
+This Discord Message Summarizer demonstrates how to combine Discord's API with Claude's summarization capabilities to automate content curation. The modular design makes it easy to add new channels or modify the summarization style for different types of content.
+
+The full code is available on GitHub, and you can adapt it for your own Discord communities or content curation needs. Just remember to handle API keys securely and respect Discord's rate limits when fetching messages. 

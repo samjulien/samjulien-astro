@@ -24,7 +24,7 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
           </a>
         </h2>
         <time class="text-gray-600 mb-4 block">
-          Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
+          Published {format(post.data.date, 'MMMM yyyy')}, last updated {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
         </time>
         <p class="text-gray-700">{post.data.description}</p>
         <a href={`/${post.id}`} class="text-brand hover:text-brand-dark mt-4 inline-block">
