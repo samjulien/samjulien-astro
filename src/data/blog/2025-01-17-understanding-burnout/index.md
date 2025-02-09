@@ -1,5 +1,5 @@
 —
-title: ‘Understanding and Recovering From Burnout’
+title: ‘Understanding and Recovering from Burnout’
 slug: ‘understanding-burnout’
 description: “My journey from burnout to building a better progress system.”
 date: 2024-01-17
