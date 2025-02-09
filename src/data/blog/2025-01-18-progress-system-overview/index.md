@@ -1,0 +1,79 @@
+—
+title: ‘Building a Progress System’
+slug: ‘progress-system-overview’
+description: “How I prevent burnout and stay balanced.”
+date: 2024-01-18
+date_updated: 2024-01-18
+ogimage: ‘images/og-progress-system-overview.png’
+published: true
+tags:
+  - Productivity
+  - Progress system
+—
+Let’s be real: focusing is hard these days. Between social media’s endless distractions, global chaos, family responsibilities, and health challenges, knowing *what to do, why, and for how long* – and then actually doing it – can feel nearly impossible.
+
+It’s also incredibly difficult to stay *balanced*. Work can quickly spiral out of control, either because things are excitingly busy or toxically overwhelming. On the flip side, family needs, health issues, or major life changes can suddenly consume all your energy and attention.
+
+When focus is scattered and life feels perpetually off-kilter, burnout becomes almost inevitable. I learned this the hard way.
+
+## My burnout story
+
+In 2020, I developed what I called my “tiny experiments approach” to finishing projects. This supercharged my productivity, but there were no checks and balances – no larger system to prevent overwork and ensure I wasn’t neglecting other important aspects of my life.
+
+This wasn’t a huge problem when I was an individual contributor and developer advocate. Back then, my work had clear boundaries; I could push a commit or hit publish on content and feel good about ending my day. But when I became a manager and then suddenly a director in 2021, everything changed. The work became endless and finding edges to my day grew increasingly difficult.
+
+Even though I tried limiting computer time to 40 hours weekly, I was easily spending an additional 10-15 hours of mental energy on work. I found myself thinking or journaling about it early mornings, evenings, and weekends. Work seeped into every crack of my consciousness.
+
+It was sneaky though – this job *wasn’t* toxic. The work I was doing was genuinely meaningful and I knew it would benefit both myself and my team long-term. I told myself the short-term sacrifices would be worth it.
+
+By the end of 2021, I had to accept that I could no longer sacrifice my mental and physical health for my career. One question consumed my thoughts: *How do I make predictable, repeatable progress while maintaining balance in my life and avoiding burnout?*
+
+## Building a system that works
+
+Through research and hard-won experience, I’ve learned that preventing burnout requires two key elements: regular “deep work” in a focused state that creates new value and improves skills, and visible, concrete progress across all important life areas.
+
+This needs to work with an unpredictable and variable schedule, whether due to work crises, travel, varying energy levels, or family needs. Making progress systematic and repeatable is essential, regardless of how much time or energy you have available.
+
+### The four tools I use
+
+After much experimentation, I’ve settled on four main tools that work together:
+
+1. **A Paper Journal** - For thinking through writing, processing information and emotions, and planning. While I’ve tried digital tools like 750 Words and Drafts, I’ve found physical writing helps me process information more effectively. I use a dot grid Leuchtturm1917 notebook and Studio Neat Mark One pen.
+
+2. **Analog Cards by Ugmonk** - These fancy index cards help me plan each day and stay on track. I use Today cards for daily planning and Next/Someday cards in weekly planning. The limited space on each card is actually a feature – it forces me to be realistic about what I can accomplish.
+
+3. **Obsidian** - My “second brain” for permanent thoughts, reference knowledge, and project management. While my work vault stays local on my work laptop, I use Obsidian’s sync service to access my personal vault across all devices.
+
+4. **Calendar** - I live by my calendar, using time blocking to ensure important work gets done. Currently I use Gmail’s calendar and Apple Calendar across devices.
+
+### The four critical rituals
+
+The real magic happens through four key rituals that help me maintain balance and make consistent progress:
+
+1. **Daily Shutdown & Planning** - About an hour before ending work, I reflect on the day and plan for tomorrow. This helps impose boundaries on my workday and transition to family time.
+
+2. **Weekly Review & Planning** - Each week I review progress and plan ahead using my journal, Analog cards, and calendar. I typically do this in two sessions: Friday for work and Sunday evening for everything else.
+
+3. **Monthly Review & Planning** - At month’s end, I reflect on what worked and didn’t in each life area, looking ahead at what’s coming up.
+
+4. **Quarterly Setup, Review & Planning** - I use one journal per quarter, setting it up with hopes and dreams for the quarter ahead while reviewing the previous three months.
+
+## The five life areas I monitor
+
+To stay balanced, I track progress across five key areas:
+
+1. **Health & Wellbeing** - Physical and mental health for myself and family, including relationships and self-care
+2. **Life** - Everything that keeps the lights on: house, cars, legal, and finance
+3. **Work** - Day job responsibilities and projects
+4. **Creative Input & Output** - What I’m consuming (books, podcasts, courses) and creating (newsletters, books, courses)
+5. **Systems & Workflows** - Digital and analog systems maintenance and optimization
+
+## Making it work for you
+
+Building your own progress system takes time and patience. Consistently doing even a small portion of these practices yields better results than occasional perfection. Starting small – perhaps with just a daily shutdown routine – creates a foundation to build upon.
+
+The most important thing to understand about planning is that _the act itself provides more value than perfectly executing the plan_. Planning develops the mental muscles to anticipate what may come up and adapt quickly when things change.
+
+Your system doesn’t need to mirror mine exactly. Finding rituals and tools that match your specific needs and circumstances matters most. Give yourself space to experiment with different approaches as you develop new habits.
+
+Every skill takes time to build, including planning and reflection. Creating your own progress system is worth the investment, but it requires embracing imperfection and staying patient with the process. I’d love to hear about the planning rituals that have made a difference in your own life.

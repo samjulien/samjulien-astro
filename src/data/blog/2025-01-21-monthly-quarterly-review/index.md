@@ -1,0 +1,176 @@
+—
+title: ‘Monthly and Quarterly Reviews’
+slug: ‘monthly-quarterly-review’
+description: “Strategic thinking for sustainable progress.”
+date: 2024-01-21
+date_updated: 2024-01-21
+ogimage: ‘images/og-monthly-quarterly-review.png’
+published: true
+tags:
+  - Productivity
+  - Progress system
+—
+While [daily shutdowns](/daily-shutdown) and [weekly reviews](/weekly-planning) focus on execution, monthly and quarterly reviews are where the real strategic work happens. These sessions serve as checkpoints to ensure you’re moving in the right direction while maintaining balance across all areas of life.
+
+## Why two different horizons?
+
+Monthly and quarterly reviews follow the same basic framework but serve different purposes. Monthly reviews help spot immediate trends and make tactical adjustments. Quarterly reviews reveal longer patterns and prompt bigger strategic shifts.
+
+Think of monthly reviews as regular maintenance checks and quarterly reviews as more thorough inspections. Both are necessary, but they answer different questions:
+
+**Monthly review questions:**
+- What worked and didn’t work this month?
+- What adjustments do I need to make?
+- What’s coming up that needs preparation?
+
+**Quarterly review questions:**
+- What patterns am I seeing across months?
+- Which systems need significant updates?
+- What bigger shifts in direction might be needed?
+
+## The review framework
+
+### Calendar and commitments
+
+**Monthly focus:**
+- Review the past month’s calendar
+- Plan the next month’s key dates
+- Note upcoming deadlines and events
+- Schedule necessary appointments
+
+**Quarterly addition:**
+- Look for patterns in time usage
+- Identify seasonal commitments
+- Plan for major events and holidays
+- Review annual commitments and deadlines
+
+### Life areas review
+
+For each life area (Health & Wellbeing, Life, Work, Creative Input & Output, Systems & Workflows), I examine:
+
+**Monthly focus:**
+- What worked this month
+- What didn’t work
+- Current projects status
+- Immediate next steps
+
+**Quarterly addition:**
+- Trends across three months
+- Progress on longer-term goals
+- System effectiveness
+- Resource allocation
+
+### Health and wellbeing
+
+**Monthly focus:**
+- Physical health markers
+- Mental health status
+- Exercise and movement patterns
+- Diet and nutrition
+
+**Quarterly addition:**
+- Health data trends
+- Medical appointments needed
+- Fitness goals progress
+- Lifestyle adjustments needed
+
+### Relationships and connections
+
+**Monthly focus:**
+- Recent social interactions
+- Upcoming birthdays
+- Family check-ins needed
+- Social events to plan
+
+**Quarterly addition:**
+- Relationship patterns
+- Friends to reconnect with
+- Family visits to plan
+- Holiday preparations
+
+### Systems and tools
+
+**Monthly focus:**
+- Digital tools performance
+- Analog systems status
+- Immediate fixes needed
+- Small optimizations
+
+**Quarterly addition:**
+- Complete systems audit
+- Device maintenance needs
+- Major workflow updates
+- New tools to consider
+- Watch face and home screen organization
+- Backup systems check
+
+### Financial and legal
+
+**Monthly focus:**
+- Budget review
+- Bill payments
+- Immediate expenses
+- Basic maintenance costs
+
+**Quarterly addition:**
+- Spending patterns
+- Investment review
+- Insurance checkup
+- Legal document review
+- Tax preparation needs
+
+## The planning process
+
+### Journal setup
+
+**Monthly:**
+I use a modified Bullet Journal approach for monthly logs:
+- Calendar spread for the month
+- Projects and goals list
+- Habit trackers
+- Notes section for the month
+
+**Quarterly:**
+The quarterly setup is more extensive:
+- New journal setup with index
+- Future log for next three months
+- Migration of ongoing projects
+- Goals and aspirations section
+- Trends and patterns notes
+
+### Creating action plans
+
+**Monthly focus:**
+- Specific tasks for the month
+- Project milestones
+- Immediate adjustments needed
+- Resource allocation
+
+**Quarterly addition:**
+- Strategic initiatives
+- System updates needed
+- Major project planning
+- Resource reallocation
+- Skill development needs
+
+## Making it work
+
+A few principles help make these reviews effective:
+
+1. **Consistency over perfection**: Not every review needs to cover everything. A lighter review is better than skipping it entirely.
+
+2. **Focus on patterns**: Individual data points matter less than trends. Look for patterns that suggest needed changes.
+
+3. **Keep it practical**: Every observation should lead to actionable insights. Avoid collecting data you won’t use.
+
+4. **Build in flexibility**: Leave room in your plans for unexpected opportunities and challenges.
+
+## Adapting the process
+
+This system works for me because I’ve adapted it to my needs over time. Your review process might look quite different based on:
+- Your life areas and priorities
+- Time available for reviews
+- Planning style preferences
+- Current life season
+
+Start with the areas most important to you and gradually build up the practice. The goal isn’t to create perfect plans, but to maintain awareness and momentum across all areas of your life.

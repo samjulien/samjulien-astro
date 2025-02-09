@@ -1,0 +1,134 @@
+—
+title: ‘Weekly Review and Planning’
+slug: ‘weekly-planning’
+description: “Building momentum through consistent reflection.”
+date: 2024-01-20
+date_updated: 2024-01-20
+ogimage: ‘images/og-weekly-planning.png’
+published: true
+tags:
+  - Productivity
+  - Progress system
+—
+The [daily shutdown](/daily-shutdown) ritual helps maintain boundaries and track immediate progress, but the weekly review and planning session provides the perspective needed to maintain momentum across all areas of life. This broader view helps prevent any single area from falling too far behind while ensuring steady progress on longer-term projects.
+
+## The weekly ritual structure
+
+I break my weekly planning and review into two sessions:
+- Friday afternoon for work-related items
+- Sunday evening for personal life and creative projects
+
+This separation helps me maintain better work-life boundaries and gives appropriate attention to each domain. The process works best when I’ve been consistent with daily shutdowns throughout the week, as they provide accurate context for the review.
+
+## The review process
+
+### Work review
+I start by examining all work-related systems:
+- Work Kanban boards for project status
+- Direct report notes and action items
+- Important emails requiring follow-up
+- Unresolved Slack threads and direct messages
+- Open browser tabs to process or close
+
+### Creative work and business
+Next, I review my creative and business endeavors:
+- Content creation progress and pipeline
+- Business finances and upcoming expenses
+- Newsletter planning and drafts
+- Article ideas and works in progress
+- Business-related emails and calendar items
+
+### Health and wellbeing
+Health tracking includes both data and subjective experience:
+- Movement and exercise completed
+- Mobility work and stretching
+- Pain points or physical issues
+- Key measurements and trends
+- Diet patterns and carb consumption
+- Overall energy levels
+
+### Relationships
+I check in on my social connections:
+- Friends I’ve talked to this week
+- Family members I need to reach out to
+- Social events attended or planned
+- Important dates or events coming up
+
+### Systems and processes
+This covers the infrastructure of daily life:
+- House maintenance and projects
+- Vehicle maintenance schedules
+- Health and wellbeing systems
+- Digital tools and workflows
+- Areas needing improvement
+
+## The planning process
+
+### Setting up the framework
+
+With the review complete, I use both digital and analog tools to plan the week ahead:
+
+1. **Analog planning**
+   - Review and update Someday and Next cards
+   - Set up new weekly spread in bullet journal
+   - Transfer any incomplete items from previous weeks
+
+2. **Digital planning**
+   - Review upcoming calendar items
+   - Process and organize emails
+   - Update project management systems
+
+### Time blocking
+
+I structure my week around focused blocks of time:
+- Three 2-hour sessions for main focus work
+- One 2-hour session for “moving the needle” on important projects
+- 30-minute blocks for admin and communications
+- Daily shutdown period at 4 PM
+
+### Content planning
+
+For those managing content creation, I maintain a specific rhythm:
+
+**Newsletter workflow:**
+- Monday: Topic selection and initial draft
+- Tuesday: First draft completion
+- Wednesday: Second draft refinement
+- Thursday: Final edits and scheduling
+- Friday: Publication and distribution
+
+**Social media content:**
+- Two narrative threads per week
+- Two engagement posts per week
+- Three tip posts per week
+- Planning session on Fridays for the following week
+
+**Article workflow:**
+- Thursday: Source material review from newsletters and other content
+- Friday: Editing and publication
+- SEO optimization and cross-linking
+
+## Making the system work
+
+A few principles help make this system sustainable:
+
+1. **Flexibility is essential**
+Not every week needs every component reviewed. Some weeks might focus more heavily on certain areas based on current priorities or energy levels.
+
+2. **Use the right tool for the job**
+- Analog cards for daily tasks and near-term projects
+- Digital tools for reference material and long-term planning
+- Calendar for time blocking and commitments
+- Journal for processing and reflection
+
+3. **Build in buffer time**
+Leave space for unexpected issues and opportunities. A too-rigid system will break under real-world pressure.
+
+4. **Focus on momentum over perfection**
+The goal isn’t to review everything perfectly each week, but to maintain enough awareness to prevent any area from falling too far behind.
+
+## Adapting the system
+
+Your weekly review and planning might look quite different from mine. The key is identifying your crucial areas for monitoring and progress. Start with what feels most important and gradually build up the practice. Having a consistent time and place for your weekly review helps establish the habit.
+
+Remember that this system exists to serve you, not the other way around. Adjust the components and frequency based on your needs and circumstances. The most effective system is one you’ll actually use consistently.
