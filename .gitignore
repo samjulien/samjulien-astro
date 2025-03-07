@@ -9,3 +9,4 @@ node_modules
 .netlify
 dist
 .DS_Store
+new_post.sh
