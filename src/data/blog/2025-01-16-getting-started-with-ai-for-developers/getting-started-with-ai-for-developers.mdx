@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with AI for Developers"
 slug: 'getting-started-with-ai-for-developers'
-description: "Getting started with AI for developers is hard. Here's how I did it."
+description: "The anti-hype guide for navigating the new world of AI engineering."
 date: 2025-01-16
 date_updated: 2025-01-16
 ogimage: 'images/og-getting-started-with-ai-for-developers.png'
@@ -17,74 +17,79 @@ So, as is my custom, whether with [Developer Relations](http://www.gettingstarte
 
 In this article, I'll break down my experience into high-level principles to approach the world of AI engineering and then practical strategies for getting started. As always, this is based on my experience - take what works for you and adapt it to your needs!
 
-
-## Principles for understanding AI engineering
+## Principles for understanding the shift to AI engineering
 
 ### Principle 1: AI is not just hype
 Like many developers, I was initially skeptical of AI &mdash; we've all seen enough hype cycles in tech to develop a healthy dose of cynicism. But AI is not just hype &mdash; it's based on decades of research, and it stands to literally revolutionize our entire society. 
 
-It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted developers around the world to make a difference in their own community.
-
 In his influential talk ["Opportunities in AI"](https://www.youtube.com/watch?v=5p248yoa3oE), Andrew Ng emphasizes that the current AI revolution is built on decades of research finally reaching practical application.
 
-At Writer, I see this every day - companies using LLMs to automate product descriptions across different retail sites, each with their own specific requirements. It's not flashy, but it saves enormous amounts of time and reduces errors. This immediate practical value is why AI has become the fastest-adopted new technology I've ever seen.
 
-For those interested in diving deeper, I highly recommend checking out [DeepLearning.AI's short courses](https://www.deeplearning.ai/short-courses/), which provide an excellent foundation in these concepts.
+### Principle 2: The stakes are incredibly high
+AGI
+Billionaires racing for more power and money, will sacrifice nearly anything.
 
-### Principle 2: The scale of possibility has fundamentally changed
+It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted developers around the world to make a difference in their own community.
+
+
+### Principle 3: The definition of work and the scale of possibility are fundamentally changing
+
+### Principle 4: Traditional development work will evolve, not disappear
 
 Remember building applications that pull in data and display it for analysis? Now you can generate that code using LLMs and then feed the data right back into them for automated analysis. The scale at which we can develop has radically changed. Junior developers actually have an advantage here because they don't have any preconceptions about what's possible.
 
+At Writer, I see this every day - companies using LLMs to automate product descriptions across different retail sites, each with their own specific requirements. It's not flashy, but it saves enormous amounts of time and reduces errors. This immediate practical value is why AI has become the fastest-adopted new technology I've ever seen.
+
 This shift is part of what Shawn calls ["The Rise of the AI Engineer"](https://www.latent.space/p/ai-engineer) - a fundamental change in how we approach development. 
-
-The industry is experiencing four major "wars" that are shaping its future:
-- The Data War (who owns and controls training data)
-- The GPU/Inference War (how we process and run models efficiently)
-- The Multimodality War (competition in different types of AI like image and speech)
-- The RAG/Ops War (how we build and deploy AI applications)
-
-Understanding these battles helps you see where the opportunities lie for developers.
-
-### Principle 3: Traditional development work will evolve, not disappear
 
 Will AI replace developers? That's certainly the stated goal of several companies. But having worked directly with enterprise AI tools, I can tell you we're heading toward a transformation rather than a replacement. We might not need developers to generate UIs in a few years, but we'll absolutely need people who can orchestrate AI tools, review AI-generated code, and design complex systems.
 
-This evolution is particularly evident in the open-source AI community. Companies like Meta are releasing powerful open-source models through Hugging Face, while companies like Writer are building enterprise-grade solutions that combine proprietary models with sophisticated guardrails and RAG implementations.
+There are four major areas of both conflict and growth currently shaping the future of AI:
+- Data: who owns and controls training data
+- GPU/Inference: how we process and run models efficiently
+- Multimodality: competition in different types of AI like image, video, and speech
+- LLMOps: how we build and deploy AI applications
 
-## Strategies for Navigating the AI Shift
+Understanding these battles helps you see where the opportunities lie for developers.
 
-### Strategy 1: Focus on key skills for AI engineering
 
-The most immediate opportunity isn't in building models - it's in combining existing AI tools effectively. I see successful AI engineers spending more time on:
+## Strategies for shifting into AI engineering
+What does an AI engineer need to do their job?
+
+### Strategy 1: Learn the fundamentals of interacting with LLMs
+You don't need a deep ML background, but you do need to understand:
+- How to work with LLMs effectively
+- Basic prompt engineering principles
+- When to use AI and when not to
+
+Using an LLM:
+How to interact with it
+Prompting
+
+Instructor prompt design site: https://python.useinstructor.com/prompting/thought_generation/chain_of_thought_zero_shot/thread_of_thought/
+
+Sarah's prompting guide: https://exaai.notion.site/Prompt-Engineering-Best-Practices-0839585d4bce4c6abb0b551b2107a92a
+
+Bringing data in through context
+
+Multi-modality:
+Computer Vision
+Automatic speech recognition (ASR)
+
+Web search is an introduction to tool calling.
+
+Deep Research is an introduction to agents.
+
+For those just starting out, I recommend this learning path:
+1. Start with [DeepLearning.AI's "Generative AI for Everyone"](https://www.coursera.org/learn/generative-ai-for-everyone/home/week/1) course
+
+### Strategy 2: Learn the key skills for AI engineering by building
+Essential, the evolution of backend engineering and likely most of web development.
+The most immediate opportunity for web developers isn't necessarily in building models - it's in combining existing AI tools effectively. I see successful AI engineers spending more time on:
 - Integrating AI capabilities into existing applications
 - Designing prompt strategies
 - Implementing RAG (Retrieval Augmented Generation)
 - Building systems that combine multiple AI tools
-
-A great way to start is with tools like:
-- [LangChain](https://learn.deeplearning.ai/courses/langchain/lesson/4/chains) or LlamaIndex for building AI applications
-- Vector databases like Weaviate or Pinecone for implementing RAG
-- Enterprise platforms for accessing production-ready models
-
-### Strategy 2: Learn the fundamentals of AI interaction
-
-You don't need a deep ML background, but you do need to understand:
-- How to work with LLMs effectively
-- Basic prompt engineering principles
-- How to integrate AI APIs and SDKs
-- When to use AI and when not to
-
-I learned this the hard way - I initially thought I needed to dive deep into machine learning research, but what actually proved valuable was understanding how to effectively use and combine AI tools.
-
-For those just starting out, I recommend this learning path:
-1. Start with [DeepLearning.AI's "Generative AI for Everyone"](https://www.coursera.org/learn/generative-ai-for-everyone/home/week/1) course
-2. Move on to practical implementation with Scrimba's AI Engineering path
-3. Experiment with basic RAG implementations using [LangChain](https://learn.deeplearning.ai/courses/langchain/lesson/4/chains)
-4. Join communities like [Latent Space](https://www.latent.space/) to stay current
-
-Don't feel pressured to learn Python immediately - many tools now offer JavaScript/TypeScript SDKs. I learned Python gradually as needed, using AI tools themselves to help with the transition.
-
-### Strategy 3: Build projects that combine traditional development with AI
 
 The real magic happens when you combine solid development practices with AI capabilities. Some practical examples I've seen:
 - Using AI to generate product descriptions while maintaining brand voice
@@ -92,11 +97,153 @@ The real magic happens when you combine solid development practices with AI capa
 - Creating AI-powered code review tools
 - Developing intelligent data analysis pipelines
 
-### Strategy 4: Stay pragmatic about AI's capabilities
-
-I use Perplexity AI daily for research, and I've seen how powerful these tools can be. But I've also seen their limitations. The key is understanding both:
+The key is understanding both:
 - What AI can do well (code generation, data analysis, content creation)
 - What still needs human oversight (system architecture, user experience, business logic)
+
+Skills you already know:
+Debugging
+Testing 
+Insert other core engineering skills
+
+Picking a model:
+Which model is the best fit? How do you know?
+LLM leaderboards
+Benchmarks
+Datasets
+
+LLMs via APIs and SDKs
+
+Python
+Though many tools now offer JavaScript/TypeScript SDKs, you will inevitably need to learn Python. I've been learning Python gradually as needed, using AI tools themselves to help with the transition.
+
+Code generation
+Bolt
+Replit
+Cursor
+Windsurf
+
+Bringing data in:
+RAG
+Data processing
+Data engineering
+
+What to do with it
+
+Multi-modality:
+Image generation
+Computer Vision
+Automatic speech recognition (ASR)
+Text-to-audio
+Text-to-video
+
+Function calling
+
+
+I highly recommend checking out [DeepLearning.AI's short courses](https://www.deeplearning.ai/short-courses/), which provide an excellent foundation in these concepts.
+
+
+Move on to practical implementation with Scrimba's AI Engineering path
+
+Following [swyxio/ai-notes](https://github.com/swyxio/ai-notes) for curated resources
+
+
+### Strategy 3: Cross the divide into production AI engineering
+Where the real money is
+LLMs are non-deterministic
+
+Advanced RAG
+Graph RAG
+Jason Liu
+
+Testing LLM output
+LLM unit tests
+Evals
+https://parlance-labs.com/education/evals/
+https://forestfriends.tech/
+https://wandb.ai/site/courses/evals/?utm_source=discord&utm_medium=social&utm_campaign=course_evals
+Hamel and Shreya's course
+
+LLM-as-judge
+https://hamel.dev/blog/posts/llm-judge/
+
+Eugene
+https://eugeneyan.com/writing/llm-evaluators/
+
+
+Hamel
+https://hamel.dev/blog/posts/evals/
+
+Shreya
+
+
+https://www.firecrawl.dev/blog/crawlbench-llm-extraction
+
+https://langfuse.com/
+
+Function calling
+Structured input
+Structured output
+
+Orchestrating multiple LLMs
+Agents
+
+### Strategy 4: Learn advanced topics as you can
+Either fun/hobby or a different career  path, but likely not the core of AI engineering
+
+Where to host a model?
+Inference
+
+
+Self-hosting models
+
+LLMOps
+
+Running models locally
+LMStudio for running models locally: https://lmstudio.ai/
+
+Latency
+Cost
+GPUs
+Modal
+Latent Space on Modal: https://www.latent.space/p/modal
+
+Charles
+Charles twitter: https://x.com/charles_irl
+
+GPU glossary: https://modal.com/gpu-glossary/readme
+
+
+Open source models
+Closed source vs open source LLMs
+Nathan Lambert
+
+Fine-tuning
+
+### Strategy 5: Staying current by ignoring the hype and followi by the signal
+One of the biggest challenges in AI engineering is keeping up with the rapid pace of change. 
+
+Three sources of signal
+
+Follow smart people
+Applied LLMs crew
+Nathan Lambert
+
+Start learning about AI and ML research
+Wade into research
+https://www.latent.space/p/2025-papers
+
+Eugene's links
+Eugene Yan's write-up on how to start a paper club: https://eugeneyan.com/writing/paper-club/
+Eugene Yan's list of notable papers: https://github.com/eugeneyan/llm-paper-notes
+Paper club
+NeurIPS
+
+Discord servers
+Join communities like [Latent Space](https://www.latent.space/) to stay current
+
+
+Remember, you don't need to know everything. Focus on understanding the fundamentals and keeping an eye on major developments that affect your work directly. The developers who will thrive aren't necessarily the ones who know the most about machine learning theory - they're the ones who can effectively combine AI capabilities with solid engineering principles to solve real problems.
 
 ## The Path Forward
 
@@ -107,13 +254,3 @@ Here's what I recommend focusing on:
 2. Build your orchestration skills - the ability to combine different AI tools effectively is increasingly valuable
 3. Maintain your engineering judgment - AI can generate code, but understanding architecture and user needs remains crucial
 4. Stay curious but practical - focus on solving real problems rather than chasing the latest AI trend
-
-## Staying Current in AI
-
-One of the biggest challenges in AI engineering is keeping up with the rapid pace of change. Here's my current information diet:
-- **Newsletters**: [Latent Space](https://www.latent.space/) by swyx & Alessio, [ThursdAI](https://sub.thursdai.news/) by Alex Volkov
-- **Courses**: [DeepLearning.AI's short courses](https://www.deeplearning.ai/short-courses/), especially their LangChain and Vector Database series
-- **Communities**: The Latent Space Discord, Hugging Face forums
-- **GitHub**: Following [swyxio/ai-notes](https://github.com/swyxio/ai-notes) for curated resources
-
-Remember, you don't need to know everything. Focus on understanding the fundamentals and keeping an eye on major developments that affect your work directly. The developers who will thrive aren't necessarily the ones who know the most about machine learning theory - they're the ones who can effectively combine AI capabilities with solid engineering principles to solve real problems.
