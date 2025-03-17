@@ -9,7 +9,7 @@ published: true
 tags:
   - AI
 ---
-When I first started to learn about AI engineering in October of 2023, I was overwhelmed with jargon, academic papers, and more acronyms than I could handle. NLP? RAG? LLMs? DPO? RLHF? My head was spinning constantly. I looked around for resources targeted at web developers new to AI, but couldn't find what I wanted. I needed someone to orient me to the landscape, give me a map, and help me figure out which direction to go. Instead, I just kept finding a bunch of Machine Learning resources and more confusion.
+When I first started to learn about AI engineering in October of 2023, I was overwhelmed with jargon, academic papers, and more acronyms than I could handle. NLP? RAG? LLMs? DPO? RLHF? My head was spinning. I looked around for resources targeted at web developers new to AI, but couldn't find what I wanted. I needed someone to orient me to the landscape, give me a map, and help me figure out which direction to go. Instead, I just kept finding a bunch of Machine Learning resources and more confusion.
 
 I've been a friend and follower of Shawn Wang ([swyx](https://swyx.io/)) since his frontend days, so I started with his work on [Latent Space](https://www.latent.space/) and [The Rise of the AI Engineer](https://www.latent.space/p/ai-engineer). Eventually, I found my way around and learned enough to join [Writer](https://www.writer.com), an enterprise AI platform, as their Director of Developer Relations in spring 2024. It wasn't easy though, and I could have really used a practical, high-level guide to help me understand the landscape and get started.
 
@@ -29,21 +29,6 @@ In his influential talk ["Opportunities in AI"](https://www.youtube.com/watch?v=
 AGI
 Billionaires racing for more power and money, will sacrifice nearly anything.
 
-It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted developers around the world to make a difference in their own community.
-
-
-### Principle 3: The definition of work and the scale of possibility are fundamentally changing
-
-### Principle 4: Traditional development work will evolve, not disappear
-
-Remember building applications that pull in data and display it for analysis? Now you can generate that code using LLMs and then feed the data right back into them for automated analysis. The scale at which we can develop has radically changed. Junior developers actually have an advantage here because they don't have any preconceptions about what's possible.
-
-At Writer, I see this every day - companies using LLMs to automate product descriptions across different retail sites, each with their own specific requirements. It's not flashy, but it saves enormous amounts of time and reduces errors. This immediate practical value is why AI has become the fastest-adopted new technology I've ever seen.
-
-This shift is part of what Shawn calls ["The Rise of the AI Engineer"](https://www.latent.space/p/ai-engineer) - a fundamental change in how we approach development. 
-
-Will AI replace developers? That's certainly the stated goal of several companies. But having worked directly with enterprise AI tools, I can tell you we're heading toward a transformation rather than a replacement. We might not need developers to generate UIs in a few years, but we'll absolutely need people who can orchestrate AI tools, review AI-generated code, and design complex systems.
-
 There are four major areas of both conflict and growth currently shaping the future of AI:
 - Data: who owns and controls training data
 - GPU/Inference: how we process and run models efficiently
@@ -52,11 +37,31 @@ There are four major areas of both conflict and growth currently shaping the fut
 
 Understanding these battles helps you see where the opportunities lie for developers.
 
+It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted developers around the world to make a difference in their own community.
+
+### Principle 3: The definition of work and the scale of possibility are fundamentally changing
+
+
+
+### Principle 4: Development work is evolving (not disappearing) and you must adapt.
+
+Remember building applications that pull in data and display it for analysis? Now you can generate that code using LLMs and then feed the data right back into them for automated analysis. The scale at which we can develop has radically changed. Junior developers actually have an advantage here because they don't have any preconceptions about what's possible.
+
+At Writer, I see this every day - companies using LLMs to automate product descriptions across different retail sites, each with their own specific requirements. It's not flashy, but it saves enormous amounts of time and reduces errors. This immediate practical value is why AI has become the fastest-adopted new technology I've ever seen.
+
+This shift is part of what Shawn calls ["The Rise of the AI Engineer"](https://www.latent.space/p/ai-engineer) - a fundamental change in how we approach development. 
+
+Will AI replace developers? That's certainly the stated goal of several companies. But having worked directly with enterprise AI tools, I can tell you we're in the middle of a transformation rather than a replacement. We might not need developers to build UIs before long, but we'll absolutely need people who can orchestrate AI tools, review AI-generated code, and design complex systems.
+
 
 ## Strategies for shifting into AI engineering
+The good news is that there is currently not enough engineering talent to usher in this new era.
+
+Companies seem to be over-correcting for remote work during COVID and only wanting to hire in San Francisco and New York, but this isn't sustainable.
+
 What does an AI engineer need to do their job?
 
-### Strategy 1: Learn the fundamentals of interacting with LLMs
+### Strategy 1: Use AI products to prototype and learn the fundamentals of interacting with LLMs
 You don't need a deep ML background, but you do need to understand:
 - How to work with LLMs effectively
 - Basic prompt engineering principles
@@ -106,6 +111,11 @@ Debugging
 Testing 
 Insert other core engineering skills
 
+AI stack or reasoning stack
+LLM
+Data (RAG, context)
+UX/UI
+
 Picking a model:
 Which model is the best fit? How do you know?
 LLM leaderboards
@@ -147,9 +157,12 @@ Move on to practical implementation with Scrimba's AI Engineering path
 
 Following [swyxio/ai-notes](https://github.com/swyxio/ai-notes) for curated resources
 
+level up course
+Chip's book 
 
 ### Strategy 3: Cross the divide into production AI engineering
 Where the real money is
+Escaping POC purgatory
 LLMs are non-deterministic
 
 Advanced RAG
@@ -159,6 +172,8 @@ Jason Liu
 Testing LLM output
 LLM unit tests
 Evals
+Quantifying our vibes
+
 https://parlance-labs.com/education/evals/
 https://forestfriends.tech/
 https://wandb.ai/site/courses/evals/?utm_source=discord&utm_medium=social&utm_campaign=course_evals
@@ -242,15 +257,16 @@ NeurIPS
 Discord servers
 Join communities like [Latent Space](https://www.latent.space/) to stay current
 
-
 Remember, you don't need to know everything. Focus on understanding the fundamentals and keeping an eye on major developments that affect your work directly. The developers who will thrive aren't necessarily the ones who know the most about machine learning theory - they're the ones who can effectively combine AI capabilities with solid engineering principles to solve real problems.
 
 ## The Path Forward
 
-Nobody knows exactly how fast AI will transform development - I've heard predictions ranging from "we've got a decade" to "AI agents will change everything within a year." The reality is probably somewhere in between, but the direction is clear.
+Nobody knows exactly how fast AI will transform development - I've heard predictions ranging from "we've got a decade before AGI" to "AI agents will change everything within a year." The reality is probably somewhere in between, but the direction is clear.
 
 Here's what I recommend focusing on:
 1. Get comfortable with AI tools - they're becoming as fundamental as learning a new programming language
 2. Build your orchestration skills - the ability to combine different AI tools effectively is increasingly valuable
 3. Maintain your engineering judgment - AI can generate code, but understanding architecture and user needs remains crucial
 4. Stay curious but practical - focus on solving real problems rather than chasing the latest AI trend
+
+You can do this! Reach out if you have questions.
