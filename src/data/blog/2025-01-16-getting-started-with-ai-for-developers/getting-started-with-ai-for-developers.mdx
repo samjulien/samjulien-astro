@@ -24,26 +24,25 @@ Like many developers, I was initially skeptical of AI &mdash; we've all seen eno
 
 In his influential talk ["Opportunities in AI"](https://www.youtube.com/watch?v=5p248yoa3oE), Andrew Ng emphasizes that the current AI revolution is built on decades of research finally reaching practical application.
 
-
 ### Principle 2: The stakes are incredibly high
-AGI
-Billionaires racing for more power and money, will sacrifice nearly anything.
+Amidst all of the hype of AI right now, it's important to understand the game being played around you: the pursuit of Artificial General Intelligence (AGI), sometimes referred to as Artificial Superintelligence (ASI). To oversimplify, AGI or ASI is when machines become as capable or more capable than human beings at most tasks.
 
-There are four major areas of both conflict and growth currently shaping the future of AI:
-- Data: who owns and controls training data
-- GPU/Inference: how we process and run models efficiently
-- Multimodality: competition in different types of AI like image, video, and speech
-- LLMOps: how we build and deploy AI applications
+This started as an academic pursuit, but as we've inched our way closer in recent years, billionaires have taken notice and are staking their claim, racing for more power and money. Many of these major players have stated that they will sacrifice nearly anything in pursuit of this, citing the prediction that AGI will unlock trillions of dollars of value in the global economy as justification for everything from cutting ethical corners to raising billions in capital. The main ones to be aware of are:
 
-Understanding these battles helps you see where the opportunities lie for developers.
+- Sam Altman and OpenAI, developing ChatGPT models and products
+- Mark Zuckerberg and Meta, developing the Llama models and adding them to Meta products
+- Satya Nidella and Microsoft, partnering with OpenAI and integrating AI into Azure
+- Elon Musk and XAI, developing Grok models and, well, you know the rest
+- Jensen Huang and NVIDIA, essentially dominating the entire hardware space for model training
 
-It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted developers around the world to make a difference in their own community.
+There are massive ethical and safety considerations here, such as how we should or should not regulate the development of AI technology, how we must evolve privacy and security in this new era, how we should or should not police AI-generated "deepfake" content, and much more. AGI could represent an opportunity for either the transcendance of humanity or its extinction.
 
-### Principle 3: The definition of work and the scale of possibility are fundamentally changing
+It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted, ethically-driven developers around the world to make a difference in their own communit and quickly add to the growing list of major players in this space.
+
+### Principle 3: The definition of work and the scale of possibility are already fundamentally changing
 
 
-
-### Principle 4: Development work is evolving (not disappearing) and you must adapt.
+### Principle 4: Development work is evolving (not disappearing) and you must adapt
 
 Remember building applications that pull in data and display it for analysis? Now you can generate that code using LLMs and then feed the data right back into them for automated analysis. The scale at which we can develop has radically changed. Junior developers actually have an advantage here because they don't have any preconceptions about what's possible.
 
@@ -61,6 +60,14 @@ Companies seem to be over-correcting for remote work during COVID and only wanti
 
 What does an AI engineer need to do their job?
 
+Here are five strategies to transition from traditional software or web development into AI engineering:
+
+1. Use AI products to prototype and learn the fundamentals of interacting with LLMs
+2. Learn the key skills for AI engineering by building with APIs and SDKs
+3. Cross the divide into production AI engineering
+4. Embark on advanced "side quests" as you can
+5. Stay current by ignoring the hype and following the signal
+
 ### Strategy 1: Use AI products to prototype and learn the fundamentals of interacting with LLMs
 You don't need a deep ML background to become an AI engineer, but you do need to understand:
 - How to work with LLMs effectively across text, images, and other modalities
@@ -76,6 +83,12 @@ Instructor prompt design site: https://python.useinstructor.com/prompting/though
 
 Sarah's prompting guide: https://exaai.notion.site/Prompt-Engineering-Best-Practices-0839585d4bce4c6abb0b551b2107a92a
 
+Code generation
+Bolt
+Replit
+Cursor
+Windsurf
+
 Bringing data in through context
 
 Multi-modality:
@@ -84,10 +97,10 @@ Automatic speech recognition (ASR)
 
 These products also introduce you to more advanced concepts in AI engineering. For example, web search is a subtle introduction to tool calling, while Deep Research by ChatGPT and Google Gemini is an introduction to agents.
 
-For those just starting out, I recommend DeepLearning.AI's [Generative AI for Everyone](https://www.coursera.org/learn/generative-ai-for-everyone/) course
+For just starting out, I recommend DeepLearning.AI's [Generative AI for Everyone](https://www.coursera.org/learn/generative-ai-for-everyone/) course.
 
-### Strategy 2: Learn the key skills for AI engineering by building
-Once you're familiar with the basics of prompting, bringing in data or other modalities to LLMs, and the extent of their capabilities, it's time to start building with the models themselves through APIs and SDKs. These are the essential skills, as they represent the evolution of backend engineering and likely most of web development.
+### Strategy 2: Learn the key skills for AI engineering by building with APIs and SDKs
+Once you're familiar with the basics of prompting, bringing in data or other modalities to LLMs, and the extent of LLM capabilities, it's time to start building with AI through APIs and SDKs. You'll want to learn a core set of essential skills, as they represent the evolution of backend engineering and likely most of web development.
 
 The most immediate opportunity for web developers is in combining existing AI tools effectively. I see successful AI engineers spending more time on:
 - Integrating AI capabilities into existing applications
@@ -120,10 +133,6 @@ LLMs via APIs and SDKs
 Note: Though many tools now offer JavaScript/TypeScript SDKs, you will inevitably need to learn at least some Python. I've been learning Python gradually as needed, using LLMs to help with the transition. LLMs are great at translating between languages!
 
 Code generation
-Bolt
-Replit
-Cursor
-Windsurf
 
 Bringing data in:
 RAG
@@ -141,22 +150,32 @@ Text-to-video
 
 Function calling
 
+Function calling
+Structured input
+Structured output
+
+Orchestrating multiple LLMs
+Agents
 
 I highly recommend checking out DeepLearning.AI's [short courses](https://www.deeplearning.ai/short-courses/), which provide an excellent foundation in these concepts. I also really like Scrimba's [AI Engineering path](https://scrimba.com/paths/ai-engineering).
 
 Following [swyxio/ai-notes](https://github.com/swyxio/ai-notes) for curated resources
 
-level up course
-Chip's book 
+To really dig deep into these concepts and prepare for production-level AI engineering, check out Shawn and Noah's Level Up course and Chip Huyen's book [AI Engineering]().
+
+![AI Engineering by Chip Huyen]()
 
 ### Strategy 3: Cross the divide into production AI engineering
-Where the real money is
-Escaping POC purgatory
-LLMs are non-deterministic
+As you get AI projects under your belt with APIs and SDKs, you'll soon learn that there is a large chasm between proof-of-concept, hobby projects and real, production-grade AI applications. As with many things, this level of complexity is where the real money is, and where the career path leads. If you can help companies escape what we call at Writer [POC purgatory](), you'll separate yourself from the masses who are simply vibe coding with LLMs and hoping for the best.
 
-Advanced RAG
-Graph RAG
-Jason Liu
+Most of the complexities of production-grade AI applications stem from two major issues:
+
+1. LLMs are fundamentally non-deterministic
+2. Real world and enterprise data is messy
+
+Notice that only one of those problems has anything to do with AI. This holds true: most of the problems with AI engineering are age-old data and software problems. LLMs add a new layer of complexity, as well as new modalities, but also don't change the fundamental problems of software engineering.
+
+
 
 Testing LLM output
 LLM unit tests
@@ -185,6 +204,10 @@ https://www.firecrawl.dev/blog/crawlbench-llm-extraction
 
 https://langfuse.com/
 
+Advanced RAG
+Graph RAG
+Jason Liu
+
 Function calling
 Structured input
 Structured output
@@ -192,14 +215,15 @@ Structured output
 Orchestrating multiple LLMs
 Agents
 
-### Strategy 4: Learn advanced topics as you can
+### Strategy 4: Embark on advanced "side quests" as you can
+
 Either fun/hobby or a different career  path, but likely not the core of AI engineering
 
 Where to host a model?
 Inference
 
-
 Self-hosting models
+LM Studio
 
 LLMOps
 
@@ -224,16 +248,24 @@ Nathan Lambert
 
 Fine-tuning
 
-### Strategy 5: Staying current by ignoring the hype and followi by the signal
+### Strategy 5: Stay current by ignoring the hype and following the signal
 One of the biggest challenges in AI engineering is keeping up with the rapid pace of change. 
+
+There are four major areas of both conflict and growth currently shaping the future of AI:
+- Data: who owns and controls training data
+- GPU/Inference: how we process and run models efficiently
+- Multimodality: competition in different types of AI like image, video, and speech
+- LLMOps: how we build and deploy AI applications
+
+Understanding these battles helps you see where the opportunities lie for developers.
 
 Three sources of signal
 
-Follow smart people
+#### Follow smart people
 Applied LLMs crew
 Nathan Lambert
 
-Start learning about AI and ML research
+#### Start learning about AI and ML research
 Wade into research
 https://www.latent.space/p/2025-papers
 
@@ -243,7 +275,7 @@ Eugene Yan's list of notable papers: https://github.com/eugeneyan/llm-paper-note
 Paper club
 NeurIPS
 
-Discord servers
+#### Discord servers
 Join communities like [Latent Space](https://www.latent.space/) to stay current
 
 Remember, you don't need to know everything. Focus on understanding the fundamentals and keeping an eye on major developments that affect your work directly. The developers who will thrive aren't necessarily the ones who know the most about machine learning theory - they're the ones who can effectively combine AI capabilities with solid engineering principles to solve real problems.
