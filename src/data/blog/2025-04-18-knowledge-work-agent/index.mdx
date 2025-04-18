@@ -1,0 +1,186 @@
+---
+title: "Work Once, Document Everywhere: Building Your Knowledge Work Agent"
+slug: "knowledge-work-agent"
+description: 'How I built an end-to-end ambient agent that turns my thoughts and interactions into useful knowledge work artifacts.'
+date: "2025-04-18"
+date_updated: "2025-04-18"
+ogimage: "images/og-knowledge-work-agent.png"
+published: true
+tags:
+  - Tech
+---
+
+Back in 2020 and 2021, I was churning out content I was really proud of, but when I became manager, then director, and, most importantly, a father, things changed. Now I need to work ten times faster, not only because I'm working at an AI startup (though that certainly adds pressure), but because I want to be fully present with my son and family.
+
+The reality of modern knowledge work is brutal. We're not just doing the work, we're constantly documenting it through progress reports, Slack updates, emails, executive updates, meeting notes, and more. This overhead steals time from both our core work and our personal lives.
+
+Like any good engineer, I started looking for tools to solve this problem. I needed something similar to this [voice-to-content pipeline](https://hamel.dev/blog/posts/audience/#build-a-voice-to-content-pipeline) described by [Hamel Husain](https://x.com/hamelhusain?s=21), but beyond just blog writing or personal branding. I needed an [ambient agent](https://blog.langchain.dev/introducing-ambient-agents/), a system that could observe my natural workflows and automatically generate the documentation artifacts I need without (much) additional effort on my part.
+
+I've been gradually building exactly that: an end-to-end knowledge work agent and AI pipeline that combines voice dictation, AI wearables, Discord monitoring, and LLM processing to generate various outputs with minimal human intervention.
+
+Building a knowledge work agent can help you in many different ways, such as:
+
+- Raise your visibility at work by quickly building daily and weekly summaries of your work to post on Confluence, Google Docs, or Slack
+- Reduce your admin overhead by drafting emails and Slack messages
+- Speed up your content creation by drafting newsletters and blog articles
+
+Let me show you how it works.
+
+## The components of a knowledge work agent
+
+There are five key components to building an effective ambient agent:
+
+1. **Capture through multiple channels**
+
+    - Voice dictation for thoughts on the go
+    - AI wearables for ambient transcription
+    - Discord monitoring for links and discussions
+    - Integration with existing workflows
+2. **Data clean-up and organization**
+
+    - Transcription cleanup
+    - Link categorization
+    - Metadata and tagging
+3. **Content processing via LLMs**
+
+    - Format conversion
+    - Summarization
+    - Style adaptation
+4. **Artifact generation**
+
+    - Progress reports
+    - Documentation
+    - Newsletters
+    - Social media posts
+    - Emails
+5. **Review and publishing**
+
+    - Human oversight
+    - Distribution to appropriate platforms
+
+## Capture through dictation
+I've heavily relied on dictation over the years due to hand pain, but a lot of built-in dictation tools have been a pain to use (looking at you, Siri). I'm constantly having to fiddle with punctuation and things like that. It has gotten better over time, but it's still far from perfect and doesn't always guess correctly.
+
+AI dictation tools are instead typically powered by [Whisper](https://github.com/openai/whisper), OpenAI's open source audio model, or similar speech-to-text models. The quality, accuracy, and speed are much better. (Note: if you want to dig deeper on these models, [Amgad Hasan](https://x.com/amgadgamalhasan), a friend from the [Latent Space](https://www.latent.space/) Discord published this [great write-up](https://substack.com/home/post/p-149727178) about the decent Whisper Turbo model.)
+
+It turns out it's surprisingly challenging to get voice into text files, especially on phones and watches with their sandboxed file systems. You also need to get from pure transcription to formatted markdown, handle different metadata needs, and figure out how to maintain your authentic voice through it all. I've been experimenting with AI dictation and transcription tools, particularly [Whisper Memos](https://whispermemos.com/) and [superwhisper](https://superwhisper.com/), and here's what I've found so far. 
+
+### Personal voice capture: Whisper Memos + Drafts
+For personal content, I've fallen in love with the combination of [Whisper Memos](https://whispermemos.com/) and [Drafts](https://getdrafts.com/). Whisper Memos is a native iOS app by Vojtech Rinik ([X](https://x.com/_vojto), [Bluesky](https://bsky.app/profile/rinik.net)) that I learned about from David Sparks on the [Mac Power Users podcast](https://www.relay.fm/mpu). It works with my phone and watch, making it perfect for capturing thoughts anywhere.
+
+The game-changer is that Whisper Memos can email transcriptions directly to Drafts, which becomes my command center through its powerful [Actions](https://actions.getdrafts.com/) system. You can send your text to anywhere that's compatible with the Apple share sheet functionality or anything with an API because you can write custom Drafts actions. For example, I use the Kit API with Drafts to automatically set up draft newsletter articles.
+
+With Whisper Memos and Drafts, I can dictate text and then send it anywhere else quickly and easily.
+
+### Work voice capture: Superwhisper
+
+For work content (which often contains sensitive information), I use [superwhisper](https://superwhisper.com/), which runs OpenAI's Whisper model locally on my machine. This means no sensitive data leaves my work laptop. Thanks to [John Lindquist](https://x.com/johnlindquist) for the tip!
+
+This solves a common problem with Electron-based applications like VS Code, Cursor, and Slack, which don't always play well with built-in dictation tools. With superwhisper, I can dictate text and paste it wherever I need.
+
+### AI wearables: Bee and Limitless
+
+I've also been using [Bee](https://www.bee.ai/) and [Limitless](https://limitless.com/) AI wearables to capture voice dictation throughout the day. These devices transcribe my voice in the background and send it to apps on my phone. 
+
+## Monitoring Discord for valuable links
+
+Voice capture is only half the story. I'm constantly discovering valuable resources through Discord communities, but these links often get lost in the noise.
+
+To solve this, I created my own Discord server and built a bot that:
+
+1. Connects to my Discord server and fetches messages from configured channels
+2. Uses an LLM (currently Claude) to generate summaries of those messages and conversations
+3. Saves the summaries to markdown files
+4. Generates newsletter-ready content from the summaries
+
+The core summarization happens in a function that:
+
+- Fetches messages from the last N days (configurable)
+- Collects messages from both the main channel and any threads
+- Uses different prompts based on the channel type
+- Sends the content to Claude for summarization
+
+For example, the "Share Your Work" channel uses a special prompt that generates summaries in third person:
+    
+```python
+if channel_name == "Share Your Work":
+    prompt = f"""Please summarize the following Discord messages...
+    Write the summary in third person, e.g. "User X shared a video about..."
+    """
+```
+
+While my personal channels use first-person summaries that I can directly incorporate into my content.
+
+## Data cleanup and organization
+
+After capturing content through voice dictation and Discord monitoring, the next step is cleaning and organizing the raw data. My current process is deliberately straightforward:
+
+1. **Transcript cleanup**: Whisper Memos automatically sends transcripts to Drafts, where I manually clean them up. I fix transcription errors and replace names and technical terms that weren't recognized correctly.
+
+2. **Tagging and organization**: I tag all transcripts with a "daily-notes" tag in Drafts, which helps with filtering and batch processing later.
+
+3. **Repository storage**: Once cleaned, I move these transcripts to the appropriate folder in my agent repository. This gives me a central location for all my raw content that's ready for processing.
+
+This manual cleanup step might seem like a bottleneck, but it actually takes very little time and ensures the downstream processing gets high-quality input. I've found that spending 1-2 minutes cleaning transcripts saves much more time in the later stages.
+
+## Content processing via LLMs
+
+Once my cleaned transcripts and Discord summaries are in the agent repository, the real magic happens. I trigger the processing through a simple terminal command, which gives me flexibility and automation potential that web UIs can't match.
+
+The command accepts a parameter for the number of days to process, allowing me to create daily, weekly, or monthly artifacts as needed. Here's how the processing works:
+
+1. **Multi-step processing**: I've found that breaking the process into distinct steps produces better results. First, I extract summaries and insights from raw transcripts, then use those artifacts with the transcripts to create final content. This prevents the LLM from drifting too far from my original ideas.
+
+2. **Specialized prompting**: I have different prompt templates for different types of artifacts, since social media has very different requirements than weekly reports or newsletter content.
+
+3. **Style preservation**: To maintain my voice and style, I designed most prompts by providing samples of my previous work and asking an LLM to analyze and create prompts that would produce similar output. This "teaching by example" approach works surprisingly well.
+
+4. **Contextual processing**: For different timeframes, the processing adapts automatically. Multi-day summaries become newsletters and weekly reports, while individual insights might become social media posts.
+
+I control this entire process through configuration in Python, mapping different input types to different prompts and output formats.
+
+## Artifact generation
+
+The final output stage of my pipeline produces several types of knowledge work artifacts:
+
+1. **Blog articles**: These longer-form pieces come from notes that I specifically place in a dedicated folder within the agent repository. The LLM expands these notes into complete drafts that maintain my style and perspective.
+
+2. **Social media posts**: Quick insights and observations get transformed into platform-appropriate posts, complete with relevant hashtags and formatting.
+
+3. **Weekly work summaries**: These compile my accomplishments, challenges, and next steps from the week's notes.
+
+4. **Newsletters**: By combining my personal insights with the automatically summarized Discord links, I can quickly assemble comprehensive newsletters without the tedious manual compilation.
+
+Currently, all publishing is still manual as I'm refining the process and quality of outputs. The first step toward automated publishing will likely be connecting to social media management tools that allow me to queue posts for review before they go live.
+
+For blog content, automation is simpler. I can automatically move draft posts to my blog repository with a simple file copy operation. This keeps the publishing workflow integrated with my existing systems rather than creating yet another tool to check.
+
+I've found that the quality of these artifacts depends heavily on two factors: the quality of my prompts (especially when they include examples) and the capabilities of the specific LLM I'm using. Different models have different strengths, and I'm still experimenting to find the optimal model for each artifact type.
+
+## Bringing it all together
+
+The power of this system comes from how these components work together. Voice dictation and Discord monitoring feed raw content into a central repository. After cleanup, terminal commands trigger LLM processing that transforms these inputs into various artifacts, which I can then review and publish.
+
+This end-to-end pipeline isn't perfect, but it doesn't need to be. Its purpose is to reduce friction and overhead, not to eliminate the human element entirely. By automating the tedious parts of knowledge work - transcription, organization, initial drafting - I free up mental space for the parts that require human creativity and judgment.
+
+## What's next
+
+I'm still working on several aspects:
+
+- Using Hazel or cron jobs to further automate artifact generation
+- Experimenting with agent frameworks like LangGraph
+- Managing metadata across different content types
+- Tweaking prompts to balance automation with authenticity
+- Creating supporting visual assets automatically
+
+The key is building one piece at a time and focusing on what actually helps rather than what's technically possible.
+
+## Conclusion
+
+Building an ambient agent for knowledge work isn't about replacing our human thought, but eliminating the overhead that prevents us from focusing on what matters. By combining voice dictation, Discord monitoring, and LLM processing, I've created a system that lets me be more present in my life while still producing high-quality documentation of my knowledge work.
+
+The most valuable approach is to start small with one component that addresses your biggest pain point, then expand from there. For me, voice capture was the gateway to building a more comprehensive system. Then came Discord monitoring, followed by LLM processing, with each piece adding value on its own before being integrated into the whole.
+
+What I've shared here is still a work in progress. The prompts need refinement, the automation can be extended, and there's always room to add new artifact types or input sources. But even in its current state, this system has dramatically reduced the overhead of my knowledge work while maintaining quality.
+
+Are you building similar systems? I'd love to hear how other folks, especially those juggling family life with knowledge work, are approaching these challenges. What's working? What isn't? Drop me a note and let me know.
