@@ -15,17 +15,9 @@ I've been a friend and follower of Shawn Wang ([swyx](https://swyx.io/)) since h
 
 So, as is my custom, whether with [Developer Relations](http://www.gettingstartedindevrel.com), [AWS](https://www.samjulien.com/where-to-start-with-aws-as-a-developer), or [Obsidian](https://www.samjulien.com/get-started-with-obsidian-as-a-developer), I'm creating the article I wished existed when I was getting started.
 
-In this article, I'll break down my experience into high-level principles to approach the world of AI engineering and then practical strategies for getting started. As always, this is based on my experience - take what works for you and adapt it to your needs!
-
-## Principles for understanding the shift to AI engineering
-
-### Principle 1: AI is not just hype
 Like many developers, I was initially skeptical of AI &mdash; we've all seen enough hype cycles in tech to develop a healthy dose of cynicism. But AI is not just hype &mdash; it's based on decades of research, and it stands to literally revolutionize our entire society. 
 
-In his influential talk ["Opportunities in AI"](https://www.youtube.com/watch?v=5p248yoa3oE), Andrew Ng emphasizes that the current AI revolution is built on decades of research finally reaching practical application.
-
-### Principle 2: The stakes are incredibly high
-Amidst all of the hype of AI right now, it's important to understand the game being played around you: the pursuit of Artificial General Intelligence (AGI), sometimes referred to as Artificial Superintelligence (ASI). To oversimplify, AGI or ASI is when machines become as capable or more capable than human beings at most tasks.
+AI isn't just another tech hype cycle--it's decades of research finally reaching practical application, as Andrew Ng emphasizes in his talk ["Opportunities in AI"](https://www.youtube.com/watch?v=5p248yoa3oE). The stakes are incredibly high, with billionaires like Sam Altman, Mark Zuckerberg, and Elon Musk racing toward Artificial General Intelligence (AGI) -- machines as capable as humans at most tasks -- at nearly any cost. This pursuit could either transcend or endanger humanity, with ethical considerations around regulation, privacy, and security that can't be ignored.
 
 This started as an academic pursuit, but as we've inched our way closer in recent years, billionaires have taken notice and are staking their claim, racing for more power and money. Many of these major players have stated that they will sacrifice nearly anything in pursuit of this, citing the prediction that AGI will unlock trillions of dollars of value in the global economy as justification for everything from cutting ethical corners to raising billions in capital. The main ones to be aware of are:
 
@@ -39,68 +31,88 @@ There are massive ethical and safety considerations here, such as how we should 
 
 It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted, ethically-driven developers around the world to make a difference in their own communit and quickly add to the growing list of major players in this space.
 
-### Principle 3: The definition of work and the scale of possibility are already fundamentally changing
+Meanwhile, the definition of work is already changing dramatically. Tasks that once took days now take minutes. At Writer, I've seen companies automate content creation that previously required whole departments. The scale of what's possible for individual developers has fundamentally shifted, redefining what we can accomplish.
 
+Will AI replace developers? That's certainly the stated goal of several companies. But having worked directly with enterprise AI tools, I can tell you we're in the middle of a transformation rather than a replacement. We might not need developers to build UIs before long, but we'll absolutely need people who can orchestrate AI agents, review AI-generated code, and design complex systems.
 
-### Principle 4: Development work is evolving (not disappearing) and you must adapt
-
-Remember building applications that pull in data and display it for analysis? Now you can generate that code using LLMs and then feed the data right back into them for automated analysis. The scale at which we can develop has radically changed. Junior developers actually have an advantage here because they don't have any preconceptions about what's possible.
-
-At Writer, I see this every day - companies using LLMs to automate product descriptions across different retail sites, each with their own specific requirements. It's not flashy, but it saves enormous amounts of time and reduces errors. This immediate practical value is why AI has become the fastest-adopted new technology I've ever seen.
-
-This shift is part of what Shawn calls ["The Rise of the AI Engineer"](https://www.latent.space/p/ai-engineer) - a fundamental change in how we approach development. 
-
-Will AI replace developers? That's certainly the stated goal of several companies. But having worked directly with enterprise AI tools, I can tell you we're in the middle of a transformation rather than a replacement. We might not need developers to build UIs before long, but we'll absolutely need people who can orchestrate AI tools, review AI-generated code, and design complex systems.
-
+In this article, I'll break down practical strategies for getting started with AI engineering. As always, this is based on my experience - take what works for you and adapt it to your needs!
 
 ## Strategies for shifting into AI engineering
-The good news is that there is currently not enough engineering talent to usher in this new era.
 
-Companies seem to be over-correcting for remote work during COVID and only wanting to hire in San Francisco and New York, but this isn't sustainable.
-
-What does an AI engineer need to do their job?
+The good news is that there is currently not enough engineering talent to usher in this new era. Companies seem to be over-correcting for remote work during COVID and only wanting to hire in San Francisco and New York, but this isn't sustainable.
 
 Here are five strategies to transition from traditional software or web development into AI engineering:
 
-1. Use AI products to prototype and learn the fundamentals of interacting with LLMs
-2. Learn the key skills for AI engineering by building with APIs and SDKs
-3. Cross the divide into production AI engineering
-4. Embark on advanced "side quests" as you can
-5. Stay current by ignoring the hype and following the signal
+1. Stay current by ignoring the hype and following the signal
+2. Use AI products to prototype and learn the fundamentals of interacting with LLMs
+3. Learn the key skills for AI engineering by building with APIs and SDKs
+4. Cross the divide into production AI engineering
+5. Embark on advanced "side quests" as you can
 
-### Strategy 1: Use AI products to prototype and learn the fundamentals of interacting with LLMs
+### Strategy 1: Stay current by ignoring the hype and following the signal
+One of the biggest challenges in AI engineering is keeping up with the rapid pace of change while filtering out the noise. Four major areas of both conflict and growth are currently shaping the future of AI:
+
+- **Data:** Who owns and controls training data
+- **GPU/Inference:** How we process and run models efficiently
+- **Multimodality:** Competition in different types of AI like image, video, and speech
+- **LLMOps:** How we build and deploy AI applications
+
+Understanding these battles helps you see where the opportunities lie for developers. Here are three reliable sources of signal:
+
+#### Follow smart people
+The signal-to-noise ratio in AI content is particularly challenging. The Applied LLMs crew provides consistently practical insights into building real applications. Nathan Lambert offers clear-eyed analysis of the latest models and research without the hype. Finding a handful of trustworthy voices helps cut through marketing and speculation to focus on what works.
+Swyx high signal list
+
+#### Join community discussions
+Discord servers like [Latent Space](https://www.latent.space/) connect you with other practitioners and provide real-time discussion of new developments. These communities often surface practical applications of new research far before formal courses or books can be updated, and the shared learning environment helps everyone progress faster.
+
+#### Start learning about AI and ML research
+Move to side quests
+
+While you don't need to understand every research paper, developing basic literacy in AI research helps you anticipate where the field is heading.
+
+Paper Club experience
+
+- Shawn's [2025 Papers](https://www.latent.space/p/2025-papers) highlights key research to watch
+- Eugene Yan's [guide on starting a paper club](https://eugeneyan.com/writing/paper-club/) offers a structured approach to research literacy
+- His [list of notable papers](https://github.com/eugeneyan/llm-paper-notes) provides a curated starting point
+- Following major research conferences like NeurIPS helps identify emerging trends before they reach mainstream adoption
+
+Foreign language 
+It’s a lot like learning a foreign language and you’ll pick it up gradually as you go.  As someone here told me in June: be patient, give it time, and don’t stress too much about what you’re not understanding. Just keep showing up, reading, and letting the papers wash over you. The paper understanding compounds thankfully.
+
+Use ChatGPT/Claude to expain *anything* that I don't understand.  I've found that I often get derailed by terminology and references to things that are taken for granted by people in the field.  If I don't understand a concept, I will usually spend the time to dive in and get a high level understand of each concept that I'm missing. This takes some extra time in the beginning, but rewards itself with a much more complete understanding of the paper on which to build.  I've found this accelerates bootstrapping a new area of learning dramatically
+
+2. There are usually one or two papers that the paper depends on.  I generally also read those in pretty significant detail in order to understand the core concepts of the original paper.  This is similar to  #1, but also independently important because papers basically never stand alone: they are part of a conversation that researchers are having with each other, so it is very helpful to understand what the paper is building upon.
+
+Remember, you don't need to know everything. Focus on understanding the fundamentals and keeping an eye on major developments that affect your work directly. The developers who will thrive aren't necessarily the ones who know the most about machine learning theory--they're the ones who can effectively combine AI capabilities with solid engineering principles to solve real problems.
+
+### Strategy 2: Use AI products to prototype and learn the fundamentals of interacting with LLMs
 You don't need a deep ML background to become an AI engineer, but you do need to understand:
 - How to work with LLMs effectively across text, images, and other modalities
 - Basic prompt engineering principles
 - When to use AI and when not to
 
-Luckily, many AI products provide a smooth onramp to learning the fundamentals of interacting with LLMs. You can use ChatGPT, Anthropic's Claude, or other AI products to learn the basics of prompting and get familiar with how to interact with LLMs.
-Using an LLM:
-How to interact with it
-Prompting
+Luckily, many AI products provide a smooth onramp to learning these fundamentals:
 
-Instructor prompt design site: https://python.useinstructor.com/prompting/thought_generation/chain_of_thought_zero_shot/thread_of_thought/
+#### Mastering LLM interaction
+The first step is understanding how to interact with LLMs through effective prompting. This means learning to give clear instructions, provide context, and understand how different inputs affect outputs. Resources like [Sarah's prompting guide](https://exaai.notion.site/Prompt-Engineering-Best-Practices-0839585d4bce4c6abb0b551b2107a92a) and the [Instructor prompt design site](https://python.useinstructor.com/prompting/thought_generation/chain_of_thought_zero_shot/thread_of_thought/) offer excellent starting points.
 
-Sarah's prompting guide: https://exaai.notion.site/Prompt-Engineering-Best-Practices-0839585d4bce4c6abb0b551b2107a92a
+Better prompting links
 
-Code generation
-Bolt
-Replit
-Cursor
-Windsurf
+For code generation, tools like Bolt, Replit, Cursor, and Windsurf provide practical environments to experiment with AI-assisted coding. The key insight is seeing how bringing in context through project files or documentation dramatically improves what LLMs can generate.
 
-Bringing data in through context
+John Lindquist
 
-Multi-modality:
-Computer Vision
-Automatic speech recognition (ASR)
+#### Exploring multi-modality
+Beyond text, modern AI systems handle images (Computer Vision) and speech (Automatic Speech Recognition). Products like ChatGPT, Claude, and Gemini let you upload images and get analysis or generate text based on visual content. This multi-modal capability represents the future of AI interfaces.
 
-These products also introduce you to more advanced concepts in AI engineering. For example, web search is a subtle introduction to tool calling, while Deep Research by ChatGPT and Google Gemini is an introduction to agents.
+These products also introduce more advanced concepts in AI engineering. For example, web search functionality is a subtle introduction to tool calling, while Deep Research by ChatGPT and Google Gemini demonstrates the power of AI agents.
 
 For just starting out, I recommend DeepLearning.AI's [Generative AI for Everyone](https://www.coursera.org/learn/generative-ai-for-everyone/) course.
 
-### Strategy 2: Learn the key skills for AI engineering by building with APIs and SDKs
-Once you're familiar with the basics of prompting, bringing in data or other modalities to LLMs, and the extent of LLM capabilities, it's time to start building with AI through APIs and SDKs. You'll want to learn a core set of essential skills, as they represent the evolution of backend engineering and likely most of web development.
+### Strategy 3: Learn the key skills for AI engineering by building with APIs and SDKs
+Once you're comfortable with the basics, it's time to start building with AI through APIs and SDKs. You'll want to learn a core set of essential skills that represent the evolution of backend engineering:
 
 The most immediate opportunity for web developers is in combining existing AI tools effectively. I see successful AI engineers spending more time on:
 - Integrating AI capabilities into existing applications
@@ -108,65 +120,63 @@ The most immediate opportunity for web developers is in combining existing AI to
 - Building systems that combine multiple AI tools
 - Building AI agents
 
-Skills you already know:
-Debugging
-Testing 
-Insert other core engineering skills
+#### Transferable engineering skills
+Many core engineering skills you already possess directly transfer to AI engineering:
+- Debugging complex systems
+- Writing automated tests
+- API integration
+- Data transformation
+- System architecture design
+- Version control and deployment
 
-The key is understanding both:
-- What AI can do well (code generation, data analysis, content creation)
-- What still needs human oversight (system architecture, user experience, business logic)
+The key is understanding both what AI can do well (code generation, data analysis, content creation) and what still needs human oversight (system architecture, user experience, business logic).
 
-AI stack or reasoning stack
-LLM
-Data (RAG, context)
-UX/UI
+#### The AI reasoning stack
+When building AI applications, I think about three core layers:
+1. **LLM layer** - The foundation models that power your application (OpenAI, Anthropic, open-source models)
+2. **Data layer** - How you bring context to the LLM through RAG, fine-tuning, or other methods
+3. **UX/UI layer** - How users interact with and experience the AI capabilities
 
-Picking a model:
-Which model is the best fit? How do you know?
-LLM leaderboards
-Benchmarks
-Datasets
+#### Choosing the right model
+With new models released almost weekly, choosing the right one is crucial. Consider:
+- Task requirements (text generation, code, multi-modal capabilities)
+- Cost and latency constraints
+- Privacy and data security needs
 
-LLMs via APIs and SDKs
+Resources like LLM leaderboards and benchmarks can help, but nothing beats testing models with your specific use cases and datasets.
+
+#### Working with APIs and SDKs
+Start by learning to use the Python or TypeScript SDKs for major providers like OpenAI, Anthropic, or Hugging Face. These let you integrate AI capabilities directly into your applications.
 
 Note: Though many tools now offer JavaScript/TypeScript SDKs, you will inevitably need to learn at least some Python. I've been learning Python gradually as needed, using LLMs to help with the transition. LLMs are great at translating between languages!
 
-Code generation
+#### Building RAG applications
+Retrieval Augmented Generation (RAG) is one of the most important patterns in AI engineering. It involves retrieving relevant information from your own data sources and feeding it to an LLM to generate more accurate, contextual responses. This requires understanding:
+- Vector databases and embeddings
+- Text chunking strategies
+- Search and retrieval methods
+- Prompt engineering for RAG systems
 
-Bringing data in:
-RAG
-Data processing
-Data engineering
+#### Function calling and structured I/O
+Modern LLMs can both parse structured input and generate structured output. Learning to work with function calling allows your applications to:
+- Extract specific data points from text
+- Generate valid JSON or other structured formats
+- Call external APIs based on user requests
+- Validate and enforce output schemas
 
-What to do with it
-
-Multi-modality:
-Image generation
-Computer Vision
-Automatic speech recognition (ASR)
-Text-to-audio
-Text-to-video
-
-Function calling
-
-Function calling
-Structured input
-Structured output
-
-Orchestrating multiple LLMs
-Agents
+#### Orchestrating multiple LLMs
+As applications grow more complex, you'll often need to coordinate multiple LLM calls in sequence or parallel. This is where agent frameworks come in, allowing you to build systems that can:
+- Break complex tasks into subtasks
+- Maintain context across multiple interactions
+- Make decisions about which tools or models to use
+- Handle errors and edge cases gracefully
 
 I highly recommend checking out DeepLearning.AI's [short courses](https://www.deeplearning.ai/short-courses/), which provide an excellent foundation in these concepts. I also really like Scrimba's [AI Engineering path](https://scrimba.com/paths/ai-engineering).
 
-Following [swyxio/ai-notes](https://github.com/swyxio/ai-notes) for curated resources
+For curated resources, follow [swyxio/ai-notes](https://github.com/swyxio/ai-notes). To dig deeper into production-level AI engineering, check out Shawn and Noah's Level Up course and Chip Huyen's book [AI Engineering](https://www.chiphuyen.com/ai-engineering-book).
 
-To really dig deep into these concepts and prepare for production-level AI engineering, check out Shawn and Noah's Level Up course and Chip Huyen's book [AI Engineering]().
-
-![AI Engineering by Chip Huyen]()
-
-### Strategy 3: Cross the divide into production AI engineering
-As you get AI projects under your belt with APIs and SDKs, you'll soon learn that there is a large chasm between proof-of-concept, hobby projects and real, production-grade AI applications. As with many things, this level of complexity is where the real money is, and where the career path leads. If you can help companies escape what we call at Writer [POC purgatory](), you'll separate yourself from the masses who are simply vibe coding with LLMs and hoping for the best.
+### Strategy 4: Cross the divide into production AI engineering
+As you get AI projects under your belt with APIs and SDKs, you'll soon learn that there is a large chasm between proof-of-concept, hobby projects and real, production-grade AI applications. As with many things, this level of complexity is where the real money is, and where the career path leads. If you can help companies escape what we call at Writer "POC purgatory," you'll separate yourself from the masses who are simply vibe coding with LLMs and hoping for the best.
 
 Most of the complexities of production-grade AI applications stem from two major issues:
 
@@ -175,110 +185,73 @@ Most of the complexities of production-grade AI applications stem from two major
 
 Notice that only one of those problems has anything to do with AI. This holds true: most of the problems with AI engineering are age-old data and software problems. LLMs add a new layer of complexity, as well as new modalities, but also don't change the fundamental problems of software engineering.
 
+#### Testing LLM output
+Unlike traditional software where inputs predictably map to outputs, LLMs add a layer of probabilistic behavior that makes testing challenging. Effective production systems require:
 
+- **LLM unit tests** that verify core functionality while accommodating variance
+- **Evaluation frameworks** (known as "evals") that measure output quality across dimensions like factuality, toxicity, and coherence
+- **Quantifiable metrics** that translate subjective "vibes" into measurable benchmarks
 
-Testing LLM output
-LLM unit tests
-Evals
-Quantifying our vibes
+Resources like [Parlance Labs' Evals Education](https://parlance-labs.com/education/evals/), [Forest Friends](https://forestfriends.tech/), and Weights & Biases' [evals course](https://wandb.ai/site/courses/evals/) provide excellent starting points.
 
-https://parlance-labs.com/education/evals/
-https://forestfriends.tech/
-https://wandb.ai/site/courses/evals/?utm_source=discord&utm_medium=social&utm_campaign=course_evals
-Hamel and Shreya's course
+#### LLM-as-judge techniques
+One fascinating approach to evaluation is using LLMs themselves as judges. Hamel Hussain's [LLM Judge](https://hamel.dev/blog/posts/llm-judge/) work and Eugene Yan's [writing on LLM evaluators](https://eugeneyan.com/writing/llm-evaluators/) offer compelling frameworks for this approach.
 
-LLM-as-judge
-https://hamel.dev/blog/posts/llm-judge/
+Replace with Weave and LangSmith
+Tools like [Firecrawl's Crawlbench](https://www.firecrawl.dev/blog/crawlbench-llm-extraction) and [Langfuse](https://langfuse.com/) help automate and scale these evaluations in production environments.
 
-Eugene
-https://eugeneyan.com/writing/llm-evaluators/
+#### Advanced RAG techniques
+Production applications often require more sophisticated RAG approaches than simple vector similarity:
 
+- **Graph RAG** leverages relationships between pieces of information
+- **Hybrid retrieval** combines multiple search methods
+- **Multi-stage retrieval** filters and refines search results in sequence
+- **Re-ranking** improves relevance by re-scoring initial search results
 
-Hamel
-https://hamel.dev/blog/posts/evals/
+Add course link
+Jason Liu's work on advanced RAG architectures has been particularly influential in this space.
 
-Shreya
+#### Production-grade function calling
+Beyond basic function calling, production systems need:
+- Robust schema validation
+- Fallback mechanisms for invalid outputs
+- Cost and latency optimizations
+- Versioning strategies for evolving schemas
 
+#### Enterprise-ready agent orchestration
+When moving beyond simple agents to production systems, you need:
+- Monitoring and observability
+- Robust error handling
+- Rate limiting and cost controls
+- Secure handling of sensitive data
 
-https://www.firecrawl.dev/blog/crawlbench-llm-extraction
+### Strategy 5: Embark on advanced "side quests" as you can
 
-https://langfuse.com/
+These areas might not be the core of AI engineering but offer valuable expertise and opportunities as either fun hobby projects or specialized career paths:
 
-Advanced RAG
-Graph RAG
-Jason Liu
+#### Model deployment and inference
+Understanding where and how to host models involves crucial tradeoffs between:
+- Latency requirements
+- Cost constraints
+- Security considerations
+- Scale needs
 
-Function calling
-Structured input
-Structured output
+While many developers can rely on API providers like OpenAI and Anthropic, knowledge of inference optimization becomes crucial for specialized applications or when working with open-source models.
 
-Orchestrating multiple LLMs
-Agents
-
-### Strategy 4: Embark on advanced "side quests" as you can
-
-Either fun/hobby or a different career  path, but likely not the core of AI engineering
-
-Where to host a model?
-Inference
-
-Self-hosting models
-LM Studio
-
-LLMOps
-
-Running models locally
-LMStudio for running models locally: https://lmstudio.ai/
-
-Latency
-Cost
-GPUs
+Together
 Modal
-Latent Space on Modal: https://www.latent.space/p/modal
 
-Charles
-Charles twitter: https://x.com/charles_irl
+#### Self-hosting and local execution
+Tools like [LM Studio](https://lmstudio.ai/) allow running smaller models locally, which can be valuable for applications with privacy requirements or offline needs. Understanding the tradeoffs between cloud APIs and self-hosted models helps you make better architectural decisions.
 
-GPU glossary: https://modal.com/gpu-glossary/readme
+#### Infrastructure and LLMOps
+Services like [Modal](https://modal.com/) simplify deploying AI applications without managing complex infrastructure. Charles Frye's [work](https://x.com/charles_irl) provides excellent insights into this space, and Modal's [GPU glossary](https://modal.com/gpu-glossary/readme) helps demystify GPU selection.
 
+#### Open-source models
+The landscape of open-source LLMs is evolving rapidly, with models like Llama, Mistral, and Falcon offering compelling alternatives to closed APIs. Nathan Lambert's research provides excellent guidance on when to use open vs. closed-source models and their relative strengths.
 
-Open source models
-Closed source vs open source LLMs
-Nathan Lambert
-
-Fine-tuning
-
-### Strategy 5: Stay current by ignoring the hype and following the signal
-One of the biggest challenges in AI engineering is keeping up with the rapid pace of change. 
-
-There are four major areas of both conflict and growth currently shaping the future of AI:
-- Data: who owns and controls training data
-- GPU/Inference: how we process and run models efficiently
-- Multimodality: competition in different types of AI like image, video, and speech
-- LLMOps: how we build and deploy AI applications
-
-Understanding these battles helps you see where the opportunities lie for developers.
-
-Three sources of signal
-
-#### Follow smart people
-Applied LLMs crew
-Nathan Lambert
-
-#### Start learning about AI and ML research
-Wade into research
-https://www.latent.space/p/2025-papers
-
-Eugene's links
-Eugene Yan's write-up on how to start a paper club: https://eugeneyan.com/writing/paper-club/
-Eugene Yan's list of notable papers: https://github.com/eugeneyan/llm-paper-notes
-Paper club
-NeurIPS
-
-#### Discord servers
-Join communities like [Latent Space](https://www.latent.space/) to stay current
-
-Remember, you don't need to know everything. Focus on understanding the fundamentals and keeping an eye on major developments that affect your work directly. The developers who will thrive aren't necessarily the ones who know the most about machine learning theory - they're the ones who can effectively combine AI capabilities with solid engineering principles to solve real problems.
+#### Fine-tuning
+While not always necessary, fine-tuning models on domain-specific data can dramatically improve performance for specialized tasks. Learning when and how to fine-tune is a powerful skill, though one that requires more ML background than other areas of AI engineering.
 
 ## The Path Forward
 
@@ -290,4 +263,4 @@ Here's what I recommend focusing on:
 3. Maintain your engineering judgment - AI can generate code, but understanding architecture and user needs remains crucial
 4. Stay curious but practical - focus on solving real problems rather than chasing the latest AI trend
 
-You can do this! Reach out if you have questions.
+You can do this! Reach out if you have questions.​​​​​​​​​​​​​​​​
