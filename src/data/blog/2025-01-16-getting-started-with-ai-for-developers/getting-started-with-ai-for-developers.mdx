@@ -1,6 +1,6 @@
 ---
-title: "Getting Started with AI for Developers"
-slug: 'getting-started-with-ai-for-developers'
+title: "Getting Started with AI Engineering for Developers"
+slug: 'ai-engineering-guide'
 description: "The anti-hype guide for navigating the new world of AI engineering."
 date: 2025-01-16
 date_updated: 2025-01-16
@@ -9,39 +9,11 @@ published: true
 tags:
   - AI
 ---
-When I first started to learn about AI engineering in October of 2023, I was overwhelmed with jargon, academic papers, and more acronyms than I could handle. NLP? RAG? LLMs? DPO? RLHF? My head was spinning. I looked around for resources targeted at web developers new to AI, but couldn't find what I wanted. I needed someone to orient me to the landscape, give me a map, and help me figure out which direction to go. Instead, I just kept finding a bunch of Machine Learning resources and more confusion.
+When I first started to learn about AI engineering in October of 2023, I needed someone to orient me to the landscape, give me a map, and help me figure out which direction to go. Instead, I just kept finding a bunch of Machine Learning resources and more confusion. I was overwhelmed with jargon, academic papers, and more acronyms than I could handle. NLP? RAG? LLMs? DPO? RLHF? My head was spinning. I looked around for resources targeted at web developers new to AI, but couldn't find what I wanted.
 
 I've been a friend and follower of Shawn Wang ([swyx](https://swyx.io/)) since his frontend days, so I started with his work on [Latent Space](https://www.latent.space/) and [The Rise of the AI Engineer](https://www.latent.space/p/ai-engineer). Eventually, I found my way around and learned enough to join [Writer](https://www.writer.com), an enterprise AI platform, as their Director of Developer Relations in spring 2024. It wasn't easy though, and I could have really used a practical, high-level guide to help me understand the landscape and get started.
 
-So, as is my custom, whether with [Developer Relations](http://www.gettingstartedindevrel.com), [AWS](https://www.samjulien.com/where-to-start-with-aws-as-a-developer), or [Obsidian](https://www.samjulien.com/get-started-with-obsidian-as-a-developer), I'm creating the article I wished existed when I was getting started.
-
-Like many developers, I was initially skeptical of AI &mdash; we've all seen enough hype cycles in tech to develop a healthy dose of cynicism. But AI is not just hype &mdash; it's based on decades of research, and it stands to literally revolutionize our entire society. 
-
-AI isn't just another tech hype cycle--it's decades of research finally reaching practical application, as Andrew Ng emphasizes in his talk ["Opportunities in AI"](https://www.youtube.com/watch?v=5p248yoa3oE). The stakes are incredibly high, with billionaires like Sam Altman, Mark Zuckerberg, and Elon Musk racing toward Artificial General Intelligence (AGI) -- machines as capable as humans at most tasks -- at nearly any cost. This pursuit could either transcend or endanger humanity, with ethical considerations around regulation, privacy, and security that can't be ignored.
-
-This started as an academic pursuit, but as we've inched our way closer in recent years, billionaires have taken notice and are staking their claim, racing for more power and money. Many of these major players have stated that they will sacrifice nearly anything in pursuit of this, citing the prediction that AGI will unlock trillions of dollars of value in the global economy as justification for everything from cutting ethical corners to raising billions in capital. The main ones to be aware of are:
-
-- Sam Altman and OpenAI, developing ChatGPT models and products
-- Mark Zuckerberg and Meta, developing the Llama models and adding them to Meta products
-- Satya Nidella and Microsoft, partnering with OpenAI and integrating AI into Azure
-- Elon Musk and XAI, developing Grok models and, well, you know the rest
-- Jensen Huang and NVIDIA, essentially dominating the entire hardware space for model training
-
-There are massive ethical and safety considerations here, such as how we should or should not regulate the development of AI technology, how we must evolve privacy and security in this new era, how we should or should not police AI-generated "deepfake" content, and much more. AGI could represent an opportunity for either the transcendance of humanity or its extinction.
-
-It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted, ethically-driven developers around the world to make a difference in their own communit and quickly add to the growing list of major players in this space.
-
-Meanwhile, the definition of work is already changing dramatically. Tasks that once took days now take minutes. At Writer, I've seen companies automate content creation that previously required whole departments. The scale of what's possible for individual developers has fundamentally shifted, redefining what we can accomplish.
-
-Will AI replace developers? That's certainly the stated goal of several companies. But having worked directly with enterprise AI tools, I can tell you we're in the middle of a transformation rather than a replacement. We might not need developers to build UIs before long, but we'll absolutely need people who can orchestrate AI agents, review AI-generated code, and design complex systems.
-
-In this article, I'll break down practical strategies for getting started with AI engineering. As always, this is based on my experience - take what works for you and adapt it to your needs!
-
-## Strategies for shifting into AI engineering
-
-The good news is that there is currently not enough engineering talent to usher in this new era. Companies seem to be over-correcting for remote work during COVID and only wanting to hire in San Francisco and New York, but this isn't sustainable.
-
-Here are five strategies to transition from traditional software or web development into AI engineering:
+So, as is my custom, whether with [Developer Relations](http://www.gettingstartedindevrel.com), [AWS](https://www.samjulien.com/where-to-start-with-aws-as-a-developer), or [Obsidian](https://www.samjulien.com/get-started-with-obsidian-as-a-developer), I'm creating the guide I wished existed when I was getting started. I'll break down practical strategies for getting started with AI engineering. As always, this is based on my experience - take what works for you and adapt it to your needs!
 
 1. Stay current by ignoring the hype and following the signal
 2. Use AI products to prototype and learn the fundamentals of interacting with LLMs
@@ -49,43 +21,45 @@ Here are five strategies to transition from traditional software or web developm
 4. Cross the divide into production AI engineering
 5. Embark on advanced "side quests" as you can
 
-### Strategy 1: Stay current by ignoring the hype and following the signal
-One of the biggest challenges in AI engineering is keeping up with the rapid pace of change while filtering out the noise. Four major areas of both conflict and growth are currently shaping the future of AI:
+## Why AI engineering matters
+Before we jump into the strategies, let's take a quick look at some important background on why this shift is happening and matters so much.
 
-- **Data:** Who owns and controls training data
-- **GPU/Inference:** How we process and run models efficiently
-- **Multimodality:** Competition in different types of AI like image, video, and speech
-- **LLMOps:** How we build and deploy AI applications
+Like many developers, I was initially skeptical of AI. We've all seen enough hype cycles in tech to develop a healthy dose of cynicism. But AI isn't just another tech hype cycle &mdash; it's decades of research finally reaching practical application, as Andrew Ng emphasizes in his talk ["Opportunities in AI"](https://www.youtube.com/watch?v=5p248yoa3oE). 
 
-Understanding these battles helps you see where the opportunities lie for developers. Here are three reliable sources of signal:
+Meanwhile, the definition of work is already changing dramatically. Tasks that once took days now take minutes. At Writer, I've seen companies automate content creation that previously required whole departments. The scale of what's possible for individual developers has fundamentally shifted, redefining what we can accomplish.
 
-#### Follow smart people
-The signal-to-noise ratio in AI content is particularly challenging. The Applied LLMs crew provides consistently practical insights into building real applications. Nathan Lambert offers clear-eyed analysis of the latest models and research without the hype. Finding a handful of trustworthy voices helps cut through marketing and speculation to focus on what works.
-Swyx high signal list
+Will AI replace developers? That's certainly the stated goal of several companies. But having worked directly with enterprise AI tools, I can tell you we're in the middle of a transformation rather than a replacement. We might not need developers to build UIs before long, but we'll absolutely need people who can orchestrate AI agents, review AI-generated code, and design complex systems.
 
-#### Join community discussions
-Discord servers like [Latent Space](https://www.latent.space/) connect you with other practitioners and provide real-time discussion of new developments. These communities often surface practical applications of new research far before formal courses or books can be updated, and the shared learning environment helps everyone progress faster.
+While stands to literally revolutionize our entire society. The stakes are incredibly high, with billionaires like Sam Altman, Mark Zuckerberg, and Elon Musk racing toward Artificial General Intelligence (AGI) -- machines as capable as humans at most tasks -- at nearly any cost. This pursuit could either transcend or endanger humanity, with ethical considerations around regulation, privacy, and security that can't be ignored.
 
-#### Start learning about AI and ML research
-Move to side quests
+This started as an academic pursuit, but as we've inched our way closer in recent years, billionaires have taken notice and are staking their claim, racing for more power and money. The main ones to be aware of are:
 
-While you don't need to understand every research paper, developing basic literacy in AI research helps you anticipate where the field is heading.
+- Sam Altman and OpenAI, developing ChatGPT models and products
+- Mark Zuckerberg and Meta, developing the Llama models and adding them to Meta products
+- Satya Nidella and Microsoft, partnering with OpenAI and integrating AI into Azure
+- Elon Musk and XAI, developing Grok models and, well, you know the rest
+- Jensen Huang and NVIDIA, essentially dominating the entire hardware space for model training
 
-Paper Club experience
+Many of these major players have stated that they will sacrifice nearly anything in pursuit of this, citing the prediction that AGI will unlock trillions of dollars of value in the global economy as justification for everything from cutting ethical corners to raising billions in capital. 
 
-- Shawn's [2025 Papers](https://www.latent.space/p/2025-papers) highlights key research to watch
-- Eugene Yan's [guide on starting a paper club](https://eugeneyan.com/writing/paper-club/) offers a structured approach to research literacy
-- His [list of notable papers](https://github.com/eugeneyan/llm-paper-notes) provides a curated starting point
-- Following major research conferences like NeurIPS helps identify emerging trends before they reach mainstream adoption
+There are massive ethical and safety considerations here, such as how we should or should not regulate the development of AI, how we must evolve privacy and security in this new era, how we should or should not police AI-generated "deepfake" content, and much more. AGI could represent an opportunity for either the transcendance of humanity or its extinction.
 
-Foreign language 
-It’s a lot like learning a foreign language and you’ll pick it up gradually as you go.  As someone here told me in June: be patient, give it time, and don’t stress too much about what you’re not understanding. Just keep showing up, reading, and letting the papers wash over you. The paper understanding compounds thankfully.
+It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted, ethically-driven developers around the world to make a difference in their own communit and quickly add to the growing list of major players in this space.
 
-Use ChatGPT/Claude to expain *anything* that I don't understand.  I've found that I often get derailed by terminology and references to things that are taken for granted by people in the field.  If I don't understand a concept, I will usually spend the time to dive in and get a high level understand of each concept that I'm missing. This takes some extra time in the beginning, but rewards itself with a much more complete understanding of the paper on which to build.  I've found this accelerates bootstrapping a new area of learning dramatically
+The good news is that there is currently not enough engineering talent to usher in this new era. Companies seem to be over-correcting for remote work during COVID and only wanting to hire in San Francisco and New York, but this isn't sustainable.
 
-2. There are usually one or two papers that the paper depends on.  I generally also read those in pretty significant detail in order to understand the core concepts of the original paper.  This is similar to  #1, but also independently important because papers basically never stand alone: they are part of a conversation that researchers are having with each other, so it is very helpful to understand what the paper is building upon.
+Shift right
 
-Remember, you don't need to know everything. Focus on understanding the fundamentals and keeping an eye on major developments that affect your work directly. The developers who will thrive aren't necessarily the ones who know the most about machine learning theory--they're the ones who can effectively combine AI capabilities with solid engineering principles to solve real problems.
+## Strategies for shifting into AI engineering
+OK, so how do you actually make the leap from something like web development or developer advocacy to AI engineering?
+
+Here are five strategies to transition from traditional software or web development into AI engineering:
+
+1. Use AI products to prototype and learn the fundamentals of interacting with LLMs
+3. Learn the key skills for AI engineering by building with APIs and SDKs
+4. Cross the divide into production AI engineering
+5. Embark on advanced "side quests" as you can
+6. Stay current by ignoring the hype and following the signal
 
 ### Strategy 2: Use AI products to prototype and learn the fundamentals of interacting with LLMs
 You don't need a deep ML background to become an AI engineer, but you do need to understand:
@@ -96,7 +70,11 @@ You don't need a deep ML background to become an AI engineer, but you do need to
 Luckily, many AI products provide a smooth onramp to learning these fundamentals:
 
 #### Mastering LLM interaction
-The first step is understanding how to interact with LLMs through effective prompting. This means learning to give clear instructions, provide context, and understand how different inputs affect outputs. Resources like [Sarah's prompting guide](https://exaai.notion.site/Prompt-Engineering-Best-Practices-0839585d4bce4c6abb0b551b2107a92a) and the [Instructor prompt design site](https://python.useinstructor.com/prompting/thought_generation/chain_of_thought_zero_shot/thread_of_thought/) offer excellent starting points.
+The first step is understanding how to interact with LLMs through effective prompting. This means learning to give clear instructions, provide context, and understand how different inputs affect outputs. 
+
+Best place to start is by asking the LLMs you're using.
+
+Resources like [Sarah's prompting guide](https://exaai.notion.site/Prompt-Engineering-Best-Practices-0839585d4bce4c6abb0b551b2107a92a) and the [Instructor prompt design site](https://python.useinstructor.com/prompting/thought_generation/chain_of_thought_zero_shot/thread_of_thought/) offer excellent starting points.
 
 Better prompting links
 
@@ -146,9 +124,11 @@ With new models released almost weekly, choosing the right one is crucial. Consi
 Resources like LLM leaderboards and benchmarks can help, but nothing beats testing models with your specific use cases and datasets.
 
 #### Working with APIs and SDKs
-Start by learning to use the Python or TypeScript SDKs for major providers like OpenAI, Anthropic, or Hugging Face. These let you integrate AI capabilities directly into your applications.
+Start by learning to use the Python or TypeScript SDKs for major providers like OpenAI, Anthropic, or Gemini. These let you integrate AI capabilities directly into your applications.
 
-Note: Though many tools now offer JavaScript/TypeScript SDKs, you will inevitably need to learn at least some Python. I've been learning Python gradually as needed, using LLMs to help with the transition. LLMs are great at translating between languages!
+Note: Though many tools now offer JavaScript/TypeScript SDKs, you will inevitably need to learn at least some Python, as the vast majority of AI engineering work is still happening in Python. I've been learning Python gradually as needed, using LLMs to help with the transition. LLMs are great at translating between languages!
+
+There are a boatload of free resources for learning Python. Start with this [Python Programmers Beginner's Guide](https://wiki.python.org/moin/BeginnersGuide/Programmers), a curated list of Python tutorials, books, and resources maintained on the Python Wiki.
 
 #### Building RAG applications
 Retrieval Augmented Generation (RAG) is one of the most important patterns in AI engineering. It involves retrieving relevant information from your own data sources and feeding it to an LLM to generate more accurate, contextual responses. This requires understanding:
@@ -252,6 +232,49 @@ The landscape of open-source LLMs is evolving rapidly, with models like Llama, M
 
 #### Fine-tuning
 While not always necessary, fine-tuning models on domain-specific data can dramatically improve performance for specialized tasks. Learning when and how to fine-tune is a powerful skill, though one that requires more ML background than other areas of AI engineering.
+
+### Strategy 1: Stay current by ignoring the hype and following the signal
+One of the biggest challenges in AI engineering is keeping up with the rapid pace of change while filtering out the noise. Four major areas of both conflict and growth are currently shaping the future of AI:
+
+- **Model development and architecture**
+
+- **Data:** Who owns and controls training data, running out of data, how do you create data (synthetic data)
+- **GPU/Inference:** How we train and run models efficiently
+- **Multimodality:** Competition in different types of AI like image, video, and speech
+- **LLMOps:** How we build and deploy AI applications
+
+Understanding these battles helps you see where the opportunities lie for developers. 
+
+Here are three reliable sources of signal:
+
+#### Follow smart people
+The signal-to-noise ratio in AI content is particularly challenging. The Applied LLMs crew provides consistently practical insights into building real applications. Nathan Lambert offers clear-eyed analysis of the latest models and research without the hype. Finding a handful of trustworthy voices helps cut through marketing and speculation to focus on what works.
+Swyx high signal list
+NLW
+
+
+#### Join community discussions
+Discord servers like [Latent Space](https://www.latent.space/) connect you with other practitioners and provide real-time discussion of new developments. These communities often surface practical applications of new research far before formal courses or books can be updated, and the shared learning environment helps everyone progress faster.
+
+Remember, you don't need to know everything. Focus on understanding the fundamentals and keeping an eye on major developments that affect your work directly. The developers who will thrive aren't necessarily the ones who know the most about machine learning theory--they're the ones who can effectively combine AI capabilities with solid engineering principles to solve real problems.
+
+#### Start learning about AI and ML research
+While you don't need to understand every research paper, developing basic literacy in AI research helps you anticipate where the field is heading.
+
+Paper Club experience
+
+- Shawn's [2025 Papers](https://www.latent.space/p/2025-papers) highlights key research to watch
+- Eugene Yan's [guide on starting a paper club](https://eugeneyan.com/writing/paper-club/) offers a structured approach to research literacy
+- His [list of notable papers](https://github.com/eugeneyan/llm-paper-notes) provides a curated starting point
+- Following major research conferences like NeurIPS helps identify emerging trends before they reach mainstream adoption
+
+Foreign language 
+It’s a lot like learning a foreign language and you’ll pick it up gradually as you go.  As someone here told me in June: be patient, give it time, and don’t stress too much about what you’re not understanding. Just keep showing up, reading, and letting the papers wash over you. The paper understanding compounds thankfully.
+
+Use ChatGPT/Claude to expain *anything* that I don't understand.  I've found that I often get derailed by terminology and references to things that are taken for granted by people in the field.  If I don't understand a concept, I will usually spend the time to dive in and get a high level understand of each concept that I'm missing. This takes some extra time in the beginning, but rewards itself with a much more complete understanding of the paper on which to build.  I've found this accelerates bootstrapping a new area of learning dramatically
+
+2. There are usually one or two papers that the paper depends on.  I generally also read those in pretty significant detail in order to understand the core concepts of the original paper.  This is similar to  #1, but also independently important because papers basically never stand alone: they are part of a conversation that researchers are having with each other, so it is very helpful to understand what the paper is building upon.
+
 
 ## The Path Forward
 
