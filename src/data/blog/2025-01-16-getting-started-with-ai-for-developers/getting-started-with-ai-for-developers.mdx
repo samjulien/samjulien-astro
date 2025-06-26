@@ -11,13 +11,13 @@ tags:
 ---
 When I first started to learn about AI engineering in October of 2023, I was overwhelmed with jargon, academic papers, and more acronyms than I could handle. NLP? RAG? LLMs? DPO? RLHF? My head was spinning. I looked around for resources targeted at web developers new to AI, but couldn't find what I wanted. I needed someone to orient me to the landscape, give me a map, and help me figure out which direction to go. Instead, I just kept finding a bunch of Machine Learning resources and more confusion. 
 
-I've been a friend and follower of Shawn Wang ([swyx](https://swyx.io/)) since his frontend days, so I started with his work on [Latent Space](https://www.latent.space/) and [The Rise of the AI Engineer](https://www.latent.space/p/ai-engineer). Eventually, I found my way around and learned enough to join [Writer](https://www.writer.com), an enterprise AI platform, as their Director of Developer Relations in spring 2024. It wasn't easy though, and I could have really used a practical, high-level guide to help me understand the landscape and get started.
+I've been a friend and follower of Shawn Wang ([swyx](https://swyx.io/)) since his frontend days, so I started with his work on [Latent Space](https://www.latent.space/) and [The Rise of the AI Engineer](https://www.latent.space/p/ai-engineer). Eventually, I found my way around and learned enough to join [Writer](https://www.writer.com), an enterprise AI platform, as their Director of Developer Relations in Spring 2024. It wasn't easy though, and I could have really used a practical, high-level guide to help me understand the landscape and get started.
 
 So, as is my custom, whether with [Developer Relations](http://www.gettingstartedindevrel.com), [AWS](https://www.samjulien.com/where-to-start-with-aws-as-a-developer), or [Obsidian](https://www.samjulien.com/get-started-with-obsidian-as-a-developer), I'm creating the guide I wished existed when I was getting started. 
 
 I'll start with what I mean by AI engineering and why it matters, and then break down practical strategies for getting started with AI engineering. As always, this is based on my experience - take what works for you and adapt it to your needs!
 
-If you want to get all of the background, here are the strategies:
+If you want to skip all of the background, here are the strategies:
 1. Use AI products to prototype and learn the fundamentals of interacting with LLMs
 2. Learn the key skills for AI engineering by building with APIs and SDKs
 3. Cross the divide into production AI engineering
@@ -25,22 +25,30 @@ If you want to get all of the background, here are the strategies:
 5. Stay current by ignoring the hype and following the signal
 
 ## What is AI engineering?
+There are a few different interpretations of what "AI engineering" as a discipline and "AI engineer" as a practitioner mean, but they essentially boil down to two:
 
+1. Engineers who build and train models (Machine Learning-forward)
+2. Engineers who build applications that use AI (Software-forward)
 
-Shift right diagram
+For this article, I'm using the latter definition. In many places, though, you'll still see the former. In fact, at my own company we use the term "AI engineer" to describe the team building our models. If you start seeing Machine Learning (ML) resources mentioned in an article or YouTube video, they're probably using that definition.
+
+The software-forward definition is the one I'm using here, and it's the one I think is most relevant to web developers. It was coined by [Swyx](https://swyx.io/) and popularized by [Latent Space](https://www.latent.space/), particularly the following diagram:
+
+![Shift right diagram](images/ai-engineer-diagram.webp)
+*Swxy's AI engineering diagram*
+
+The main idea here is that with the advent of transformer architecture (think: ChatGPT), developers can build AI applications at the API layer, without having to understand the underlying math or machine learning. This is a massive shift from the past, where building AI applications required a deep understanding of machine learning and statistics.
+
+It's also a practical advantage, as there orders of magnitude more software engineers than machine learning engineers. This means that the barrier to entry for AI engineering is much lower than it was in the past, and it's a skill that can be learned by anyone with software development skills.
 
 ## Why AI engineering matters
-Before we jump into the strategies, let's take a quick look at some important background on why this shift is happening and matters so much.
+Why this shift is happening and why does it matter so much?
 
-Like many developers, I was initially skeptical of AI. We've all seen enough hype cycles in tech to develop a healthy dose of cynicism. But AI isn't just another tech hype cycle &mdash; it's decades of research finally reaching practical application, as Andrew Ng emphasizes in his talk ["Opportunities in AI"](https://www.youtube.com/watch?v=5p248yoa3oE). 
+Like many developers, I was initially skeptical of AI. We've all seen enough hype cycles in tech to develop a healthy dose of cynicism. But AI isn't just another tech hype cycle &mdash; it's decades of research finally reaching practical application, as Dr. Andrew Ng emphasizes in his talk ["Opportunities in AI"](https://www.youtube.com/watch?v=5p248yoa3oE). 
 
-Meanwhile, the definition of work is already changing dramatically. Tasks that once took days now take minutes. At Writer, I've seen companies automate content creation that previously required whole departments. The scale of what's possible for individual developers has fundamentally shifted, redefining what we can accomplish.
+The big game being played here is the race toward Artificial General Intelligence (AGI) -- machines as capable as humans at most tasks. This pursuit could either transcend or endanger humanity, with ethical considerations around regulation, privacy, and security that can't be ignored.
 
-Will AI replace developers? That's certainly the stated goal of several companies. But having worked directly with enterprise AI tools, I can tell you we're in the middle of a transformation rather than a replacement. We might not need developers to build UIs before long, but we'll absolutely need people who can orchestrate AI agents, review AI-generated code, and design complex systems.
-
-While stands to literally revolutionize our entire society. The stakes are incredibly high, with billionaires like Sam Altman, Mark Zuckerberg, and Elon Musk racing toward Artificial General Intelligence (AGI) -- machines as capable as humans at most tasks -- at nearly any cost. This pursuit could either transcend or endanger humanity, with ethical considerations around regulation, privacy, and security that can't be ignored.
-
-This started as an academic pursuit, but as we've inched our way closer in recent years, billionaires have taken notice and are staking their claim, racing for more power and money. The main ones to be aware of are:
+AGI started as an academic pursuit, but as we've inched our way closer in recent years, billionaires have taken notice and are staking their claim, racing for more power and money. The main ones to be aware of are:
 
 - Sam Altman and OpenAI, developing ChatGPT models and products
 - Mark Zuckerberg and Meta, developing the Llama models and adding them to Meta products
@@ -50,14 +58,14 @@ This started as an academic pursuit, but as we've inched our way closer in recen
 
 Many of these major players have stated that they will sacrifice nearly anything in pursuit of this, citing the prediction that AGI will unlock trillions of dollars of value in the global economy as justification for everything from cutting ethical corners to raising billions in capital. 
 
-There are massive ethical and safety considerations here, such as how we should or should not regulate the development of AI, how we must evolve privacy and security in this new era, how we should or should not police AI-generated "deepfake" content, and much more. AGI could represent an opportunity for either the transcendance of humanity or its extinction.
+There are massive ethical and safety considerations here, such as how we should or should not regulate the development of AI, how we must evolve privacy and security in this new era, how we should or should not police AI-generated "deepfake" content, and much more.
 
-It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted, ethically-driven developers around the world to make a difference in their own communit and quickly add to the growing list of major players in this space.
+It's not an exaggeration to say that this is an "all of the marbles" scenario for humanity, and it's massively important that we approach it with care. If we're not careful, an unprecedented concentration of power could happen within our lifetimes. It's my goal to contribute to the spread of this knowledge and empower as many kind, good-hearted, ethically-driven developers around the world to make a difference in their own communities and quickly add to the growing list of major players in this space.
 
-The good news is that there is currently not enough engineering talent to usher in this new era. Companies seem to be over-correcting for remote work during COVID and only wanting to hire in San Francisco and New York, but this isn't sustainable.
+The good news is that there is currently not enough engineering talent to usher in this new era. Companies seem to be over-correcting for remote work during COVID and only wanting to hire in San Francisco and New York, but this isn't sustainable. The time to learn these AI engineering skills is now. As Swyx is fond of saying, "AI engineering is the last job."
 
 ## Strategies for shifting into AI engineering
-OK, so how do you actually make the leap from something like web development or developer advocacy to AI engineering?
+Okay, so how do you actually make the leap from something like web development or developer advocacy to AI engineering?
 
 Here are five strategies to transition from traditional software or web development into AI engineering:
 
