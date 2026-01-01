@@ -9,17 +9,28 @@ export function calculateReadingTime(content: string, wordsPerMinute: number = 2
     return '1 min read';
   }
 
-  // Strip HTML/MDX tags and markdown formatting
+  // Strip markdown/MDX formatting for accurate word count
   const cleanText = content
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ' ') // Remove script tags
-    .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, ' ')   // Remove style tags
-    .replace(/<[^>]*>/g, ' ')           // Remove HTML tags
-    .replace(/```[\s\S]*?```/g, ' ')    // Remove code blocks
-    .replace(/`[^`]*`/g, ' ')           // Remove inline code
-    .replace(/!\[.*?\]\(.*?\)/g, ' ')   // Remove images
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Keep link text, remove URL
-    .replace(/[#*_~\-]/g, '')           // Remove markdown formatting chars
-    .replace(/\s+/g, ' ')               // Normalize whitespace
+    // Remove frontmatter
+    .replace(/^---[\s\S]*?---/m, '')
+    // Remove import/export statements (for MDX)
+    .replace(/^(import|export)\s+.*$/gm, '')
+    // Remove code blocks
+    .replace(/```[\s\S]*?```/g, ' ')
+    // Remove inline code
+    .replace(/`[^`]*`/g, ' ')
+    // Remove images
+    .replace(/!\[.*?\]\(.*?\)/g, ' ')
+    // Keep link text, remove URL
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    // Remove JSX/HTML tags
+    .replace(/<[^>]*>/g, ' ')
+    // Remove HTML entities
+    .replace(/&[a-z]+;/gi, ' ')
+    // Remove markdown formatting chars
+    .replace(/[#*_~\-]/g, '')
+    // Normalize whitespace
+    .replace(/\s+/g, ' ')
     .trim();
 
   const words = cleanText.split(' ').filter(word => word.length > 0);
@@ -34,47 +45,18 @@ export function calculateReadingTime(content: string, wordsPerMinute: number = 2
 }
 
 /**
- * Get reading time from rendered content
- * @param renderResult - The result from await render(post)
- * @returns Formatted reading time string
- */
-export function getReadingTime(renderResult: any): string {
-  let content = '';
-
-  // Handle different Astro API versions and render result shapes
-  if (typeof renderResult?.compiledContent === 'function') {
-    // Newer Astro versions have compiledContent as a function
-    content = String(renderResult.compiledContent());
-  } else if (typeof renderResult?.compiledContent === 'string') {
-    // Older versions may have it as a string
-    content = renderResult.compiledContent;
-  } else if (renderResult?.html) {
-    // Fallback to html property if available
-    content = String(renderResult.html);
-  } else if (typeof renderResult === 'string') {
-    // Direct string content
-    content = renderResult;
-  } else {
-    // Last resort: try to stringify
-    content = String(renderResult || '');
-  }
-
-  return calculateReadingTime(content);
-}
-
-/**
- * Get reading time from raw post body
+ * Get reading time from a post's body content
+ * In Astro 5 Content Collections with glob loader, post.body contains the raw markdown
  * @param post - The post object from Astro content collection
  * @returns Formatted reading time string
  */
-export function getReadingTimeFromBody(post: any): string {
-  // Try to get content from various possible properties
-  const content = post.body || post.rawContent || post.content || '';
+export function getReadingTime(post: { body?: string }): string {
+  return calculateReadingTime(post.body || '');
+}
 
-  if (!content && post.data?.description) {
-    // Fallback - estimate based on description if body is not available
-    return calculateReadingTime(post.data.description);
-  }
-
-  return calculateReadingTime(content);
+/**
+ * Alias for getReadingTime for backward compatibility
+ */
+export function getReadingTimeFromBody(post: { body?: string }): string {
+  return getReadingTime(post);
 }
