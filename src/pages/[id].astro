@@ -3,7 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import { format } from 'date-fns';
-import { getReadingTimeFromBody } from '../utils/readingTime';
+import { getReadingTime } from '../utils/readingTime';
 import { getRelatedPosts } from '../utils/relatedPosts';
 
 export async function getStaticPaths() {
