@@ -4,6 +4,7 @@ slug: february
 date: 2016-03-02
 date_updated: 2017-05-22
 published: true
+category: archive
 banner: './images/IMG_20160126_200726.jpg'
 tags: 
 - Becoming Awesome

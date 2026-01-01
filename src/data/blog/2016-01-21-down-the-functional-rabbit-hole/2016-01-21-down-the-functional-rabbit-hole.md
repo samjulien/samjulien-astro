@@ -4,6 +4,7 @@ slug: down-the-functional-rabbit-hole
 date: 2016-01-21
 date_updated: 2017-05-22
 published: true
+category: archive
 tags:
 - Web Development
 ---

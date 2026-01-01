@@ -52,7 +52,7 @@ This document tracks quality of life improvements and feature enhancements for s
   - All pages and components support dark mode
 
 ### ✅ Tag Navigation
-- **Status:** Complete
+- **Status:** Merged (#18)
 - **Description:** Browse and filter articles by tag
 - **Features:**
   - Tags index page at `/tags` showing all tags with article counts
@@ -62,6 +62,49 @@ This document tracks quality of life improvements and feature enhancements for s
   - Clickable tags in related posts section
   - Tags styled consistently with green theme colors
   - Dark mode support for all tag elements
+
+### ✅ Post Series Support
+- **Status:** Merged (#16)
+- **Description:** Link related posts in a series (like the burnout/progress system series)
+- **Features:**
+  - `series` and `series_order` fields in frontmatter schema
+  - Prev/next navigation for series posts
+  - Series navigation component at top and bottom of posts
+  - Automatically links posts within same series
+
+### ✅ Tag Restructuring
+- **Status:** Merged (#17)
+- **Description:** Reorganized blog post tags for better categorization
+- **Features:**
+  - Consolidated and standardized tag names across all posts
+  - Improved content discoverability through consistent tagging
+
+### ✅ Markdown Content Pages
+- **Status:** Merged (#19)
+- **Description:** Convert Now and Uses pages to use Markdown content
+- **Features:**
+  - Now and Uses pages use MDX content files
+  - Easier to update without touching Astro components
+  - Consistent content management approach
+
+### ✅ Content Categorization System
+- **Status:** Complete (pending PR)
+- **Description:** Categorize posts for content curation and archiving
+- **Features:**
+  - `category` field in blog schema (product, productivity, devrel, technical, archive)
+  - All 101 posts categorized
+  - Archived posts hidden by default on /writing page
+  - Toggle button to show/hide archived articles
+  - Categories support future content filtering and navigation
+
+### ✅ Brand Repositioning (DevRel → Product)
+- **Status:** Complete (pending PR)
+- **Description:** Update site positioning from DevRel focus to Product Management
+- **Features:**
+  - Hero messaging updated to lead with PM role
+  - Page title changed to "Product & Developer Experience"
+  - Pinned posts curated for PM/productivity focus (5 posts)
+  - DevRel background positioned as differentiator, not primary identity
 
 ## Planned Features
 
@@ -74,15 +117,6 @@ This document tracks quality of life improvements and feature enhancements for s
   - Sticky sidebar on desktop
   - Collapsible on mobile
   - Especially useful for technical/tutorial content
-- **Complexity:** Medium
-
-#### 📋 Post Series Support
-- **Priority:** Low
-- **Description:** Link related posts in a series (like the burnout/progress system series)
-- **Implementation:**
-  - Add `series` and `series_order` to frontmatter schema
-  - Prev/next navigation for series
-  - Badge showing "Part 2 of 5" etc.
 - **Complexity:** Medium
 
 #### 📋 Breadcrumbs
@@ -187,8 +221,10 @@ This document tracks quality of life improvements and feature enhancements for s
 ### High Impact Features
 1. ~~Dark Mode - Very popular request~~ ✅ Completed
 2. ~~Tag/Category Pages - Better content organization~~ ✅ Completed
-3. Improved Search - Better content discovery
-4. Table of Contents - Improves readability of long posts
+3. ~~Post Series Support - Link related posts~~ ✅ Completed
+4. ~~Content Categorization - Archive management~~ ✅ Completed
+5. Improved Search - Better content discovery
+6. Table of Contents - Improves readability of long posts
 
 ### Complexity Estimates
 - **Low:** Can be implemented in 1-2 hours

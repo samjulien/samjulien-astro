@@ -4,6 +4,7 @@ slug: crafting
 date: 2016-01-05
 date_updated: 1620-01-05
 published: true
+category: archive
 tags:
   - Becoming Awesome
 ---

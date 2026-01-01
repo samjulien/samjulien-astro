@@ -4,6 +4,7 @@ slug: survival-class
 date: 2016-01-18
 date_updated: 2017-05-22
 published: true
+category: archive
 banner: './images/adx-2.jpg'
 tags: 
 - Becoming Awesome

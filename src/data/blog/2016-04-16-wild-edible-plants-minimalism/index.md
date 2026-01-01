@@ -4,6 +4,7 @@ slug: wild-edible-plants-minimalism
 date: 2016-04-16
 date_updated: 2017-05-22
 published: true
+category: archive
 banner: './images/wahclellah.jpg'
 tags: 
 - Becoming Awesome

@@ -3,6 +3,7 @@ title: 13 Lessons I've Learned about Starting a Business from Ramit Sethi
 slug: ramit-lessons
 date: 2017-10-20
 date_updated: 2017-10-20
+category: archive
 tags:
 - Becoming Awesome
 ---
