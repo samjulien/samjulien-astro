@@ -22,8 +22,24 @@ export function calculateReadingTime(content: string, wordsPerMinute: number = 2
  * @param renderResult - The result from await render(post)
  * @returns Formatted reading time string
  */
-export function getReadingTime(renderResult: { compiledContent: () => string }): string {
-  const content = renderResult.compiledContent();
+export function getReadingTime(renderResult: any): string {
+  let content = '';
+
+  // Handle different Astro API versions
+  if (typeof renderResult?.compiledContent === 'function') {
+    // Newer Astro versions have compiledContent as a function
+    content = String(renderResult.compiledContent());
+  } else if (typeof renderResult?.compiledContent === 'string') {
+    // Older versions may have it as a string
+    content = renderResult.compiledContent;
+  } else if (renderResult?.html) {
+    // Fallback to html property if available
+    content = String(renderResult.html);
+  } else {
+    // Last resort: stringify the result
+    content = String(renderResult);
+  }
+
   return calculateReadingTime(content);
 }
 
