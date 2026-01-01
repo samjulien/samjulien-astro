@@ -5,8 +5,8 @@ date: 2016-03-24
 date_updated: 2017-05-23
 published: true
 banner: './images/trex.jpg'
-tags: 
-- Tech
+tags:
+- IoT
 ---
 
 *Some of my neighbors keep plastic dinosaurs on display in their yard (because Portland). I was starting to type out a title for this and realized that with the combination of IoT and RxJS it would just be irresponsible of me not to title it IoTReX. Plus, look at that symmetry, it's beautiful.*

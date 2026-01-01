@@ -5,7 +5,7 @@ date: 2016-01-21
 date_updated: 2017-05-22
 published: true
 tags:
-- Tech
+- Web Development
 ---
 
 > One thing I'm discovering is that transforming data is easier to think about than maintaining state.
