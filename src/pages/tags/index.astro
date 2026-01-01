@@ -2,7 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const posts = await getCollection('blog');
+const allPosts = await getCollection('blog');
+const posts = allPosts.filter(post => post.data.published !== false);
 
 // Build tag counts
 const tagCounts = new Map<string, number>();

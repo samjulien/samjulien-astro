@@ -5,7 +5,8 @@ import { format } from 'date-fns';
 import { getReadingTimeFromBody } from '../../utils/readingTime';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const allPosts = await getCollection('blog');
+  const posts = allPosts.filter(post => post.data.published !== false);
 
   // Get all unique tags and create slug mappings
   const tagMap = new Map<string, string>(); // slug -> original tag name
