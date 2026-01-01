@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
+import SeriesNav from '../components/SeriesNav.astro';
 import { format } from 'date-fns';
 import { getReadingTime } from '../utils/readingTime';
 import { getRelatedPosts } from '../utils/relatedPosts';
@@ -18,9 +19,10 @@ const { post, allPosts } = Astro.props;
 const { Content } = await render(post);
 const readingTime = getReadingTime(post);
 const relatedPosts = getRelatedPosts(post, allPosts, 3);
+const hasSeries = post.data.series && post.data.series_order;
 ---
 
-<Layout 
+<Layout
   title={`${post.data.title} - Sam Julien`}
   description={post.data.description}
   image={post.data.ogimage}
@@ -34,7 +36,9 @@ const relatedPosts = getRelatedPosts(post, allPosts, 3);
       <span aria-hidden="true">•</span>
       <span>{readingTime}</span>
     </div>
+    {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
     <Content />
   </article>
+  {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
   <RelatedPosts posts={relatedPosts} />
 </Layout>

@@ -1,0 +1,69 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  currentPost: CollectionEntry<'blog'>;
+  allPosts: CollectionEntry<'blog'>[];
+}
+
+const { currentPost, allPosts } = Astro.props;
+
+const seriesName = currentPost.data.series;
+const currentOrder = currentPost.data.series_order;
+
+if (!seriesName || !currentOrder) {
+  return null;
+}
+
+// Get all posts in this series, sorted by series_order
+const seriesPosts = allPosts
+  .filter(post => post.data.series === seriesName && post.data.series_order)
+  .sort((a, b) => (a.data.series_order || 0) - (b.data.series_order || 0));
+
+const totalPosts = seriesPosts.length;
+const currentIndex = seriesPosts.findIndex(p => p.id === currentPost.id);
+const prevPost = currentIndex > 0 ? seriesPosts[currentIndex - 1] : null;
+const nextPost = currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : null;
+---
+
+<div class="my-8 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+  <div class="flex flex-col gap-4">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <span class="text-sm font-medium text-green-800 dark:text-green-200">
+        Part {currentOrder} of {totalPosts} in <span class="font-bold">{seriesName}</span>
+      </span>
+    </div>
+
+    <div class="flex justify-between items-center gap-4">
+      {prevPost ? (
+        <a
+          href={`/${prevPost.id}`}
+          class="flex items-center gap-2 text-sm text-green-700 dark:text-green-300 hover:text-green-900 dark:hover:text-green-100 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          <span class="hidden sm:inline">{prevPost.data.title}</span>
+          <span class="sm:hidden">Previous</span>
+        </a>
+      ) : (
+        <div></div>
+      )}
+
+      {nextPost ? (
+        <a
+          href={`/${nextPost.id}`}
+          class="flex items-center gap-2 text-sm text-green-700 dark:text-green-300 hover:text-green-900 dark:hover:text-green-100 transition-colors text-right"
+        >
+          <span class="hidden sm:inline">{nextPost.data.title}</span>
+          <span class="sm:hidden">Next</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      ) : (
+        <div></div>
+      )}
+    </div>
+  </div>
+</div>
