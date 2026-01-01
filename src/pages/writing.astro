@@ -32,6 +32,18 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
           <span>{getReadingTimeFromBody(post)}</span>
         </div>
         <p class="text-gray-700 dark:text-gray-300">{post.data.description}</p>
+        {post.data.tags && post.data.tags.length > 0 && (
+          <div class="mt-4 flex flex-wrap gap-2">
+            {post.data.tags.map(tag => (
+              <a
+                href={`/tags/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
+                class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded hover:bg-green-200 dark:hover:bg-green-800 transition-colors"
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        )}
         <a href={`/${post.id}`} class="text-brand hover:text-brand-dark mt-4 inline-block">
           Read More →
         </a>
