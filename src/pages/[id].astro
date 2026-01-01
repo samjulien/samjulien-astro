@@ -27,7 +27,6 @@ const hasSeries = post.data.series && post.data.series_order;
   description={post.data.description}
   image={post.data.ogimage}
 >
-  {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
   <article class="prose lg:prose-xl dark:prose-invert max-w-none">
     <h2>{post.data.title}</h2>
     <div class="text-gray-600 dark:text-gray-400 mb-8 flex flex-wrap gap-2 items-center">
@@ -37,6 +36,7 @@ const hasSeries = post.data.series && post.data.series_order;
       <span aria-hidden="true">•</span>
       <span>{readingTime}</span>
     </div>
+    {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
     <Content />
   </article>
   {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
