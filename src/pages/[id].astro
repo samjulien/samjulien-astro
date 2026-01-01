@@ -1,21 +1,24 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { format } from 'date-fns';
-import { getReadingTime } from '../utils/readingTime';
+import { getReadingTimeFromBody } from '../utils/readingTime';
+import { getRelatedPosts } from '../utils/relatedPosts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map(post => ({
     params: { id: post.id },
-    props: { post },
+    props: { post, allPosts: posts },
   }));
 }
 
-const { post } = Astro.props;
+const { post, allPosts } = Astro.props;
 const rendered = await render(post);
 const { Content } = rendered;
 const readingTime = getReadingTime(rendered);
+const relatedPosts = getRelatedPosts(post, allPosts, 3);
 ---
 
 <Layout 
@@ -34,4 +37,5 @@ const readingTime = getReadingTime(rendered);
     </div>
     <Content />
   </article>
+  <RelatedPosts posts={relatedPosts} />
 </Layout>

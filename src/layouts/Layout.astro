@@ -1,6 +1,7 @@
 ---
 import EmailSignup from "../components/EmailSignup.astro";
 import Navigation from "../components/Navigation.astro";
+import CodeCopyButton from "../components/CodeCopyButton";
 
 import ogImage from "../../public/ogimage.png";
 
@@ -83,5 +84,6 @@ const {
         </p>
       </footer>
     </main>
+    <CodeCopyButton client:load />
   </body>
 </html>
