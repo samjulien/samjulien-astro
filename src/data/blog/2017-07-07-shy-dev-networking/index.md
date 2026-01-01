@@ -5,9 +5,8 @@ date: 2017-07-07
 date_updated: 2017-07-07
 ogimage: 'images/og-developers-guide-to-networking-for-a-better-job.png'
 pinned: true
-tags: 
-- Tech
-- Becoming Awesome
+tags:
+- Career Growth
 ---
 
 Look, I get it. A bunch of web developers, recruiters, and vendors standing around in a room eating pizza or drinking beer and making small talk might sound like complete and utter death for you. There may be a million things you'd rather be doing. "Uhh, don't I have a dentist appointment that day? At least then I won't have to talk." 

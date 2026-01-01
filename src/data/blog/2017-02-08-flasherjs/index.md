@@ -5,8 +5,8 @@ date: 2017-02-08
 date_updated: 2017-05-22
 banner: './images/thingssdk-2.png'
 published: true
-tags: 
-- Tech
+tags:
+- IoT
 ---
 
 Last year, I did a couple of posts and [several talks](http://samjulien.com/talks) on IoT and functional reactive programming, and I always demo'd my little Arduino photoresistor theremin as a good example of how they work together. Up until now, all of my work on [IoTReX](http://github.com/iotrex) has been using [johnny-five](http://github.com/rwaldron/johnny-five), which sets up a client-host relationship between the computer running JavaScript and the device running the Firmata firmware. I used the Uno for the theremin and an Adafruit Feather Huzzah to wirelessly [read temperature data](http://samjulien.com/johnny-feather).
