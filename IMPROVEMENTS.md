@@ -91,15 +91,6 @@ This document tracks quality of life improvements and feature enhancements for s
   - Toggle button in navigation
 - **Complexity:** Medium
 
-#### 📋 View Counter or Popular Posts
-- **Priority:** Medium
-- **Description:** Surface popular content using Fathom analytics
-- **Implementation:**
-  - You have Fathom analytics - could use API to get page views
-  - "Trending this week" section on homepage
-  - Validates what resonates with readers
-- **Complexity:** Medium-High (requires Fathom API integration)
-
 #### 📋 Image Lightbox/Zoom
 - **Priority:** Low
 - **Description:** Click to enlarge images in posts
@@ -107,14 +98,6 @@ This document tracks quality of life improvements and feature enhancements for s
   - Better viewing for screenshots/diagrams
   - Many of your posts have multiple images
   - Could use simple library or build custom
-- **Complexity:** Low
-
-#### 📋 Print Stylesheet
-- **Priority:** Low
-- **Description:** Optimized printing for readers who prefer hard copy
-- **Implementation:**
-  - Remove navigation, clean formatting
-  - Ensure code blocks format well
 - **Complexity:** Low
 
 ### Reading Experience
@@ -147,15 +130,6 @@ This document tracks quality of life improvements and feature enhancements for s
   - Could be simple links (no tracking)
 - **Complexity:** Low
 
-#### 📋 Webmentions
-- **Priority:** Low
-- **Description:** Show Twitter/social mentions of your posts
-- **Implementation:**
-  - Community engagement visibility
-  - Works well with existing content
-  - Requires webmention.io or similar service
-- **Complexity:** Medium
-
 #### 📋 Newsletter CTA Variations
 - **Priority:** Low
 - **Description:** Different CTAs based on post topic
@@ -166,15 +140,6 @@ This document tracks quality of life improvements and feature enhancements for s
 - **Complexity:** Low-Medium
 
 ### Content Management
-
-#### 📋 Draft Preview Mode
-- **Priority:** Low
-- **Description:** Preview unpublished posts without deploying
-- **Implementation:**
-  - URL with secret token
-  - Currently using `published: false` but no preview mechanism
-  - Could use query param or special route
-- **Complexity:** Medium
 
 #### 📋 Last Updated Badge
 - **Priority:** Low
@@ -211,16 +176,16 @@ This document tracks quality of life improvements and feature enhancements for s
 
 ### Quick Wins (Easiest to Implement)
 1. Last Updated Badge - Data already exists, just needs styling
-2. Print Stylesheet - Pure CSS
-3. Breadcrumbs - Simple component
-4. Social Share Buttons - Basic links
-5. Tag/Category Pages - Astro dynamic routes
+2. Breadcrumbs - Simple component
+3. Social Share Buttons - Basic links
+4. Tag/Category Pages - Astro dynamic routes
+5. Image Lightbox - Can use simple library
 
 ### High Impact Features
 1. Dark Mode - Very popular request
 2. Improved Search - Better content discovery
 3. Table of Contents - Improves readability of long posts
-4. View Counter - Shows what's popular
+4. Tag/Category Pages - Better content organization
 
 ### Complexity Estimates
 - **Low:** Can be implemented in 1-2 hours
