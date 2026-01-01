@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SearchBar from '../components/writing/SearchBar.astro';
 import { getCollection } from 'astro:content';
 import { format } from 'date-fns';
+import { getReadingTimeFromBody } from '../utils/readingTime';
 
 const posts = await getCollection('blog');
 const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -23,9 +24,13 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
             {post.data.title}
           </a>
         </h2>
-        <time class="text-gray-600 mb-4 block">
-          Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
-        </time>
+        <div class="text-gray-600 mb-4 flex flex-wrap gap-2 items-center">
+          <time>
+            Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
+          </time>
+          <span aria-hidden="true">•</span>
+          <span>{getReadingTimeFromBody(post)}</span>
+        </div>
         <p class="text-gray-700">{post.data.description}</p>
         <a href={`/${post.id}`} class="text-brand hover:text-brand-dark mt-4 inline-block">
           Read More →

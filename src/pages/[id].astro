@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import { format } from 'date-fns';
+import { getReadingTime } from '../utils/readingTime';
 import { getRelatedPosts } from '../utils/relatedPosts';
 
 export async function getStaticPaths() {
@@ -15,6 +16,7 @@ export async function getStaticPaths() {
 
 const { post, allPosts } = Astro.props;
 const { Content } = await render(post);
+const readingTime = getReadingTime(post);
 const relatedPosts = getRelatedPosts(post, allPosts, 3);
 ---
 
@@ -25,9 +27,13 @@ const relatedPosts = getRelatedPosts(post, allPosts, 3);
 >
   <article class="prose lg:prose-xl max-w-none">
     <h2>{post.data.title}</h2>
-    <time class="text-gray-600 block mb-8">
-      Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
-    </time>
+    <div class="text-gray-600 mb-8 flex flex-wrap gap-2 items-center">
+      <time>
+        Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
+      </time>
+      <span aria-hidden="true">•</span>
+      <span>{readingTime}</span>
+    </div>
     <Content />
   </article>
   <RelatedPosts posts={relatedPosts} />
