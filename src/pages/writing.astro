@@ -17,21 +17,21 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
         data-article
         data-title={post.data.title}
         data-excerpt={post.data.excerpt}
-        class="border-b border-gray-200 pb-8"
+        class="border-b border-gray-200 dark:border-gray-700 pb-8"
       >
         <h2 class="text-2xl font-bold mb-2">
           <a href={`/${post.id}`} class="hover:text-brand">
             {post.data.title}
           </a>
         </h2>
-        <div class="text-gray-600 mb-4 flex flex-wrap gap-2 items-center">
+        <div class="text-gray-600 dark:text-gray-400 mb-4 flex flex-wrap gap-2 items-center">
           <time>
             Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
           </time>
           <span aria-hidden="true">•</span>
           <span>{getReadingTimeFromBody(post)}</span>
         </div>
-        <p class="text-gray-700">{post.data.description}</p>
+        <p class="text-gray-700 dark:text-gray-300">{post.data.description}</p>
         <a href={`/${post.id}`} class="text-brand hover:text-brand-dark mt-4 inline-block">
           Read More →
         </a>

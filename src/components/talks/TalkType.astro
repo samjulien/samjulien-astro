@@ -8,11 +8,11 @@ const { type } = Astro.props;
 const getBackgroundColor = (type: string) => {
   switch (type.toLowerCase()) {
     case 'podcast':
-      return 'bg-purple-100 text-purple-800';
+      return 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200';
     case 'conference':
-      return 'bg-blue-100 text-blue-800';
+      return 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200';
     default:
-      return 'bg-gray-100 text-gray-800';
+      return 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200';
   }
 };
 

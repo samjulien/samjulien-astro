@@ -50,7 +50,7 @@ export default function NewsletterForm() {
   return (
     <div className="w-full">
       {status === 'success' ? (
-        <div className="text-green-600 font-medium">
+        <div className="text-green-600 dark:text-green-400 font-medium">
           Thanks for subscribing! Please check your email to confirm.
         </div>
       ) : (
@@ -64,7 +64,7 @@ export default function NewsletterForm() {
               id="first_name"
               name="first_name"
               placeholder="Garak"
-              className="w-full px-4 py-2 border rounded"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400"
             />
           </div>
           <div className="flex-1">
@@ -77,7 +77,7 @@ export default function NewsletterForm() {
               id="email"
               name="email"
               placeholder="garak@ds9.station"
-              className="w-full px-4 py-2 border rounded"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400"
             />
           </div>
           <button
@@ -89,7 +89,7 @@ export default function NewsletterForm() {
           </button>
         </form>
       )}
-      {error && <div className="mt-2 text-red-600">{error}</div>}
+      {error && <div className="mt-2 text-red-600 dark:text-red-400">{error}</div>}
     </div>
   );
 } 

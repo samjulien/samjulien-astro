@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  darkMode: 'class',
   theme: {
     fontFamily: {
       mono: ['Recursive', 'system-ui', 'monospace'],
@@ -52,6 +53,11 @@ export default {
               borderRadius: '3px',
               background: theme('colors.gray.200'),
             },
+            'pre code': {
+              padding: 0,
+              borderRadius: 0,
+              background: 'transparent',
+            },
             img: {
               marginTop: 0,
               marginBottom: 0,
@@ -60,6 +66,43 @@ export default {
               content: "''",
             },
             maxWidth: '85ch',
+          },
+        },
+        invert: {
+          css: {
+            color: theme('colors.gray.200'),
+            'h1, h2, h3, h4, h5': {
+              color: theme('colors.gray.100'),
+            },
+            strong: {
+              color: theme('colors.gray.100'),
+            },
+            a: {
+              color: theme('colors.green.400'),
+            },
+            'a:hover': {
+              color: theme('colors.green.300'),
+            },
+            code: {
+              background: theme('colors.gray.700'),
+              color: theme('colors.gray.200'),
+            },
+            'pre code': {
+              background: 'transparent',
+            },
+            blockquote: {
+              color: theme('colors.gray.300'),
+              borderLeftColor: theme('colors.gray.600'),
+            },
+            hr: {
+              borderColor: theme('colors.gray.600'),
+            },
+            'ol > li::marker': {
+              color: theme('colors.gray.400'),
+            },
+            'ul > li::marker': {
+              color: theme('colors.gray.400'),
+            },
           },
         },
       }),

@@ -40,6 +40,17 @@ This document tracks quality of life improvements and feature enhancements for s
   - Styled to match Night Owl theme
   - Works on all code blocks
 
+### ✅ Dark Mode
+- **Status:** Merged (#15)
+- **Description:** Toggle between light/dark themes
+- **Features:**
+  - Respects system preference by default
+  - Stores user preference in localStorage
+  - No flash of wrong theme on page load
+  - Toggle button with sun/moon icons in navigation
+  - Green brand color works well in both modes
+  - All pages and components support dark mode
+
 ## Planned Features
 
 ### Content Discovery & Navigation
@@ -80,16 +91,6 @@ This document tracks quality of life improvements and feature enhancements for s
 - **Complexity:** Low
 
 ### Technical Enhancements
-
-#### 📋 Dark Mode
-- **Priority:** High
-- **Description:** Toggle between light/dark themes
-- **Implementation:**
-  - Respect system preference by default
-  - Your green brand color would work well in dark mode
-  - Store preference in localStorage
-  - Toggle button in navigation
-- **Complexity:** Medium
 
 #### 📋 Image Lightbox/Zoom
 - **Priority:** Low
@@ -182,7 +183,7 @@ This document tracks quality of life improvements and feature enhancements for s
 5. Image Lightbox - Can use simple library
 
 ### High Impact Features
-1. Dark Mode - Very popular request
+1. ~~Dark Mode - Very popular request~~ ✅ Completed
 2. Improved Search - Better content discovery
 3. Table of Contents - Improves readability of long posts
 4. Tag/Category Pages - Better content organization
