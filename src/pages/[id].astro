@@ -25,9 +25,9 @@ const relatedPosts = getRelatedPosts(post, allPosts, 3);
   description={post.data.description}
   image={post.data.ogimage}
 >
-  <article class="prose lg:prose-xl max-w-none">
+  <article class="prose lg:prose-xl dark:prose-invert max-w-none">
     <h2>{post.data.title}</h2>
-    <div class="text-gray-600 mb-8 flex flex-wrap gap-2 items-center">
+    <div class="text-gray-600 dark:text-gray-400 mb-8 flex flex-wrap gap-2 items-center">
       <time>
         Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
       </time>

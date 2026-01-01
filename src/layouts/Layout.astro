@@ -24,8 +24,20 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="">
   <head>
+    <script is:inline>
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
@@ -68,7 +80,7 @@ const {
       defer></script>
     <title>{title}</title>
   </head>
-  <body class="bg-white text-gray-900 min-h-screen flex flex-col">
+  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-200">
     <Navigation />
     <main class="max-w-4xl mx-auto px-4 py-8 flex-1 flex flex-col">
       <slot />
@@ -79,7 +91,7 @@ const {
           </div>
         )
       }
-      <footer class="mt-16 text-center text-gray-500 text-sm">
+      <footer class="mt-16 text-center text-gray-500 dark:text-gray-400 text-sm">
         <p>
           &copy; {new Date().getFullYear()} Sam Julien. All rights reserved.
         </p>
