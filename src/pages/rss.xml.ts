@@ -11,7 +11,7 @@ export async function GET(context: APIContext) {
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
   return rss({
-    title: "Sam Julien's Blog",
+    title: "Sam Julien's writing",
     description: "Articles on developer relations, AI engineering, web development, and career growth by Sam Julien",
     site: context.site || 'https://www.samjulien.com',
     items: publishedPosts.map(post => ({
