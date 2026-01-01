@@ -5,6 +5,7 @@ date: 2017-02-08
 date_updated: 2017-05-22
 banner: './images/thingssdk-2.png'
 published: true
+category: archive
 tags:
 - IoT
 ---

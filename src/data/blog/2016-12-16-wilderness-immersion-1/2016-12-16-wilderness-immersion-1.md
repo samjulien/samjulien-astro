@@ -4,6 +4,7 @@ slug: wilderness-immersion-1
 date: 2016-12-17
 date_updated: 2017-05-22
 published: true
+category: archive
 banner: './images/IMG_20160923_204916.jpg'
 ogimage: './images/og-rewilding-lessons.png'
 tags: 

@@ -4,6 +4,7 @@ slug: floridians-guide-1
 date: 2016-10-01
 date_updated: 2018-04-02
 published: true
+category: archive
 banner: './images/IMG_20160806_112205.jpg'
 tags:
 - Becoming Awesome

@@ -4,6 +4,7 @@ slug: productivity-experiments
 date: 2017-05-08
 date_updated: 2017-07-28
 published: true
+category: archive
 tags: 
 - Becoming Awesome
 ---

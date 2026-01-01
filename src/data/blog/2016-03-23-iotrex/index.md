@@ -4,6 +4,7 @@ slug: iotrex
 date: 2016-03-24
 date_updated: 2017-05-23
 published: true
+category: archive
 banner: './images/trex.jpg'
 tags:
 - IoT

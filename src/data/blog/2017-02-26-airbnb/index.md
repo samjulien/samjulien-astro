@@ -4,6 +4,7 @@ slug: airbnb
 date: 2017-02-26
 date_updated: 2017-05-22
 published: true
+category: archive
 pinned: false
 banner: './images/camping-mug.jpg'
 tags: 

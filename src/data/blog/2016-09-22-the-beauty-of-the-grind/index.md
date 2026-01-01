@@ -4,6 +4,7 @@ title: The Beauty of the Grind
 date: 2016-09-22
 date_updated: 2016-09-22
 published: true
+category: archive
 banner: './images/hood-1.jpg'
 tags:
   - Becoming Awesome

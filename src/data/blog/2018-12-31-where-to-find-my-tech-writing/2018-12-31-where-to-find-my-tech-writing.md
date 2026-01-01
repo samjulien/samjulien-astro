@@ -4,6 +4,7 @@ slug: where-to-find-my-tech-writing
 date: 2018-12-31
 date_updated: 2018-12-31
 pinned: false
+category: archive
 tags:
   - Content Creation
 ---

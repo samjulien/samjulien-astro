@@ -3,6 +3,7 @@ title: 8 Lessons About Change I Learned from PT
 slug: pt-lessons
 date: 2017-09-06
 date_updated: 2017-09-06
+category: archive
 tags: 
 - Becoming Awesome
 ---
