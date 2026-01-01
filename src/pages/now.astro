@@ -1,49 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry, render } from 'astro:content';
 
+const page = await getEntry('pages', 'now');
+const { Content } = await render(page);
 ---
 
-<Layout title="Now - Sam Julien">
+<Layout title={`${page.data.title} - Sam Julien`}>
   <div class="mb-6">
-    <h1 class="text-4xl font-bold mb-2">Now</h1>
-    <p class="text-gray-600 dark:text-gray-400 mb-4">Last updated: June 2025</p>
+    <h1 class="text-4xl font-bold mb-2">{page.data.title}</h1>
+    {page.data.lastUpdated && (
+      <p class="text-gray-600 dark:text-gray-400 mb-4">Last updated: {page.data.lastUpdated}</p>
+    )}
   </div>
   <div class="prose prose-lg dark:prose-invert max-w-none">
-    <p>
-      This is my <a href="https://nownownow.com/about" target="_blank" class="text-brand hover:text-brand-dark">now page</a>, inspired by Derek Sivers. It's a snapshot of what I'm focused on at this point in my life.
-    </p>
-    
-    <h2 class="text-2xl font-bold mt-8 mb-4">Current focus</h2>
-    <p>
-      I have two main focuses right now: 
-      <ol>
-        <li>Provide for my family while spending as much time as possible with them</li>
-        <li>Help developers around the world navigate the rapidly changing landscape of AI engineering and its impact on traditional web and software development</li>
-      </ol>
-    </p>
-    
-    <h2 class="text-2xl font-bold mt-8 mb-4">Personal</h2>
-    <p>I'm having a great time with my wife, son, and dog in the Pacific Northwest. Currently spending a lot of time playing with my son at parks, playgrounds, and out in nature whenever the weather permits. His language is developing rapidly and it's a ton of fun to watch.</p>
-
-    <h2 class="text-2xl font-bold mt-8 mb-4">Creative work</h2>
-    <p>I've recently gotten back into writing and coding. I <a href="/migrating-from-gatsby-to-astro" class="text-brand hover:text-brand-dark">rebuilt this website with Astro</a>, wrote a series on <a href="/building-a-developer-motion" class="text-brand hover:text-brand-dark">building a developer motion</a> and a series on <a href="/understanding-burnout" class="text-brand hover:text-brand-dark">preventing and managing burnout using a progress system</a>, and am now working on building an AI-powered knowledge work pipeline. I'm also sending more updates out via my newsletter, so be sure to sign up below.</p>
-
-    <h2 class="text-2xl font-bold mt-8 mb-4">Day job</h2>
-    <p>I'm currently working as the Director of Developer Relations at <a href="https://writer.com" target="_blank" class="text-brand hover:text-brand-dark">Writer</a>, an enterprise AI platform, where I lead a team of Developer Experience (DX) engineers and Developer Advocates. I oversee all of our <a href="https://dev.writer.com/" target="_blank" class="text-brand hover:text-brand-dark">developer docs and SDKs</a> and co-lead all of our technical and developer marketing alongside the Product Marketing team. I recently oversaw all of the engineering and marketing for our <a href="https://writer.com/engineering/sdk-2-0/" target="_blank" class="text-brand hover:text-brand-dark">SDK 2.0 release</a> and our <a href="https://writer.com/engineering/langchain-writer/" target="_blank" class="text-brand hover:text-brand-dark">LangChain</a> and <a href="https://python.useinstructor.com/integrations/writer/" target="_blank" class="text-brand hover:text-brand-dark">Instructor</a> integrations. I also led a cross-functional team in sponsoring <a href="https://www.ai.engineer/summit" target="_blank" class="text-brand hover:text-brand-dark">AI Engineer Summit</a> and spoke at <a href="https://www.ai.engineer/summit" target="_blank" class="text-brand hover:text-brand-dark">AI Engineer World's Fair</a>. It's an intense, fast-paced job but incredibly interesting and engaging. I honestly can't believe how lucky I am to have a front-row seat to the AI revolution.</p>
-
-    <h2 class="text-2xl font-bold mt-8 mb-4">Learning</h2>
-    <p>Here's what I'm currently learning:</p>
-    <ul>
-      <li>Diving deeper into AI engineering, especially evals through <a href="https://x.com/HamelHusain" target="_blank" class="text-brand hover:text-brand-dark">Hamel Hussain</a> and <a href="https://x.com/sh_reya" target="_blank" class="text-brand hover:text-brand-dark">Shreya Shankar</a>'s incredible <a href="https://maven.com/parlance-labs/evals?promoCode=evals-faq-new" target="_blank" class="text-brand hover:text-brand-dark">AI evals course</a></li>
-      <li>Scratching the surface of Machine Learning and Deep Learning, starting with shoring up my foundations in linear algebra and statistics</li>
-      <li>Slow productivity: how do I do less, but better? How do I work at a natural pace?</li>
-    </ul>
-
-
-    <div class="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-      <p class="italic">
-        Want to know more about what I'm up to? Follow me on <a href="https://x.com/samjulien" target="_blank" class="text-brand hover:text-brand-dark">X</a>, <a href="https://www.linkedin.com/in/samjulien/" target="_blank" class="text-brand hover:text-brand-dark">LinkedIn</a>, or <a href="https://bsky.app/profile/samjulien.com" target="_blank" class="text-brand hover:text-brand-dark">Bluesky</a>.
-      </p>
-    </div>
+    <Content />
   </div>
 </Layout>
