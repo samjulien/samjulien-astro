@@ -53,6 +53,11 @@ export default {
               borderRadius: '3px',
               background: theme('colors.gray.200'),
             },
+            'pre code': {
+              padding: 0,
+              borderRadius: 0,
+              background: 'transparent',
+            },
             img: {
               marginTop: 0,
               marginBottom: 0,
@@ -81,6 +86,9 @@ export default {
             code: {
               background: theme('colors.gray.700'),
               color: theme('colors.gray.200'),
+            },
+            'pre code': {
+              background: 'transparent',
             },
             blockquote: {
               color: theme('colors.gray.300'),
