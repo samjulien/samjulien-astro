@@ -1,154 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
+import { getEntry, render } from 'astro:content';
+
+const page = await getEntry('pages', 'uses');
+const { Content } = await render(page);
 ---
 
-<Layout title="Uses - Sam Julien">
+<Layout title={`${page.data.title} - Sam Julien`}>
   <div class="mb-6">
-    <h1 class="text-4xl font-bold mb-2">Uses</h1>
-    <p class="text-gray-600 dark:text-gray-400 mb-4">Last updated: March 2025</p>
+    <h1 class="text-4xl font-bold mb-2">{page.data.title}</h1>
+    {page.data.lastUpdated && (
+      <p class="text-gray-600 dark:text-gray-400 mb-4">Last updated: {page.data.lastUpdated}</p>
+    )}
   </div>
   <div class="prose prose-lg dark:prose-invert max-w-none">
-    <p>
-      This is my <a
-        href="https://uses.tech"
-        target="_blank"
-        class="text-brand hover:text-brand-dark">uses page</a
-      >, a list of hardware, software, and tools I use on a daily basis. I'm
-      always refining my setup to optimize for productivity and ergonomics.
-    </p>
-
-    <h2 class="text-2xl font-bold mt-8 mb-4">General hardware</h2>
-    <ul>
-      <li>
-        <a href="https://www.zsa.io/moonlander">Moonlander Keyboard</a> - Ergonomic
-        split mechanical keyboard by ZSA
-      </li>
-      <li>
-        <a
-          href="https://www.autonomous.ai/standing-desks/autonomous-desk-duospace"
-          >Autonomous White L-Shaped Standing Desk</a
-        > - Ergonomic height-adjustable corner desk
-      </li>
-      <li>
-        <a
-          href="https://www.kensington.com/p/products/electronic-control-solutions/trackball-products/expert-mouse-wireless-trackball-2/"
-          >Kensington Expert Mouse Trackball</a
-        > - Ergonomic wireless trackball mouse
-      </li>
-      <li>
-        <a
-          href="https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/"
-          >Herman Miller Aeron Chair</a
-        > - Ergonomic office chair
-      </li>
-    </ul>
-
-    <h2 class="text-2xl font-bold mt-8 mb-4">Development tools</h2>
-    <p>
-      I write code daily in JavaScript and Python. This site is built with <a
-        href="https://astro.build"
-        target="_blank"
-        class="text-brand hover:text-brand-dark">Astro</a
-      >. In addition to the usual tools like git, here are my favorite coding
-      tools:
-    </p>
-    <ul>
-      <li>
-        <a href="https://www.cursor.com/en">Cursor</a> - AI-powered code editor,
-        mostly used at work
-      </li>
-      <li>
-        <a href="https://codeium.com/windsurf">Windsurf</a> - AI agentic code editor
-        by Codeium, mostly used for side projects
-      </li>
-      <li>
-        <a href="https://workingcopy.app/">Working Copy</a> - Git client for iOS
-      </li>
-      <li>
-        <a href="https://getdrafts.com/">Drafts</a> - Text editor and automation
-        tool for iOS and Mac
-      </li>
-      <li>
-        <a href="https://lmstudio.ai/">LM Studio</a> - Application for running large
-        language models locally
-      </li>
-    </ul>
-
-    <h2 class="text-2xl font-bold mt-8 mb-4">Productivity</h2>
-    <ul>
-      <li>
-        <a href="https://ugmonk.com/pages/analog">Ugmonk Analog</a> - Physical productivity
-        system
-      </li>
-      <li>
-        <a href="https://www.elgato.com/us/en/p/stream-deck-plus-black"
-          >Elgato Stream Deck</a
-        > - Customizable control interface
-      </li>
-      <li>
-        <a href="https://www.elgato.com/us/en/p/stream-deck-pedal"
-          >Elgato Stream Deck Pedal</a
-        > - Hands-free control accessory
-      </li>
-      <li>
-        <a href="https://www.studioneat.com/products/markone"
-          >Studio Neat Mark One</a
-        > - Minimal, durable, retractable pen
-      </li>
-      <li>
-        <a href="https://obsidian.md/">Obsidian</a> - Knowledge base and note-taking
-        application
-      </li>
-      <li>
-        <a href="https://whispermemos.com/">Whisper Memos</a> - Voice-to-text transcription
-        iOS app
-      </li>
-      <li>
-        <a href="https://superwhisper.com/">Superwhisper</a> - AI-powered voice-to-text
-        for macOS
-      </li>
-      <li><a href="https://setapp.com">Setapp</a> - Subscription service for apps</li>
-      <li><a href="https://folivora.ai">BetterTouchTool</a> - Automation tool for macOS</li>
-      <li>
-        <a href="https://www.keyboardmaestro.com/main/">Keyboard Maestro</a> - Powerful
-        Mac automation software
-      </li>
-    </ul>
-
-    <h2 class="text-2xl font-bold mt-8 mb-4">Production</h2>
-    <ul>
-      <li>
-        <a href="https://www.elgato.com/us/en/p/wave-dx-dynamic-microphone"
-          >Elgato Wave DX</a
-        > - Dynamic XLR microphone
-      </li>
-      <li>
-        <a href="https://www.elgato.com/us/en/p/wave-xlr">Elgato Wave XLR</a> - USB
-        interface for XLR microphones
-      </li>
-      <li>
-        <a href="https://www.telestream.net/screenflow/overview.htm"
-          >ScreenFlow</a
-        > - Video editing and screen recording software
-      </li>
-      <li>
-        <a href="https://getrecut.com/">Recut</a> - Automatic video editor that removes
-        silence
-      </li>
-    </ul>
-
-    <div class="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-      <p class="italic">
-        Have questions about my setup? Feel free to reach out on <a
-          href="https://x.com/samjulien"
-          target="_blank"
-          class="text-brand hover:text-brand-dark">X</a
-        >, <a
-          href="https://www.linkedin.com/in/samjulien/"
-          target="_blank"
-          class="text-brand hover:text-brand-dark">LinkedIn</a
-        >, or <a href="https://bsky.app/profile/samjulien.com" target="_blank" class="text-brand hover:text-brand-dark">Bluesky</a>.
-      </p>
-    </div>
+    <Content />
   </div>
 </Layout>
