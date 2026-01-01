@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { format } from 'date-fns';
+import { getReadingTime } from '../utils/readingTime';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -12,7 +13,9 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const rendered = await render(post);
+const { Content } = rendered;
+const readingTime = getReadingTime(rendered);
 ---
 
 <Layout 
@@ -22,9 +25,13 @@ const { Content } = await render(post);
 >
   <article class="prose lg:prose-xl max-w-none">
     <h2>{post.data.title}</h2>
-    <time class="text-gray-600 block mb-8">
-      Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
-    </time>
+    <div class="text-gray-600 mb-8 flex flex-wrap gap-2 items-center">
+      <time>
+        Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
+      </time>
+      <span aria-hidden="true">•</span>
+      <span>{readingTime}</span>
+    </div>
     <Content />
   </article>
 </Layout>
