@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts.filter(post => post.data.published !== false);
+
+// Build tag counts
+const tagCounts = new Map<string, number>();
+posts.forEach(post => {
+  post.data.tags?.forEach(tag => {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  });
+});
+
+// Sort tags alphabetically
+const sortedTags = Array.from(tagCounts.entries()).sort((a, b) =>
+  a[0].localeCompare(b[0])
+);
+---
+
+<Layout title="Tags - Sam Julien">
+  <h1 class="text-4xl font-bold mb-8">Tags</h1>
+  <p class="text-gray-600 dark:text-gray-400 mb-8">
+    Browse articles by topic
+  </p>
+
+  <div class="flex flex-wrap gap-3">
+    {sortedTags.map(([tag, count]) => (
+      <a
+        href={`/tags/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
+        class="inline-flex items-center gap-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-lg hover:bg-green-200 dark:hover:bg-green-800 transition-colors"
+      >
+        <span>{tag}</span>
+        <span class="bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300 text-sm px-2 py-0.5 rounded-full">
+          {count}
+        </span>
+      </a>
+    ))}
+  </div>
+</Layout>

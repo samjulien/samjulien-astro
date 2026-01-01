@@ -51,6 +51,18 @@ This document tracks quality of life improvements and feature enhancements for s
   - Green brand color works well in both modes
   - All pages and components support dark mode
 
+### ✅ Tag Navigation
+- **Status:** Complete
+- **Description:** Browse and filter articles by tag
+- **Features:**
+  - Tags index page at `/tags` showing all tags with article counts
+  - Individual tag pages at `/tags/[tag]` (e.g., `/tags/devrel`)
+  - Clickable tag links on individual blog posts
+  - Clickable tags on writing archive page
+  - Clickable tags in related posts section
+  - Tags styled consistently with green theme colors
+  - Dark mode support for all tag elements
+
 ## Planned Features
 
 ### Content Discovery & Navigation
@@ -63,15 +75,6 @@ This document tracks quality of life improvements and feature enhancements for s
   - Collapsible on mobile
   - Especially useful for technical/tutorial content
 - **Complexity:** Medium
-
-#### 📋 Tag/Category Pages
-- **Priority:** Medium
-- **Description:** Individual pages for each tag (e.g., `/tags/productivity`)
-- **Implementation:**
-  - Tag cloud or list on writing page
-  - You already have tags in frontmatter but no tag filtering UI
-  - Dynamic routes for tag pages
-- **Complexity:** Low-Medium
 
 #### 📋 Post Series Support
 - **Priority:** Low
@@ -179,14 +182,13 @@ This document tracks quality of life improvements and feature enhancements for s
 1. Last Updated Badge - Data already exists, just needs styling
 2. Breadcrumbs - Simple component
 3. Social Share Buttons - Basic links
-4. Tag/Category Pages - Astro dynamic routes
-5. Image Lightbox - Can use simple library
+4. Image Lightbox - Can use simple library
 
 ### High Impact Features
 1. ~~Dark Mode - Very popular request~~ ✅ Completed
-2. Improved Search - Better content discovery
-3. Table of Contents - Improves readability of long posts
-4. Tag/Category Pages - Better content organization
+2. ~~Tag/Category Pages - Better content organization~~ ✅ Completed
+3. Improved Search - Better content discovery
+4. Table of Contents - Improves readability of long posts
 
 ### Complexity Estimates
 - **Low:** Can be implemented in 1-2 hours
