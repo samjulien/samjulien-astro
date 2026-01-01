@@ -1,3 +1,4 @@
+import agenticGraphRagCover from '../assets/agentic-graph-rag-cover.jpg';
 import gteCover from '../assets/gte-cover.jpg';
 import devrelCover from '../assets/devrel-crop.jpg';
 import ghostCover from '../assets/ghost-course.png';
@@ -6,6 +7,13 @@ import upgradeCover from '../assets/upgrade.png';
 import cloudCover from '../assets/cloud-infrastructure.png';
 
 export const books = [
+  {
+    title: 'Agentic Graph RAG',
+    description: 'A practical blueprint for building scalable, auditable, and intelligent AI systems.',
+    image: agenticGraphRagCover,
+    link: 'https://www.oreilly.com/library/view/agentic-graph-rag/9798341623163/',
+    cta: 'Get early access'
+  },
   {
     title: 'Guide to Tiny Experiments',
     description: 'A Simple Framework to Finish What You Start',
