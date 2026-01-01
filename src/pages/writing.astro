@@ -7,17 +7,19 @@ import { getReadingTimeFromBody } from '../utils/readingTime';
 
 const posts = await getCollection('blog');
 const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const archivedCount = sortedPosts.filter(p => p.data.category === 'archive').length;
 ---
 
 <Layout title="Writing - Sam Julien">
   <SearchBar />
-  <div class="space-y-12">
+  <div class="space-y-12" id="articles-container">
     {sortedPosts.map(post => (
-      <article 
+      <article
         data-article
         data-title={post.data.title}
         data-excerpt={post.data.excerpt}
-        class="border-b border-gray-200 dark:border-gray-700 pb-8"
+        data-category={post.data.category || 'uncategorized'}
+        class={`border-b border-gray-200 dark:border-gray-700 pb-8 ${post.data.category === 'archive' ? 'hidden' : ''}`}
       >
         <h2 class="text-2xl font-bold mb-2">
           <a href={`/${post.id}`} class="hover:text-brand">
@@ -50,4 +52,34 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
       </article>
     ))}
   </div>
+
+  {archivedCount > 0 && (
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <button
+        id="toggle-archive"
+        class="text-gray-500 dark:text-gray-400 hover:text-brand dark:hover:text-brand transition-colors"
+      >
+        <span id="toggle-text">Show {archivedCount} archived articles</span>
+      </button>
+    </div>
+  )}
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-archive');
+    const toggleText = document.getElementById('toggle-text');
+    const articles = document.querySelectorAll('[data-category="archive"]');
+    let showingArchived = false;
+
+    toggleBtn?.addEventListener('click', () => {
+      showingArchived = !showingArchived;
+      articles.forEach(article => {
+        article.classList.toggle('hidden', !showingArchived);
+      });
+      if (toggleText) {
+        toggleText.textContent = showingArchived
+          ? `Hide ${articles.length} archived articles`
+          : `Show ${articles.length} archived articles`;
+      }
+    });
+  </script>
 </Layout>
