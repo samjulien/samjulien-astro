@@ -4,7 +4,6 @@ slug: shy-dev-networking
 date: 2017-07-07
 date_updated: 2017-07-07
 ogimage: 'images/og-developers-guide-to-networking-for-a-better-job.png'
-pinned: true
 tags:
 - Career Growth
 ---
