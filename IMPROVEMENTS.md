@@ -106,18 +106,20 @@ This document tracks quality of life improvements and feature enhancements for s
   - Pinned posts curated for PM/productivity focus (5 posts)
   - DevRel background positioned as differentiator, not primary identity
 
+### ✅ Table of Contents
+- **Status:** Complete (pending PR)
+- **Description:** Auto-generate TOC for longer posts using heading structure
+- **Features:**
+  - Sticky sidebar on desktop showing "On this page" with heading links
+  - Collapsible details element on mobile
+  - Active section highlighting on scroll
+  - Only displays on posts with 3+ h2/h3 headings
+  - Smooth hover transitions with brand green colors
+  - Dark mode support
+
 ## Planned Features
 
 ### Content Discovery & Navigation
-
-#### 📋 Table of Contents
-- **Priority:** Medium
-- **Description:** Auto-generate TOC for longer posts using heading structure
-- **Implementation:**
-  - Sticky sidebar on desktop
-  - Collapsible on mobile
-  - Especially useful for technical/tutorial content
-- **Complexity:** Medium
 
 #### 📋 Breadcrumbs
 - **Priority:** Low
@@ -224,7 +226,7 @@ This document tracks quality of life improvements and feature enhancements for s
 3. ~~Post Series Support - Link related posts~~ ✅ Completed
 4. ~~Content Categorization - Archive management~~ ✅ Completed
 5. Improved Search - Better content discovery
-6. Table of Contents - Improves readability of long posts
+6. ~~Table of Contents - Improves readability of long posts~~ ✅ Completed
 
 ### Complexity Estimates
 - **Low:** Can be implemented in 1-2 hours
