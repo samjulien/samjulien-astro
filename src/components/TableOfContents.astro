@@ -20,7 +20,7 @@ const shouldRender = filteredHeadings.length >= minHeadings;
 ---
 
 {shouldRender && (
-  <nav class="toc-container" aria-label="Table of contents">
+  <nav class="toc-container lg:h-full" aria-label="Table of contents">
     <!-- Mobile: Collapsible -->
     <details class="lg:hidden mb-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
       <summary class="cursor-pointer p-4 font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2">
@@ -44,7 +44,7 @@ const shouldRender = filteredHeadings.length >= minHeadings;
     </details>
 
     <!-- Desktop: Sticky sidebar -->
-    <div class="hidden lg:block">
+    <div class="hidden lg:block lg:h-full">
       <div class="sticky top-8">
         <h2 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wide mb-4">
           On this page
