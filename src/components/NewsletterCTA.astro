@@ -1,0 +1,78 @@
+---
+import NewsletterForm from './forms/NewsletterForm.tsx';
+
+interface Props {
+  category?: 'product' | 'productivity' | 'devrel' | 'technical' | 'archive';
+  tags?: string[];
+  variant?: 'inline' | 'footer';
+}
+
+const { category, tags = [], variant = 'footer' } = Astro.props;
+
+// CTA configurations based on category
+const ctaConfig: Record<string, { headline: string; description: string }> = {
+  product: {
+    headline: "Building developer tools?",
+    description: "I write about product strategy, developer experience, and what it takes to build tools developers love. Join the newsletter for practical insights from the trenches.",
+  },
+  productivity: {
+    headline: "Ready to level up?",
+    description: "I share practical microskills and frameworks that help you grow as a builder and leader. Join over 2100 others on the Developer Microskills newsletter.",
+  },
+  devrel: {
+    headline: "Working in DevRel?",
+    description: "From my years leading developer relations at Auth0, I share hard-won lessons on community building, content strategy, and developer advocacy. Join the newsletter.",
+  },
+  technical: {
+    headline: "Want more tutorials?",
+    description: "I write about building with modern tools and frameworks. Subscribe to get practical tutorials and deep dives delivered to your inbox.",
+  },
+  default: {
+    headline: "Project list gathering dust?",
+    description: "Drop me a line below so I can send you the Tiny Experiments framework and worksheet. You'll also join over 2100 other devs and dev advocates on the Developer Microskills newsletter.",
+  },
+};
+
+// Determine which CTA to show
+function getCTA(category?: string, tags?: string[]): { headline: string; description: string } {
+  // First, check category
+  if (category && category !== 'archive' && ctaConfig[category]) {
+    return ctaConfig[category];
+  }
+
+  // If archive or no category, try to infer from tags
+  if (tags && tags.length > 0) {
+    const tagLower = tags.map(t => t.toLowerCase());
+
+    if (tagLower.some(t => t.includes('product') || t.includes('strategy'))) {
+      return ctaConfig.product;
+    }
+    if (tagLower.some(t => t.includes('devrel') || t.includes('developer relations') || t.includes('advocacy'))) {
+      return ctaConfig.devrel;
+    }
+    if (tagLower.some(t => t.includes('productivity') || t.includes('career') || t.includes('microskill'))) {
+      return ctaConfig.productivity;
+    }
+    if (tagLower.some(t => t.includes('angular') || t.includes('react') || t.includes('javascript') || t.includes('typescript') || t.includes('tutorial'))) {
+      return ctaConfig.technical;
+    }
+  }
+
+  // Default fallback
+  return ctaConfig.default;
+}
+
+const { headline, description } = getCTA(category, tags);
+
+const isInline = variant === 'inline';
+---
+
+<div class={`${isInline ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800' : 'bg-gray-100 dark:bg-gray-800'} p-8 rounded-lg`}>
+  <div id={isInline ? 'inline-signup-form' : 'signup-form'}>
+    <h2 class="text-2xl font-bold mb-4">{headline}</h2>
+    <p class="mb-6 text-gray-700 dark:text-gray-300">
+      {description}
+    </p>
+    <NewsletterForm client:load />
+  </div>
+</div>
