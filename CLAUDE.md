@@ -6,7 +6,7 @@ This document provides comprehensive guidance for AI assistants working with the
 
 **Project Name:** samjulien-astro
 **Website URL:** https://www.samjulien.com
-**Purpose:** Personal website and blog for Sam Julien, Director of Developer Relations and AI Engineer
+**Purpose:** Personal website and blog for Sam Julien, Product Manager focused on developer tools and AI
 **Primary Author:** Sam Julien
 **Design Credit:** [Vojta](http://vojta.io)
 **Hosting:** Netlify
@@ -518,8 +518,9 @@ const { Content } = await render(post);
 ## SEO & Meta Tags
 
 ### Default Values
-- **Description:** "Sam Julien is a Developer Relations director, writer, and teacher. He loves helping people level up their developer advocacy, AI engineering, or web development job using Python and JavaScript."
+- **Description:** "Sam Julien is a Product Manager focused on developer tools and AI. He writes about product strategy, developer experience, and the practical microskills that help you grow as a builder and leader."
 - **OG Image:** `/ogimage.png`
+- **OG Title:** "Sam Julien: DevTools PM and Your Biggest Fan"
 - **Twitter Handle:** `@samjulien`
 
 ### Per-Page Overrides
@@ -622,7 +623,7 @@ window.fathom?.trackGoal('GOAL_ID', value);
 ## Contact & Ownership
 
 **Website Owner:** Sam Julien
-**Role:** Director of Developer Relations and AI Engineer
+**Role:** Product Manager focused on developer tools and AI (WRITER)
 **Twitter:** @samjulien
 **Website:** https://www.samjulien.com
 

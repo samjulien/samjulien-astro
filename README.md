@@ -1,6 +1,6 @@
 # SamJulien.com
 
-Hi, I'm Sam Julien, Director of Developer Relations and AI Engineer. I'm a writer and teacher who loves helping people level up their developer advocacy, AI engineering, or web development skills using Python and JavaScript.
+Hi, I'm Sam Julien, a Product Manager focused on developer tools and AI (currently at [WRITER](https://writer.com), an enterprise AI platform). I spent years leading Developer Relations at Auth0/Okta, which gave me a deep understanding of how developers think and what they actually need from products. I write about product strategy, developer experience, and the practical microskills that help you grow as a builder and leader.
 
 This is the repo for [my personal website](http://www.samjulien.com), built with [Astro](https://astro.build/). [Vojta](http://vojta.io) did the foundational design for this site. It's hosted on [Netlify](https://www.netlify.com/).
 
