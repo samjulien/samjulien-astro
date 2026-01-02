@@ -1,6 +1,6 @@
 ---
 title: Now
-lastUpdated: June 2025
+lastUpdated: January 2026
 ---
 
 This is my [now page](https://nownownow.com/about), inspired by Derek Sivers. It's a snapshot of what I'm focused on at this point in my life.
@@ -22,7 +22,7 @@ I've recently gotten back into writing and coding. I [rebuilt this website with 
 
 ## Day job
 
-I'm currently working as the Director of Developer Relations at [Writer](https://writer.com), an enterprise AI platform, where I lead a team of Developer Experience (DX) engineers and Developer Advocates. I oversee all of our [developer docs and SDKs](https://dev.writer.com/) and co-lead all of our technical and developer marketing alongside the Product Marketing team. I recently oversaw all of the engineering and marketing for our [SDK 2.0 release](https://writer.com/engineering/sdk-2-0/) and our [LangChain](https://writer.com/engineering/langchain-writer/) and [Instructor](https://python.useinstructor.com/integrations/writer/) integrations. I also led a cross-functional team in sponsoring [AI Engineer Summit](https://www.ai.engineer/summit) and spoke at [AI Engineer World's Fair](https://www.ai.engineer/summit). It's an intense, fast-paced job but incredibly interesting and engaging. I honestly can't believe how lucky I am to have a front-row seat to the AI revolution.
+I'm currently working as a Product Manager at [Writer](https://writer.com), an enterprise AI platform, where I oversee our public API, AI Studio backend, and [developer docs and SDKs](https://dev.writer.com/). I recently oversaw all of the engineering and marketing for our [SDK 2.0 release](https://writer.com/engineering/sdk-2-0/) and our [LangChain](https://writer.com/engineering/langchain-writer/) and [Instructor](https://python.useinstructor.com/integrations/writer/) integrations. I also led a cross-functional team in sponsoring [AI Engineer Summit](https://www.ai.engineer/summit) and spoke at [AI Engineer World's Fair](https://www.ai.engineer/summit). It's an intense, fast-paced job but incredibly interesting and engaging. I honestly can't believe how lucky I am to have a front-row seat to the AI revolution.
 
 ## Learning
 
