@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import SeriesNav from '../components/SeriesNav.astro';
+import TableOfContents from '../components/TableOfContents.astro';
 import { format } from 'date-fns';
 import { getReadingTime } from '../utils/readingTime';
 import { getRelatedPosts } from '../utils/relatedPosts';
@@ -16,41 +17,65 @@ export async function getStaticPaths() {
 }
 
 const { post, allPosts } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 const readingTime = getReadingTime(post);
 const relatedPosts = getRelatedPosts(post, allPosts, 3);
 const hasSeries = post.data.series && post.data.series_order;
+
+// Check if we have enough headings to show TOC (3 or more h2/h3 headings)
+const tocHeadings = headings.filter(h => h.depth >= 2 && h.depth <= 3);
+const showToc = tocHeadings.length >= 3;
 ---
 
 <Layout
   title={`${post.data.title} - Sam Julien`}
   description={post.data.description}
   image={post.data.ogimage}
+  wideContainer={showToc}
 >
-  <article class="prose lg:prose-xl dark:prose-invert max-w-none">
-    <h2>{post.data.title}</h2>
-    <div class="text-gray-600 dark:text-gray-400 mb-4 flex flex-wrap gap-2 items-center">
-      <time>
-        Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
-      </time>
-      <span aria-hidden="true">•</span>
-      <span>{readingTime}</span>
+  <div class={showToc ? 'lg:grid lg:grid-cols-[1fr_220px] lg:gap-8' : ''}>
+    <div>
+      <article class="prose lg:prose-xl dark:prose-invert max-w-none">
+        <h2>{post.data.title}</h2>
+        <div class="text-gray-600 dark:text-gray-400 mb-4 flex flex-wrap gap-2 items-center">
+          <time>
+            Last updated: {post.data.date_updated ? format(post.data.date_updated, 'MMMM yyyy') : format(post.data.date, 'MMMM yyyy')}
+          </time>
+          <span aria-hidden="true">•</span>
+          <span>{readingTime}</span>
+        </div>
+        {post.data.tags && post.data.tags.length > 0 && (
+          <div class="mb-8 flex flex-wrap gap-2 not-prose">
+            {post.data.tags.map(tag => (
+              <a
+                href={`/tags/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
+                class="text-sm bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-800 transition-colors"
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        )}
+        {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
+
+        <!-- Mobile TOC (collapsible) -->
+        {showToc && (
+          <div class="lg:hidden not-prose">
+            <TableOfContents headings={headings} />
+          </div>
+        )}
+
+        <Content />
+      </article>
+      {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
+      <RelatedPosts posts={relatedPosts} />
     </div>
-    {post.data.tags && post.data.tags.length > 0 && (
-      <div class="mb-8 flex flex-wrap gap-2 not-prose">
-        {post.data.tags.map(tag => (
-          <a
-            href={`/tags/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
-            class="text-sm bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-800 transition-colors"
-          >
-            {tag}
-          </a>
-        ))}
-      </div>
+
+    <!-- Desktop TOC (sticky sidebar) -->
+    {showToc && (
+      <aside class="hidden lg:block">
+        <TableOfContents headings={headings} />
+      </aside>
     )}
-    {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
-    <Content />
-  </article>
-  {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
-  <RelatedPosts posts={relatedPosts} />
+  </div>
 </Layout>
