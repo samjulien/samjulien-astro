@@ -170,14 +170,15 @@ This document tracks quality of life improvements and feature enhancements for s
   - Could be simple links (no tracking)
 - **Complexity:** Low
 
-#### 📋 Newsletter CTA Variations
-- **Priority:** Low
+#### ✅ Newsletter CTA Variations
+- **Status:** Complete (pending PR)
 - **Description:** Different CTAs based on post topic
-- **Implementation:**
-  - "Want more DevRel content? Subscribe..."
-  - A/B test positioning (inline vs. footer)
-  - Conditional based on tags
-- **Complexity:** Low-Medium
+- **Features:**
+  - Topic-specific headlines based on post category (product, productivity, devrel, technical)
+  - Fallback to tag-based detection for uncategorized posts
+  - Inline CTA placement in blog posts (after content, before related posts)
+  - Distinct styling for inline variant (green accent) vs footer (gray)
+  - Dark mode support for all variants
 
 ### Content Management
 
