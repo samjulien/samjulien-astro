@@ -83,35 +83,60 @@ const shouldRender = filteredHeadings.length >= minHeadings;
 
     if (headingElements.length === 0) return;
 
-    const observerOptions = {
-      rootMargin: '-80px 0px -80% 0px',
-      threshold: 0
-    };
-
     let currentActive: Element | null = null;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const slug = entry.target.id;
+    function setActiveLink(slug: string | null) {
+      // Remove active class from previous
+      if (currentActive) {
+        currentActive.classList.remove('border-green-500', 'text-green-600', 'dark:text-green-400');
+        currentActive.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+      }
 
-          // Remove active class from previous
-          if (currentActive) {
-            currentActive.classList.remove('border-green-500', 'text-green-600', 'dark:text-green-400');
-            currentActive.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
-          }
+      if (!slug) {
+        currentActive = null;
+        return;
+      }
 
-          // Add active class to current
-          const activeLink = document.querySelector(`.toc-link[data-heading="${slug}"]`);
-          if (activeLink) {
-            activeLink.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
-            activeLink.classList.add('border-green-500', 'text-green-600', 'dark:text-green-400');
-            currentActive = activeLink;
-          }
+      // Add active class to current
+      const activeLink = document.querySelector(`.toc-link[data-heading="${slug}"]`);
+      if (activeLink) {
+        activeLink.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+        activeLink.classList.add('border-green-500', 'text-green-600', 'dark:text-green-400');
+        currentActive = activeLink;
+      }
+    }
+
+    function updateActiveHeading() {
+      const scrollY = window.scrollY;
+      const offset = 100; // Offset from top of viewport
+
+      // Find the last heading that's been scrolled past
+      let activeSlug: string | null = null;
+      for (const heading of headingElements) {
+        const top = heading.getBoundingClientRect().top + window.scrollY;
+        if (top <= scrollY + offset) {
+          activeSlug = heading.id;
+        } else {
+          break;
         }
-      });
-    }, observerOptions);
+      }
 
-    headingElements.forEach(el => observer.observe(el));
+      setActiveLink(activeSlug);
+    }
+
+    // Update on scroll with throttling
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateActiveHeading();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Initial update
+    updateActiveHeading();
   });
 </script>
