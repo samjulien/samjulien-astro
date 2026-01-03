@@ -88,7 +88,7 @@ This document tracks quality of life improvements and feature enhancements for s
   - Consistent content management approach
 
 ### ✅ Content Categorization System
-- **Status:** Complete (pending PR)
+- **Status:** Merged (#22)
 - **Description:** Categorize posts for content curation and archiving
 - **Features:**
   - `category` field in blog schema (product, productivity, devrel, technical, archive)
