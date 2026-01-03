@@ -67,83 +67,84 @@ const shouldRender = filteredHeadings.length >= minHeadings;
   </nav>
 )}
 
-<script>
+<script is:inline>
   // Highlight current section in TOC based on scroll position
-  function initTocHighlighting() {
-    const tocLinks = document.querySelectorAll('.toc-link');
-    if (tocLinks.length === 0) return;
+  (function() {
+    // Small delay to ensure content is fully rendered
+    setTimeout(function initTocHighlighting() {
+      var tocLinks = document.querySelectorAll('.toc-link');
+      if (tocLinks.length === 0) return;
 
-    const headingSlugs = Array.from(tocLinks).map(link =>
-      link.getAttribute('data-heading')
-    ).filter(Boolean) as string[];
+      var headingSlugs = [];
+      tocLinks.forEach(function(link) {
+        var slug = link.getAttribute('data-heading');
+        if (slug) headingSlugs.push(slug);
+      });
 
-    const headingElements = headingSlugs
-      .map(slug => document.getElementById(slug))
-      .filter(Boolean) as HTMLElement[];
+      var headingElements = [];
+      headingSlugs.forEach(function(slug) {
+        var el = document.getElementById(slug);
+        if (el) headingElements.push(el);
+      });
 
-    if (headingElements.length === 0) return;
+      if (headingElements.length === 0) return;
 
-    let currentActive: Element | null = null;
+      var currentActive = null;
 
-    function setActiveLink(slug: string | null) {
-      // Remove active class from previous
-      if (currentActive) {
-        currentActive.classList.remove('border-green-500', 'text-green-600', 'dark:text-green-400');
-        currentActive.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
-      }
+      function setActiveLink(slug) {
+        // Remove active class from previous
+        if (currentActive) {
+          currentActive.classList.remove('border-green-500', 'text-green-600', 'dark:text-green-400');
+          currentActive.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+        }
 
-      if (!slug) {
-        currentActive = null;
-        return;
-      }
+        if (!slug) {
+          currentActive = null;
+          return;
+        }
 
-      // Add active class to current
-      const activeLink = document.querySelector(`.toc-link[data-heading="${slug}"]`);
-      if (activeLink) {
-        activeLink.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
-        activeLink.classList.add('border-green-500', 'text-green-600', 'dark:text-green-400');
-        currentActive = activeLink;
-      }
-    }
-
-    function updateActiveHeading() {
-      const scrollY = window.scrollY;
-      const offset = 100; // Offset from top of viewport
-
-      // Find the last heading that's been scrolled past
-      let activeSlug: string | null = null;
-      for (const heading of headingElements) {
-        const top = heading.getBoundingClientRect().top + window.scrollY;
-        if (top <= scrollY + offset) {
-          activeSlug = heading.id;
-        } else {
-          break;
+        // Add active class to current
+        var activeLink = document.querySelector('.toc-link[data-heading="' + slug + '"]');
+        if (activeLink) {
+          activeLink.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+          activeLink.classList.add('border-green-500', 'text-green-600', 'dark:text-green-400');
+          currentActive = activeLink;
         }
       }
 
-      setActiveLink(activeSlug);
-    }
+      function updateActiveHeading() {
+        var scrollY = window.scrollY;
+        var offset = 100;
 
-    // Update on scroll with throttling
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          updateActiveHeading();
-          ticking = false;
-        });
-        ticking = true;
+        // Find the last heading that's been scrolled past
+        var activeSlug = null;
+        for (var i = 0; i < headingElements.length; i++) {
+          var heading = headingElements[i];
+          var top = heading.getBoundingClientRect().top + window.scrollY;
+          if (top <= scrollY + offset) {
+            activeSlug = heading.id;
+          } else {
+            break;
+          }
+        }
+
+        setActiveLink(activeSlug);
       }
-    });
 
-    // Initial update
-    updateActiveHeading();
-  }
+      // Update on scroll with throttling
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            updateActiveHeading();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
 
-  // Run when DOM is ready (handles both cases: already loaded or still loading)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTocHighlighting);
-  } else {
-    initTocHighlighting();
-  }
+      // Initial update
+      updateActiveHeading();
+    }, 100);
+  })();
 </script>
