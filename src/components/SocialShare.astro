@@ -1,0 +1,100 @@
+---
+import XIcon from './icons/XIcon.astro';
+import BlueskyIcon from './icons/BlueskyIcon.astro';
+import LinkedInIcon from './icons/LinkedInIcon.astro';
+import LinkIcon from './icons/LinkIcon.astro';
+
+interface Props {
+  title: string;
+  url: string;
+}
+
+const { title, url } = Astro.props;
+
+const encodedTitle = encodeURIComponent(title);
+const encodedUrl = encodeURIComponent(url);
+const blueskyText = encodeURIComponent(`${title} ${url}`);
+
+const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+const blueskyUrl = `https://bsky.app/intent/compose?text=${blueskyText}`;
+const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`;
+---
+
+<div class="flex items-center gap-2">
+  <span class="text-sm text-gray-600 dark:text-gray-400">Share:</span>
+  <div class="flex items-center gap-1">
+    <a
+      href={twitterUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+      aria-label="Share on X (Twitter)"
+      title="Share on X"
+    >
+      <XIcon className="w-5 h-5" />
+    </a>
+    <a
+      href={blueskyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+      aria-label="Share on Bluesky"
+      title="Share on Bluesky"
+    >
+      <BlueskyIcon className="w-5 h-5" />
+    </a>
+    <a
+      href={linkedInUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+      aria-label="Share on LinkedIn"
+      title="Share on LinkedIn"
+    >
+      <LinkedInIcon className="w-5 h-5" />
+    </a>
+    <button
+      type="button"
+      class="copy-link-btn p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+      data-url={url}
+      aria-label="Copy link to clipboard"
+      title="Copy link"
+    >
+      <LinkIcon className="w-5 h-5" />
+    </button>
+  </div>
+</div>
+
+<script>
+  function initCopyButtons() {
+    document.querySelectorAll('.copy-link-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const url = btn.getAttribute('data-url');
+        if (url) {
+          try {
+            await navigator.clipboard.writeText(url);
+            // Visual feedback
+            const originalTitle = btn.getAttribute('title');
+            btn.setAttribute('title', 'Copied!');
+            btn.classList.add('text-green-600', 'dark:text-green-400');
+            btn.classList.remove('text-gray-600', 'dark:text-gray-400');
+
+            setTimeout(() => {
+              btn.setAttribute('title', originalTitle || 'Copy link');
+              btn.classList.remove('text-green-600', 'dark:text-green-400');
+              btn.classList.add('text-gray-600', 'dark:text-gray-400');
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy link:', err);
+          }
+        }
+      });
+    });
+  }
+
+  // Run on initial load
+  initCopyButtons();
+
+  // Run on Astro page transitions
+  document.addEventListener('astro:after-swap', initCopyButtons);
+</script>

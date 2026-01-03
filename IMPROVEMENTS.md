@@ -88,7 +88,7 @@ This document tracks quality of life improvements and feature enhancements for s
   - Consistent content management approach
 
 ### ✅ Content Categorization System
-- **Status:** Complete (pending PR)
+- **Status:** Merged (#22)
 - **Description:** Categorize posts for content curation and archiving
 - **Features:**
   - `category` field in blog schema (product, productivity, devrel, technical, archive)
@@ -98,7 +98,7 @@ This document tracks quality of life improvements and feature enhancements for s
   - Categories support future content filtering and navigation
 
 ### ✅ Brand Repositioning (DevRel → Product)
-- **Status:** Complete (pending PR)
+- **Status:** Merged (#22)
 - **Description:** Update site positioning from DevRel focus to Product Management
 - **Features:**
   - Hero messaging updated to lead with PM role
@@ -107,7 +107,7 @@ This document tracks quality of life improvements and feature enhancements for s
   - DevRel background positioned as differentiator, not primary identity
 
 ### ✅ Table of Contents
-- **Status:** Complete (pending PR)
+- **Status:** Merged (#25)
 - **Description:** Auto-generate TOC for longer posts using heading structure
 - **Features:**
   - Sticky sidebar on desktop showing "On this page" with heading links
@@ -161,17 +161,18 @@ This document tracks quality of life improvements and feature enhancements for s
 
 ### Author & Social
 
-#### 📋 Social Share Buttons
-- **Priority:** Medium
-- **Description:** Quick share to Twitter, LinkedIn
-- **Implementation:**
-  - Pre-populated with title and URL
-  - "Click to Tweet" for quotable sections
-  - Could be simple links (no tracking)
-- **Complexity:** Low
+#### ✅ Social Share Buttons
+- **Status:** Complete (pending PR)
+- **Description:** Quick share to X (Twitter), Bluesky, LinkedIn, and copy link
+- **Features:**
+  - Share buttons appear below tags on blog posts
+  - X, Bluesky, and LinkedIn links pre-populated with title and URL
+  - Copy link button with visual feedback when clicked
+  - Dark mode support
+  - Icon components: XIcon, BlueskyIcon, LinkedInIcon, LinkIcon in `src/components/icons/`
 
 #### ✅ Newsletter CTA Variations
-- **Status:** Complete (pending PR)
+- **Status:** Merged (#26)
 - **Description:** Different CTAs based on post topic
 - **Features:**
   - Topic-specific headlines based on post category (product, productivity, devrel, technical)
@@ -218,7 +219,7 @@ This document tracks quality of life improvements and feature enhancements for s
 ### Quick Wins (Easiest to Implement)
 1. Last Updated Badge - Data already exists, just needs styling
 2. Breadcrumbs - Simple component
-3. Social Share Buttons - Basic links
+3. ~~Social Share Buttons - Basic links~~ ✅ Completed
 4. Image Lightbox - Can use simple library
 
 ### High Impact Features
@@ -250,5 +251,5 @@ When implementing features from this list:
 
 ---
 
-**Last Updated:** 2026-01-01
+**Last Updated:** 2026-01-03
 **Maintained by:** AI assistants and contributors
