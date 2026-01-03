@@ -1,5 +1,6 @@
 ---
 import XIcon from './icons/XIcon.astro';
+import BlueskyIcon from './icons/BlueskyIcon.astro';
 import LinkedInIcon from './icons/LinkedInIcon.astro';
 import LinkIcon from './icons/LinkIcon.astro';
 
@@ -12,8 +13,10 @@ const { title, url } = Astro.props;
 
 const encodedTitle = encodeURIComponent(title);
 const encodedUrl = encodeURIComponent(url);
+const blueskyText = encodeURIComponent(`${title} ${url}`);
 
 const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
+const blueskyUrl = `https://bsky.app/intent/compose?text=${blueskyText}`;
 const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`;
 ---
 
@@ -29,6 +32,16 @@ const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encod
       title="Share on X"
     >
       <XIcon className="w-5 h-5" />
+    </a>
+    <a
+      href={blueskyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+      aria-label="Share on Bluesky"
+      title="Share on Bluesky"
+    >
+      <BlueskyIcon className="w-5 h-5" />
     </a>
     <a
       href={linkedInUrl}

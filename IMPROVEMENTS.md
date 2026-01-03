@@ -163,13 +163,13 @@ This document tracks quality of life improvements and feature enhancements for s
 
 #### ✅ Social Share Buttons
 - **Status:** Complete (pending PR)
-- **Description:** Quick share to X (Twitter), LinkedIn, and copy link
+- **Description:** Quick share to X (Twitter), Bluesky, LinkedIn, and copy link
 - **Features:**
   - Share buttons appear below tags on blog posts
-  - X and LinkedIn links pre-populated with title and URL
+  - X, Bluesky, and LinkedIn links pre-populated with title and URL
   - Copy link button with visual feedback when clicked
   - Dark mode support
-  - Icon components: XIcon, LinkedInIcon, LinkIcon in `src/components/icons/`
+  - Icon components: XIcon, BlueskyIcon, LinkedInIcon, LinkIcon in `src/components/icons/`
 
 #### ✅ Newsletter CTA Variations
 - **Status:** Merged (#26)
