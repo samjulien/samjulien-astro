@@ -69,7 +69,7 @@ const shouldRender = filteredHeadings.length >= minHeadings;
 
 <script>
   // Highlight current section in TOC based on scroll position
-  document.addEventListener('DOMContentLoaded', () => {
+  function initTocHighlighting() {
     const tocLinks = document.querySelectorAll('.toc-link');
     if (tocLinks.length === 0) return;
 
@@ -138,5 +138,12 @@ const shouldRender = filteredHeadings.length >= minHeadings;
 
     // Initial update
     updateActiveHeading();
-  });
+  }
+
+  // Run when DOM is ready (handles both cases: already loaded or still loading)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTocHighlighting);
+  } else {
+    initTocHighlighting();
+  }
 </script>
