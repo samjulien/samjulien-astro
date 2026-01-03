@@ -5,6 +5,7 @@ import RelatedPosts from '../components/RelatedPosts.astro';
 import SeriesNav from '../components/SeriesNav.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import NewsletterCTA from '../components/NewsletterCTA.astro';
+import SocialShare from '../components/SocialShare.astro';
 import { format } from 'date-fns';
 import { getReadingTime } from '../utils/readingTime';
 import { getRelatedPosts } from '../utils/relatedPosts';
@@ -26,6 +27,9 @@ const hasSeries = post.data.series && post.data.series_order;
 // Check if we have enough headings to show TOC (3 or more h2/h3 headings)
 const tocHeadings = headings.filter(h => h.depth >= 2 && h.depth <= 3);
 const showToc = tocHeadings.length >= 3;
+
+// Construct the full URL for social sharing
+const postUrl = new URL(`/${post.id}`, Astro.site).toString();
 ---
 
 <Layout
@@ -47,7 +51,7 @@ const showToc = tocHeadings.length >= 3;
           <span>{readingTime}</span>
         </div>
         {post.data.tags && post.data.tags.length > 0 && (
-          <div class="mb-8 flex flex-wrap gap-2 not-prose">
+          <div class="mb-4 flex flex-wrap gap-2 not-prose">
             {post.data.tags.map(tag => (
               <a
                 href={`/tags/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, '-'))}`}
@@ -58,6 +62,11 @@ const showToc = tocHeadings.length >= 3;
             ))}
           </div>
         )}
+
+        <div class="mb-8 not-prose">
+          <SocialShare title={post.data.title} url={postUrl} />
+        </div>
+
         {hasSeries && <SeriesNav currentPost={post} allPosts={allPosts} />}
 
         <!-- Mobile TOC (collapsible) -->
