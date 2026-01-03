@@ -98,7 +98,7 @@ This document tracks quality of life improvements and feature enhancements for s
   - Categories support future content filtering and navigation
 
 ### ✅ Brand Repositioning (DevRel → Product)
-- **Status:** Complete (pending PR)
+- **Status:** Merged (#22)
 - **Description:** Update site positioning from DevRel focus to Product Management
 - **Features:**
   - Hero messaging updated to lead with PM role
@@ -107,7 +107,7 @@ This document tracks quality of life improvements and feature enhancements for s
   - DevRel background positioned as differentiator, not primary identity
 
 ### ✅ Table of Contents
-- **Status:** Complete (pending PR)
+- **Status:** Merged (#25)
 - **Description:** Auto-generate TOC for longer posts using heading structure
 - **Features:**
   - Sticky sidebar on desktop showing "On this page" with heading links
@@ -172,7 +172,7 @@ This document tracks quality of life improvements and feature enhancements for s
   - Icon components: XIcon, LinkedInIcon, LinkIcon in `src/components/icons/`
 
 #### ✅ Newsletter CTA Variations
-- **Status:** Complete (pending PR)
+- **Status:** Merged (#26)
 - **Description:** Different CTAs based on post topic
 - **Features:**
   - Topic-specific headlines based on post category (product, productivity, devrel, technical)
@@ -251,5 +251,5 @@ When implementing features from this list:
 
 ---
 
-**Last Updated:** 2026-01-01
+**Last Updated:** 2026-01-03
 **Maintained by:** AI assistants and contributors
