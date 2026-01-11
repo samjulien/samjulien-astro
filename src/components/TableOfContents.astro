@@ -20,7 +20,7 @@ const shouldRender = filteredHeadings.length >= minHeadings;
 ---
 
 {shouldRender && (
-  <nav class="toc-container" aria-label="Table of contents">
+  <nav class="toc-container lg:h-full" aria-label="Table of contents">
     <!-- Mobile: Collapsible -->
     <details class="lg:hidden mb-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
       <summary class="cursor-pointer p-4 font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2">
@@ -44,7 +44,7 @@ const shouldRender = filteredHeadings.length >= minHeadings;
     </details>
 
     <!-- Desktop: Sticky sidebar -->
-    <div class="hidden lg:block">
+    <div class="hidden lg:block lg:h-full">
       <div class="sticky top-8">
         <h2 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wide mb-4">
           On this page
@@ -67,51 +67,86 @@ const shouldRender = filteredHeadings.length >= minHeadings;
   </nav>
 )}
 
-<script>
+<script is:inline>
   // Highlight current section in TOC based on scroll position
-  document.addEventListener('DOMContentLoaded', () => {
-    const tocLinks = document.querySelectorAll('.toc-link');
-    if (tocLinks.length === 0) return;
+  // Only run once, guard against multiple executions
+  if (!window.__tocInitialized) {
+    window.__tocInitialized = true;
 
-    const headingSlugs = Array.from(tocLinks).map(link =>
-      link.getAttribute('data-heading')
-    ).filter(Boolean) as string[];
+    // Wait for DOM to be fully ready
+    function initTOC() {
+      var tocLinks = document.querySelectorAll('.toc-link');
+      if (tocLinks.length === 0) return;
 
-    const headingElements = headingSlugs
-      .map(slug => document.getElementById(slug))
-      .filter(Boolean) as HTMLElement[];
-
-    if (headingElements.length === 0) return;
-
-    const observerOptions = {
-      rootMargin: '-80px 0px -80% 0px',
-      threshold: 0
-    };
-
-    let currentActive: Element | null = null;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const slug = entry.target.id;
-
-          // Remove active class from previous
-          if (currentActive) {
-            currentActive.classList.remove('border-green-500', 'text-green-600', 'dark:text-green-400');
-            currentActive.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
-          }
-
-          // Add active class to current
-          const activeLink = document.querySelector(`.toc-link[data-heading="${slug}"]`);
-          if (activeLink) {
-            activeLink.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
-            activeLink.classList.add('border-green-500', 'text-green-600', 'dark:text-green-400');
-            currentActive = activeLink;
+      // Build pairs of {link, heading} using the link's href to find headings
+      var pairs = [];
+      for (var i = 0; i < tocLinks.length; i++) {
+        var link = tocLinks[i];
+        var href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          var id = href.substring(1);
+          var heading = document.getElementById(id);
+          if (heading) {
+            pairs.push({ link: link, heading: heading });
           }
         }
-      });
-    }, observerOptions);
+      }
 
-    headingElements.forEach(el => observer.observe(el));
-  });
+      if (pairs.length === 0) return;
+
+      var currentActive = null;
+
+      function setActiveLink(link) {
+        if (currentActive) {
+          currentActive.classList.remove('border-green-500', 'text-green-600', 'dark:text-green-400');
+          currentActive.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+        }
+        currentActive = link;
+        if (link) {
+          link.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+          link.classList.add('border-green-500', 'text-green-600', 'dark:text-green-400');
+        }
+      }
+
+      function updateActiveHeading() {
+        var scrollY = window.scrollY;
+        var offset = 120;
+        var activeLink = null;
+
+        for (var i = 0; i < pairs.length; i++) {
+          var heading = pairs[i].heading;
+          var top = heading.getBoundingClientRect().top;
+          if (top <= offset) {
+            activeLink = pairs[i].link;
+          }
+        }
+
+        setActiveLink(activeLink);
+      }
+
+      // Throttled scroll handler
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            updateActiveHeading();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Initial update
+      updateActiveHeading();
+    }
+
+    // Run after a short delay to ensure content is rendered
+    if (document.readyState === 'complete') {
+      setTimeout(initTOC, 50);
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(initTOC, 50);
+      });
+    }
+  }
 </script>
