@@ -69,76 +69,62 @@ const shouldRender = filteredHeadings.length >= minHeadings;
 
 <script is:inline>
   // Highlight current section in TOC based on scroll position
-  (function() {
-    // Small delay to ensure content is fully rendered
-    setTimeout(function initTocHighlighting() {
-      var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc-link'));
+  // Only run once, guard against multiple executions
+  if (!window.__tocInitialized) {
+    window.__tocInitialized = true;
+
+    // Wait for DOM to be fully ready
+    function initTOC() {
+      var tocLinks = document.querySelectorAll('.toc-link');
       if (tocLinks.length === 0) return;
 
-      // Find all h2 and h3 headings in the article (the prose content area)
-      var article = document.querySelector('article.prose');
-      if (!article) {
-        article = document.querySelector('article');
+      // Build pairs of {link, heading} using the link's href to find headings
+      var pairs = [];
+      for (var i = 0; i < tocLinks.length; i++) {
+        var link = tocLinks[i];
+        var href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          var id = href.substring(1);
+          var heading = document.getElementById(id);
+          if (heading) {
+            pairs.push({ link: link, heading: heading });
+          }
+        }
       }
-      if (!article) return;
 
-      // Get all h2 and h3 headings, excluding the page title (first h2) and TOC title
-      var allHeadings = Array.prototype.slice.call(article.querySelectorAll('h2, h3'));
-
-      // Filter out the TOC's own "On this page" heading and the page title
-      var headingElements = allHeadings.filter(function(h) {
-        // Skip if it's inside the TOC nav
-        if (h.closest('.toc-container')) return false;
-        // Skip if it's the page title (usually first h2 without an id)
-        if (h.tagName === 'H2' && !h.id && allHeadings.indexOf(h) === 0) return false;
-        return true;
-      });
-
-      if (headingElements.length === 0) return;
+      if (pairs.length === 0) return;
 
       var currentActive = null;
 
-      function setActiveLinkByIndex(index) {
-        // Remove active class from previous
+      function setActiveLink(link) {
         if (currentActive) {
           currentActive.classList.remove('border-green-500', 'text-green-600', 'dark:text-green-400');
           currentActive.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
         }
-
-        if (index < 0 || index >= tocLinks.length) {
-          currentActive = null;
-          return;
-        }
-
-        var activeLink = tocLinks[index];
-        if (activeLink) {
-          activeLink.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
-          activeLink.classList.add('border-green-500', 'text-green-600', 'dark:text-green-400');
-          currentActive = activeLink;
+        currentActive = link;
+        if (link) {
+          link.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+          link.classList.add('border-green-500', 'text-green-600', 'dark:text-green-400');
         }
       }
 
       function updateActiveHeading() {
         var scrollY = window.scrollY;
-        var offset = 100;
+        var offset = 120;
+        var activeLink = null;
 
-        // Find the last heading that's been scrolled past
-        var activeIndex = -1;
-        for (var i = 0; i < headingElements.length; i++) {
-          var heading = headingElements[i];
-          var rect = heading.getBoundingClientRect();
-          var top = rect.top + window.scrollY;
-          if (top <= scrollY + offset) {
-            activeIndex = i;
-          } else {
-            break;
+        for (var i = 0; i < pairs.length; i++) {
+          var heading = pairs[i].heading;
+          var top = heading.getBoundingClientRect().top;
+          if (top <= offset) {
+            activeLink = pairs[i].link;
           }
         }
 
-        setActiveLinkByIndex(activeIndex);
+        setActiveLink(activeLink);
       }
 
-      // Update on scroll with throttling
+      // Throttled scroll handler
       var ticking = false;
       window.addEventListener('scroll', function() {
         if (!ticking) {
@@ -148,10 +134,19 @@ const shouldRender = filteredHeadings.length >= minHeadings;
           });
           ticking = true;
         }
-      });
+      }, { passive: true });
 
       // Initial update
       updateActiveHeading();
-    }, 100);
-  })();
+    }
+
+    // Run after a short delay to ensure content is rendered
+    if (document.readyState === 'complete') {
+      setTimeout(initTOC, 50);
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(initTOC, 50);
+      });
+    }
+  }
 </script>
