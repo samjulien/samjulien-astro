@@ -72,39 +72,45 @@ const shouldRender = filteredHeadings.length >= minHeadings;
   (function() {
     // Small delay to ensure content is fully rendered
     setTimeout(function initTocHighlighting() {
-      var tocLinks = document.querySelectorAll('.toc-link');
+      var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc-link'));
       if (tocLinks.length === 0) return;
 
-      var headingSlugs = [];
-      tocLinks.forEach(function(link) {
-        var slug = link.getAttribute('data-heading');
-        if (slug) headingSlugs.push(slug);
-      });
+      // Find all h2 and h3 headings in the article (the prose content area)
+      var article = document.querySelector('article.prose');
+      if (!article) {
+        article = document.querySelector('article');
+      }
+      if (!article) return;
 
-      var headingElements = [];
-      headingSlugs.forEach(function(slug) {
-        var el = document.getElementById(slug);
-        if (el) headingElements.push(el);
+      // Get all h2 and h3 headings, excluding the page title (first h2) and TOC title
+      var allHeadings = Array.prototype.slice.call(article.querySelectorAll('h2, h3'));
+
+      // Filter out the TOC's own "On this page" heading and the page title
+      var headingElements = allHeadings.filter(function(h) {
+        // Skip if it's inside the TOC nav
+        if (h.closest('.toc-container')) return false;
+        // Skip if it's the page title (usually first h2 without an id)
+        if (h.tagName === 'H2' && !h.id && allHeadings.indexOf(h) === 0) return false;
+        return true;
       });
 
       if (headingElements.length === 0) return;
 
       var currentActive = null;
 
-      function setActiveLink(slug) {
+      function setActiveLinkByIndex(index) {
         // Remove active class from previous
         if (currentActive) {
           currentActive.classList.remove('border-green-500', 'text-green-600', 'dark:text-green-400');
           currentActive.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
         }
 
-        if (!slug) {
+        if (index < 0 || index >= tocLinks.length) {
           currentActive = null;
           return;
         }
 
-        // Add active class to current
-        var activeLink = document.querySelector('.toc-link[data-heading="' + slug + '"]');
+        var activeLink = tocLinks[index];
         if (activeLink) {
           activeLink.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
           activeLink.classList.add('border-green-500', 'text-green-600', 'dark:text-green-400');
@@ -117,18 +123,19 @@ const shouldRender = filteredHeadings.length >= minHeadings;
         var offset = 100;
 
         // Find the last heading that's been scrolled past
-        var activeSlug = null;
+        var activeIndex = -1;
         for (var i = 0; i < headingElements.length; i++) {
           var heading = headingElements[i];
-          var top = heading.getBoundingClientRect().top + window.scrollY;
+          var rect = heading.getBoundingClientRect();
+          var top = rect.top + window.scrollY;
           if (top <= scrollY + offset) {
-            activeSlug = heading.id;
+            activeIndex = i;
           } else {
             break;
           }
         }
 
-        setActiveLink(activeSlug);
+        setActiveLinkByIndex(activeIndex);
       }
 
       // Update on scroll with throttling
