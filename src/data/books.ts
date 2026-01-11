@@ -1,4 +1,4 @@
-import agenticGraphRagCover from '../assets/agentic-graph-rag-cover.jpg';
+import agenticGraphRagCover from '../assets/agr-book.jpeg';
 import gteCover from '../assets/gte-cover.jpg';
 import devrelCover from '../assets/devrel-crop.jpg';
 import ghostCover from '../assets/ghost-course.png';
