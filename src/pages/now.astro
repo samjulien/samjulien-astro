@@ -1,19 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getEntry, render } from 'astro:content';
+import TableOfContents from '../components/TableOfContents.astro';
 
 const page = await getEntry('pages', 'now');
-const { Content } = await render(page);
+const { Content, headings } = await render(page);
+
+// Check if we have enough headings to show TOC (3 or more h2/h3 headings)
+const tocHeadings = headings.filter(h => h.depth >= 2 && h.depth <= 3);
+const showToc = tocHeadings.length >= 3;
 ---
 
-<Layout title={`${page.data.title} - Sam Julien`}>
-  <div class="mb-6">
-    <h1 class="text-4xl font-bold mb-2">{page.data.title}</h1>
-    {page.data.lastUpdated && (
-      <p class="text-gray-600 dark:text-gray-400 mb-4">Last updated: {page.data.lastUpdated}</p>
+<Layout title={`${page.data.title} - Sam Julien`} wideContainer={showToc}>
+  <div class={showToc ? 'lg:grid lg:grid-cols-[1fr_220px] lg:gap-8' : ''}>
+    <div>
+      <div class="mb-6">
+        <h1 class="text-4xl font-bold mb-2">{page.data.title}</h1>
+        {page.data.lastUpdated && (
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Last updated: {page.data.lastUpdated}</p>
+        )}
+      </div>
+
+      <!-- Mobile TOC (collapsible) -->
+      {showToc && (
+        <div class="lg:hidden">
+          <TableOfContents headings={headings} />
+        </div>
+      )}
+
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <Content />
+      </div>
+    </div>
+
+    <!-- Desktop TOC (sticky sidebar) -->
+    {showToc && (
+      <aside class="hidden lg:block">
+        <TableOfContents headings={headings} />
+      </aside>
     )}
-  </div>
-  <div class="prose prose-lg dark:prose-invert max-w-none">
-    <Content />
   </div>
 </Layout>
