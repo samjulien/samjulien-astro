@@ -5,7 +5,8 @@
       "Bash(npm run build:*)",
       "Bash(cat:*)",
       "Bash(curl:*)",
-      "Bash(npm outdated:*)"
+      "Bash(npm outdated:*)",
+      "Bash(grep:*)"
     ]
   }
 }
