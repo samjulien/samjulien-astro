@@ -13,7 +13,7 @@ ogimage: 'images/og-triage-and-execution.png'
 
 I sent a tweet recently that captured something I've been feeling for months:
 
-> "It's so crazy, between @clawdbot and Claude Code it's like...okay now building or keeping track of things is no longer the problem. So what do you want to build?? You can do *anything* now."
+> It's so crazy, between @clawdbot and Claude Code it's like...okay now building or keeping track of things is no longer the problem. So what do you want to build?? You can do *anything* now.
 
 That tweet came from a genuine moment of overwhelm. I had three project ideas I wanted to pursue, a handful of automations I could spin up, and a growing list of "wouldn't it be cool if..." thoughts. For the first time in my career, the barrier wasn't time to code. The barrier was figuring out which of these infinite possibilities actually deserved my attention.
 
@@ -65,7 +65,7 @@ When ideas are cheap and execution is cheap, decision-making becomes the bottlen
 
 The skill that matters is the ability to look at a list of possible projects and ruthlessly cut it down to the one or two that actually deserve your attention. This requires a different kind of thinking than we're used to.
 
-I've written before about a framework I call Drop/Defer/Do. The basic idea: when something lands on your plate, you have three options. Drop it entirely. Defer it to a specific future time. Or do it now. Most things should be dropped, not deferred, because deferred tasks have a way of lingering forever, consuming mental energy without ever getting done.
+I've written before about a framework I call [Drop/Defer/Do](/how-to-prioritize-projects). The basic idea: when something lands on your plate, you have three options. Drop it entirely. Defer it to a specific future time. Or do it now. Most things should be dropped, not deferred, because deferred tasks have a way of lingering forever, consuming mental energy without ever getting done.
 
 This framework becomes essential in a world where execution is cheap because now the temptation is to do everything. Why drop an idea when you could build it in an afternoon? Why defer when the activation energy is so low?
 
@@ -91,9 +91,9 @@ This gap is about to become very expensive for organizations and individuals ali
 
 The people who thrive in this new environment will be both filters and generators. They'll be the ones who can look at a wall of possibilities and immediately see which ones are noise. They'll have the clarity to say no to genuinely good ideas because they understand what great looks like for them specifically. Then, they and their team can execute with focus.
 
-This is harder than it sounds. Saying no to bad ideas is easy. Saying no to good ideas — ideas that would work, ideas that would be interesting, ideas that would probably succeed — that's genuinely difficult. It requires knowing what you want at a deep level. It requires having a clear enough vision that triage becomes almost automatic.
+This is harder than it sounds. Saying no to bad ideas is easy. [Saying no to good ideas](/learning-to-say-no-to-things) — ideas that would work, ideas that would be interesting, ideas that would probably succeed — that's genuinely difficult. It requires knowing what you want at a deep level. It requires having a clear enough vision that triage becomes almost automatic.
 
-The sequence matters here: Vision → Triage → Execution.
+The sequence matters here: [Vision](/setting-quarterly-goals-as-a-dev-and-dev-advocate) → Triage → Execution.
 
 Not: Ideas → Execution → Figure out what you want.
 
@@ -119,7 +119,7 @@ The winners will be those with the clearest sense of what's actually worth build
 
 This requires developing a skill that most of us have neglected: the ability to triage. To look at a world of infinite possibilities and choose — really choose, not just drift toward whatever seems easiest or most interesting in the moment.
 
-It means getting clear on your values, your goals, your definition of a life well-lived. Not in an abstract way, but specifically enough that when an idea shows up, you can quickly evaluate whether it fits.
+It means [getting clear on your values, your goals](/how-to-think-strategically), your definition of a life well-lived. Not in an abstract way, but specifically enough that when an idea shows up, you can quickly evaluate whether it fits.
 
 The tools will keep getting better. Execution will keep getting cheaper. The one thing that won't change is that you have a finite amount of time and attention. How you allocate that attention is, increasingly, the whole game.
 
