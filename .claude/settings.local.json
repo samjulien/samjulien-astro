@@ -6,7 +6,10 @@
       "Bash(cat:*)",
       "Bash(curl:*)",
       "Bash(npm outdated:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(ENCODED=\"Triaging%20Ideas%20When%20Execution%20Is%20Cheap\" NEW_POST_FOLDER=\"src/data/blog/2026-01-27-triage-and-execution\" .scripts/new_og.sh)",
+      "Bash(ENCODED=\"Triaging%20Ideas%20When%20Execution%20Is%20Cheap\" NEW_POST_FOLDER=\"src/data/blog/2026-01-27-triage-and-execution\" bash:*)",
+      "Bash(git:*)"
     ]
   }
 }
