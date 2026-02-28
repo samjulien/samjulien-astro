@@ -627,10 +627,59 @@ window.fathom?.trackGoal('GOAL_ID', value);
 **Twitter:** @samjulien
 **Website:** https://www.samjulien.com
 
+## /Now Page Updates
+
+The /now page lives at `src/data/pages/now.md` and is updated monthly (1st of each month) via an automated workflow. Claude Code is spawned in this repo to draft the update.
+
+### Page Location & Frontmatter
+
+```yaml
+# src/data/pages/now.md
+---
+title: Now
+lastUpdated: February 2026   # Update this each time
+---
+```
+
+The page is rendered by `src/pages/now.astro`.
+
+### Section Structure
+
+Follow this section order (matching the existing page):
+
+1. **Current focus** — Sam's top 1-2 priorities right now. Keep it high-level.
+2. **Personal** — Family life, Pacific Northwest life. Do not use names of family members or other people.
+3. **Creative work** — Writing, coding projects, newsletter, content pipeline, and personal projects (e.g. Settled). What's actively being built or published.
+4. **Day job** — WRITER only. Current role, recent wins, what's engaging at work. Do not include personal projects here.
+5. **Learning** — What Sam is studying, courses, books, skills being developed.
+
+End with the social links footer (already in the file — preserve it).
+
+### Tone Guidance
+
+- **Direct and personal** — Write like Sam talks. First person, conversational.
+- **Grounded** — No forced enthusiasm or corporate speak. Honest about what's hard, genuine about what's good.
+- **Specific** — Name actual projects and tools. "Working on Chapter 7 of the AGR book" not "writing a book." Do not use names of people.
+- **Brief** — Each section is 2-4 sentences. The whole page should be scannable.
+- **Match existing posts** — Read a few recent blog posts in `src/data/blog/` if unsure about voice.
+
+### Data Sources
+
+Context for the update will be provided in the Claude Code prompt by the orchestrating agent. No need to search for data sources — just synthesize what's given to you.
+
+### Workflow Instructions
+
+1. Read the current `/now` page to understand what's there
+2. Create branch: `now-update/YYYY-MM` (e.g., `now-update/2026-03`)
+3. Update `src/data/pages/now.md` — synthesize the provided context into an authentic update
+4. Update the `lastUpdated` frontmatter field
+5. Commit: `"Update now page for [Month Year]"`
+6. **Do NOT push** — Sam reviews and merges manually
+
 ---
 
-**Last Updated:** 2026-01-01
-**Document Version:** 1.0.0
+**Last Updated:** 2026-02-20
+**Document Version:** 1.1.0
 **Maintained by:** AI assistants working with this codebase
 
 When in doubt, follow existing patterns in the codebase and prioritize:
