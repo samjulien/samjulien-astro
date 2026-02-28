@@ -1,0 +1,85 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<div class="tweet-embed not-prose my-8 flex justify-center" data-tweet-id={id}>
+  <blockquote class="twitter-tweet" data-dnt="true">
+    <a href={`https://twitter.com/i/status/${id}`}>Loading tweet...</a>
+  </blockquote>
+</div>
+
+<script>
+  declare global {
+    interface Window {
+      twttr?: {
+        ready: (callback: () => void) => void;
+        widgets: {
+          createTweet: (
+            id: string,
+            container: HTMLElement,
+            options?: { theme?: string; dnt?: boolean; align?: string }
+          ) => Promise<HTMLElement>;
+        };
+      };
+    }
+  }
+
+  function getTheme(): 'dark' | 'light' {
+    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  }
+
+  function renderTweets() {
+    const theme = getTheme();
+    const containers = document.querySelectorAll('.tweet-embed');
+
+    containers.forEach((container) => {
+      const tweetId = container.getAttribute('data-tweet-id');
+      if (!tweetId) return;
+
+      // Clear existing content
+      container.innerHTML = '';
+
+      // Use Twitter's createTweet API for proper theme support
+      if (window.twttr?.widgets) {
+        window.twttr.widgets.createTweet(tweetId, container as HTMLElement, {
+          theme: theme,
+          dnt: true,
+          align: 'center'
+        });
+      }
+    });
+  }
+
+  // Load Twitter widget script
+  const script = document.createElement('script');
+  script.src = 'https://platform.twitter.com/widgets.js';
+  script.async = true;
+  script.onload = () => {
+    window.twttr.ready(() => renderTweets());
+  };
+  document.head.appendChild(script);
+
+  // Watch for dark mode changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'class') {
+        renderTweets();
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class']
+  });
+</script>
+
+<style>
+  .tweet-embed {
+    min-height: 200px;
+  }
+</style>
